@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services - Real Consult</title>
+    <script>
+      // ==========================================
+      // CLIENT CUSTOMIZATION VARIABLES
+      // ==========================================
+
+      // WEBSITE SETTINGS
+      const WEBSITE_URL = "https://real-consult.com.au";
+
+      // HERO SECTION
+      const HERO_SUBTITLE = "Our Services";
+      const HERO_TITLE = "Professional Solutions for Your Business Growth";
+      const HERO_BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80";
+      const HERO_IMAGE_ALT = "Professional business services and consulting";
+
+      // BREADCRUMB
+      const BREADCRUMB_PARENT_TEXT = "Our Services";
+      const BREADCRUMB_PARENT_LINK = "/services";
+
+      // INTRO TEXT
+      const INTRO_TEXT =
+        "We offer comprehensive consulting services designed to help your business thrive in today's competitive landscape. Our REAL methodology ensures that every solution is practical, efficient, and tailored to your specific needs. Explore our range of professional services below.";
+
+      // SERVICES ARRAY
+      const SERVICES = [
+        {
+          title: "Marketing & Advertising",
+          description: "Comprehensive marketing strategies that drive engagement and generate leads.",
+          link: "/marketing-advertising",
+        },
+        {
+          title: "Corporate Management",
+          description: "Streamline operations and enhance efficiency with expert management solutions.",
+          link: "/corporate-management",
+        },
+        {
+          title: "Project Management",
+          description: "Deliver projects on time and within budget using industry best practices.",
+          link: "/project-management",
+        },
+        {
+          title: "AI-Enabled Project Management",
+          description: "Leverage AI for real-time insights and automated project optimization.",
+          link: "/ai-solutions",
+        },
+        {
+          title: "Virtual Training",
+          description: "(placeholder) Interactive online training programs tailored to your business needs.",
+          link: "/virtual-training",
+        },
+        {
+          title: "Executive Coaching",
+          description: "(placeholder) Personalized coaching to develop leadership skills and drive performance.",
+          link: "/executive-coaching",
+        },
+      ];
+
+      // CTA SECTION
+      const CTA_TEXT = "Ready to get started with our services?";
+      const CTA_LINK_TEXT = "Chat with us now";
+      const CTA_OPENING_MESSAGE = "How can I get started with your services?";
+
+      // COLORS & STYLING
+      const PRIMARY_COLOR = "#1a2332";
+      const SECONDARY_COLOR = "#2c3e50";
+      const SERVICES_SECTION_BACKGROUND = "#f8f9fa";
+      const CTA_BACKGROUND_START = "#1a2332";
+      const CTA_BACKGROUND_END = "#2c3e50";
+
+      // FONT SIZES
+      const HERO_SUBTITLE_FONT_SIZE = "1.2rem";
+      const HERO_TITLE_FONT_SIZE = "4rem";
+      const INTRO_TEXT_FONT_SIZE = "1.2rem";
+      const SERVICE_TITLE_FONT_SIZE = "1.4rem";
+      const SERVICE_DESC_FONT_SIZE = "0.9rem";
+      const CTA_TEXT_FONT_SIZE = "1.8rem";
+
+      // Mobile Font Sizes
+      const MOBILE_HERO_SUBTITLE_FONT_SIZE = "1rem";
+      const MOBILE_HERO_TITLE_FONT_SIZE = "2.8rem";
+      const MOBILE_INTRO_TEXT_FONT_SIZE = "1.1rem";
+      const MOBILE_SERVICE_TITLE_FONT_SIZE = "1.2rem";
+      const MOBILE_SERVICE_DESC_FONT_SIZE = "0.85rem";
+      const MOBILE_CTA_TEXT_FONT_SIZE = "1.4rem";
+
+      // Small Mobile Font Sizes
+      const SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE = "0.9rem";
+      const SMALL_MOBILE_HERO_TITLE_FONT_SIZE = "2.5rem";
+    </script>
+    <style>
+      /* Force iframe to fit content */
+      html,
+      body {
+        height: auto !important;
+        overflow-x: hidden;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+      }
+
+      html {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Services Hero Section */
+      .services-hero {
+        position: relative;
+        height: 450px;
+        min-height: 350px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .services-hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .services-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.8) 100%);
+        z-index: 2;
+      }
+
+      .services-hero-content {
+        position: relative;
+        z-index: 3;
+        color: white;
+        padding: 0 3rem 4rem 3rem;
+        max-width: 1200px;
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        position: absolute;
+        top: 2rem;
+        left: 3rem;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: "Avenir", sans-serif;
+      }
+
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .breadcrumb a:hover {
+        color: white;
+      }
+
+      .services-hero-subtitle {
+        font-size: var(--hero-subtitle-font-size, 1.2rem);
+        font-weight: 300;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+        font-family: "Avenir", sans-serif;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .services-hero-title {
+        font-size: var(--hero-title-font-size, 4rem);
+        font-weight: 400;
+        margin-bottom: 2rem;
+        font-family: "Playfair Display", serif;
+        line-height: 1.1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Services Content Section */
+      .services-content {
+        padding: 40px 0;
+        background: var(--services-background, #f8f9fa);
+      }
+
+      .services-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .intro-text {
+        font-size: var(--intro-text-font-size, 1.2rem);
+        line-height: 1.8;
+        color: #555;
+        font-family: "Avenir", sans-serif;
+        font-weight: 300;
+        max-width: 800px;
+        margin: 0 auto 4rem auto;
+        text-align: center;
+      }
+
+      /* Services Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin-top: 2rem;
+        border: 1px solid #e9ecef;
+      }
+
+      .service-item {
+        background: white;
+        padding: 2rem 1.8rem;
+        position: relative;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border-right: 1px solid #e9ecef;
+        border-bottom: 1px solid #e9ecef;
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .service-item:nth-child(3n) {
+        border-right: none;
+      }
+
+      .service-item:hover {
+        background: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-arrow {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 28px;
+        height: 28px;
+        transition: all 0.3s ease;
+      }
+
+      .service-arrow svg {
+        width: 100%;
+        height: 100%;
+        stroke: #ccc;
+        stroke-width: 2.5;
+        fill: none;
+        transition: all 0.3s ease;
+      }
+
+      .service-arrow .arrow-line {
+        stroke-dasharray: 18;
+        stroke-dashoffset: 18;
+        transition: stroke-dashoffset 0.6s ease;
+      }
+
+      .service-arrow .arrow-head {
+        stroke-dasharray: 15;
+        stroke-dashoffset: 15;
+        transition: stroke-dashoffset 0.6s ease 0.1s;
+      }
+
+      .service-item:hover .service-arrow svg {
+        stroke: var(--primary-color, #1a2332);
+      }
+
+      .service-item:hover .service-arrow .arrow-line {
+        stroke-dashoffset: 0;
+      }
+
+      .service-item:hover .service-arrow .arrow-head {
+        stroke-dashoffset: 0;
+      }
+
+      .service-item:hover .service-arrow {
+        transform: translateX(3px);
+      }
+
+      .service-content {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .service-title {
+        font-size: var(--service-title-font-size, 1.4rem);
+        margin-bottom: 0.8rem;
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        line-height: 1.3;
+        transition: color 0.3s ease;
+        padding-right: 2.5rem;
+      }
+
+      .service-item:hover .service-title {
+        color: var(--primary-color, #1a2332);
+      }
+
+      .service-description {
+        font-size: var(--service-desc-font-size, 0.9rem);
+        color: #666;
+        font-family: "Avenir", sans-serif;
+        line-height: 1.5;
+        margin-bottom: auto;
+        padding-right: 0.8rem;
+      }
+
+      .service-item:hover {
+        border-color: #e0e0e0;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 60px 0;
+        background: linear-gradient(135deg, var(--cta-background-start, #1a2332) 0%, var(--cta-background-end, #2c3e50) 100%);
+        text-align: center;
+      }
+
+      .cta-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .cta-text {
+        font-size: var(--cta-text-font-size, 1.8rem);
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+
+      .cta-link {
+        color: white;
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.6);
+        text-underline-offset: 8px;
+        text-decoration-thickness: 2px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .cta-link:hover {
+        text-decoration-color: white;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 12px;
+        transform: translateY(-2px);
+        text-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .breadcrumb {
+          left: 2rem;
+        }
+
+        .services-hero-content {
+          padding: 0 2rem 3rem 2rem;
+        }
+
+        .services-hero-title {
+          font-size: var(--mobile-hero-title-font-size, 2.8rem);
+        }
+
+        .services-hero-subtitle {
+          font-size: var(--mobile-hero-subtitle-font-size, 1rem);
+        }
+
+        .intro-text {
+          font-size: var(--mobile-intro-text-font-size, 1.1rem);
+        }
+
+        .service-item {
+          padding: 1.5rem 1.2rem;
+          min-height: 120px;
+        }
+
+        .service-title {
+          font-size: var(--mobile-service-title-font-size, 1.2rem);
+          padding-right: 2.2rem;
+          margin-bottom: 0.6rem;
+        }
+
+        .service-description {
+          font-size: var(--mobile-service-desc-font-size, 0.85rem);
+          padding-right: 0.6rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .service-item {
+          padding: 1.2rem 1rem;
+          min-height: 110px;
+        }
+
+        .service-title {
+          padding-right: 2rem;
+          font-size: 1.1rem;
+        }
+
+        .service-description {
+          font-size: 0.8rem;
+          padding-right: 0.5rem;
+        }
+
+        .cta-text {
+          font-size: var(--mobile-cta-text-font-size, 1.4rem);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .breadcrumb {
+          left: 1.5rem;
+          font-size: 0.8rem;
+        }
+
+        .services-hero-content {
+          padding: 0 1.5rem 2.5rem 1.5rem;
+        }
+
+        .services-hero-title {
+          font-size: var(--small-mobile-hero-title-font-size, 2.5rem);
+        }
+
+        .services-hero-subtitle {
+          font-size: var(--small-mobile-hero-subtitle-font-size, 0.9rem);
+        }
+
+        .services-container,
+        .cta-container {
+          padding: 0 1rem;
+        }
+
+        .service-item {
+          padding: 1rem 0.8rem;
+          min-height: 100px;
+        }
+
+        .service-title {
+          padding-right: 1.8rem;
+          font-size: 1rem;
+        }
+
+        .service-description {
+          font-size: 0.75rem;
+          padding-right: 0.4rem;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .service-item:nth-child(3n) {
+          border-right: 1px solid #e9ecef;
+        }
+
+        .service-item:nth-child(2n) {
+          border-right: none;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .services-hero-content > * {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      .services-hero-subtitle {
+        animation-delay: 0.2s;
+      }
+
+      .services-hero-title {
+        animation-delay: 0.4s;
+      }
+
+      .service-item {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+      <img src="" alt="" class="services-hero-image" id="heroImage" />
+      <div class="services-hero-overlay"></div>
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="#" onclick="navigateToWixPage(BREADCRUMB_PARENT_LINK)">
+          <script>
+            document.write(BREADCRUMB_PARENT_TEXT);
+          </script>
+        </a>
+      </nav>
+
+      <div class="services-hero-content">
+        <div class="services-hero-subtitle">
+          <script>
+            document.write(HERO_SUBTITLE);
+          </script>
+        </div>
+        <h1 class="services-hero-title">
+          <script>
+            document.write(HERO_TITLE);
+          </script>
+        </h1>
+      </div>
+    </section>
+
+    <!-- Services Content Section -->
+    <section class="services-content">
+      <div class="services-container">
+        <p class="intro-text">
+          <script>
+            document.write(INTRO_TEXT);
+          </script>
+        </p>
+
+        <div class="services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <p class="cta-text">
+          <script>
+            document.write(CTA_TEXT);
+          </script>
+          <span class="cta-link" onclick="openChat(CTA_OPENING_MESSAGE)">
+            <script>
+              document.write(CTA_LINK_TEXT);
+            </script>
+          </span>
+        </p>
+      </div>
+    </section>
+
+    <script>
+      function navigateToWixPage(pagePath) {
+        window.top.location.href = WEBSITE_URL + pagePath;
+      }
+
+      function openChat(message) {
+        const payload = {
+          type: "OPEN_CHAT",
+        };
+
+        if (message) {
+          payload.message = message;
+        }
+
+        window.parent.postMessage(payload, "*");
+      }
+
+      // ==========================================
+      // DYNAMIC SERVICES GENERATION
+      // ==========================================
+      function generateServicesHTML() {
+        const servicesGrid = document.getElementById("servicesGrid");
+        let servicesHTML = "";
+
+        SERVICES.forEach((service, index) => {
+          servicesHTML += `
+            <div class="service-item" onclick="navigateToWixPage('${service.link}')" style="animation-delay: ${0.1 + index * 0.1}s;">
+              <div class="service-arrow">
+                <svg viewBox="0 0 24 24">
+                  <line class="arrow-line" x1="2" y1="12" x2="18" y2="12"></line>
+                  <polyline class="arrow-head" points="14,7 19,12 14,17"></polyline>
+                </svg>
+              </div>
+              <div class="service-content">
+                <h3 class="service-title">${service.title}</h3>
+                <p class="service-description">${service.description}</p>
+              </div>
+            </div>
+          `;
+        });
+
+        servicesGrid.innerHTML = servicesHTML;
+
+        const serviceItems = servicesGrid.querySelectorAll(".service-item");
+        const totalServices = serviceItems.length;
+        const isEvenCount = totalServices % 2 === 0;
+
+        if (isEvenCount) {
+          serviceItems[totalServices - 2].style.borderBottom = "none";
+          serviceItems[totalServices - 1].style.borderBottom = "none";
+        } else {
+          serviceItems[totalServices - 1].style.borderBottom = "none";
+        }
+      }
+
+      // ==========================================
+      // GENERATE SERVICES HTML ON PAGE LOAD
+      // ==========================================
+      document.addEventListener("DOMContentLoaded", function () {
+        generateServicesHTML();
+      });
+
+      // ==========================================
+      // APPLY VARIABLES TO DOM
+      // ==========================================
+      document.getElementById("heroImage").src = HERO_BACKGROUND_IMAGE;
+      document.getElementById("heroImage").alt = HERO_IMAGE_ALT;
+
+      // ==========================================
+      // APPLY CSS VARIABLES
+      // ==========================================
+      document.documentElement.style.setProperty("--primary-color", PRIMARY_COLOR);
+      document.documentElement.style.setProperty("--secondary-color", SECONDARY_COLOR);
+      document.documentElement.style.setProperty("--services-background", SERVICES_SECTION_BACKGROUND);
+      document.documentElement.style.setProperty("--cta-background-start", CTA_BACKGROUND_START);
+      document.documentElement.style.setProperty("--cta-background-end", CTA_BACKGROUND_END);
+
+      // Font size variables
+      document.documentElement.style.setProperty("--hero-subtitle-font-size", HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--intro-text-font-size", INTRO_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--service-title-font-size", SERVICE_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--service-desc-font-size", SERVICE_DESC_FONT_SIZE);
+      document.documentElement.style.setProperty("--cta-text-font-size", CTA_TEXT_FONT_SIZE);
+
+      // Mobile font size variables
+      document.documentElement.style.setProperty("--mobile-hero-subtitle-font-size", MOBILE_HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-title-font-size", MOBILE_HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-intro-text-font-size", MOBILE_INTRO_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-service-title-font-size", MOBILE_SERVICE_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-service-desc-font-size", MOBILE_SERVICE_DESC_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-cta-text-font-size", MOBILE_CTA_TEXT_FONT_SIZE);
+
+      // Small mobile font size variables
+      document.documentElement.style.setProperty("--small-mobile-hero-subtitle-font-size", SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--small-mobile-hero-title-font-size", SMALL_MOBILE_HERO_TITLE_FONT_SIZE);
+    </script>
+  </body>
+</html>

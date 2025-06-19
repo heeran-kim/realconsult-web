@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Real Consult</title>
+    <script>
+      // ==========================================
+      // CLIENT CUSTOMIZATION VARIABLES
+      // ==========================================
+
+      // WEBSITE SETTINGS
+      const WEBSITE_URL = "https://real-consult.com.au";
+
+      // HERO SECTION
+      const HERO_WELCOME_TEXT = "Welcome";
+      const HERO_TITLE = '"Get Real Results with REAL Consult"';
+      const HERO_BUTTON_TEXT = "💬 Chat with our virtual consultant now!";
+      const HERO_BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80";
+
+      // REAL VALUES (R.E.A.L Cards)
+      const REALISTIC_TITLE = "Realistic";
+      const REALISTIC_DESC = "Setting achievable project goals and expectations";
+      const EFFICIENT_TITLE = "Efficient";
+      const EFFICIENT_DESC = "Optimizing resources and processes";
+      const AGILE_TITLE = "Agile";
+      const AGILE_DESC = "Embracing flexibility and adaptability";
+      const LEAN_TITLE = "Lean";
+      const LEAN_DESC = "Reducing waste and unnecessary steps";
+
+      // ABOUT SECTION
+      const ABOUT_TITLE = "About REAL Consult Group";
+      const ABOUT_TEXT_1 =
+        "REAL Consult Group is a boutique consultancy firm specialized in management, strategy and leadership. We are a multi-disciplinary consultancy offering professional services in Corporate consulting, AI project management and marketing & advertising.";
+      const ABOUT_TEXT_2 =
+        "Our experienced team of experts provide tailored solutions to SME businesses, helping transform their operations and reach their fullest potential.";
+      const ABOUT_BUTTON_TEXT = "Get to Know Us Better";
+      const ABOUT_BUTTON_LINK = "/about";
+      const ABOUT_IMAGE_URL = "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
+      const ABOUT_IMAGE_ALT = "Professional business consulting team";
+
+      // SERVICES SECTION
+      const SERVICES_TITLE = "Professional Services for Your Business Growth";
+      const SERVICES_BUTTON_TEXT = "Learn More";
+
+      // SERVICE 1
+      const SERVICE_1_TITLE = "Marketing & Advertising Service";
+      const SERVICE_1_TEXT =
+        "Our Consultancy business offers a comprehensive marketing and advertising service. We can help you create effective campaigns to reach your target audience and maximize your ROI. We have the experience and expertise to ensure your campaigns are successful and can help you navigate the ever-changing digital landscape.";
+      const SERVICE_1_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+      const SERVICE_1_BUTTON_LINK = "/marketing-advertising";
+
+      // SERVICE 2
+      const SERVICE_2_TITLE = "Corporate Management Service";
+      const SERVICE_2_TEXT =
+        "Our consultancy business provides comprehensive company management services to help you stay organized and on top of your operations. From strategic planning and budgeting to data analysis and employee training, our experienced team of experts will ensure your business is running as efficiently and effectively as possible. We'll work with you to develop the best solutions for your unique needs.";
+      const SERVICE_2_IMAGE = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+      const SERVICE_2_BUTTON_LINK = "/corporate-management";
+
+      // SERVICE 3
+      const SERVICE_3_TITLE = "Project Management Service";
+      const SERVICE_3_TEXT =
+        "Our project management service is designed to help you define the scope of your project, set timelines for each phase, and ensure that you complete your project on time and within budget. We provide a suite of tools and resources to help you stay organized and on track, as well as experienced guidance to help you manage any obstacles that arise. With our project management expertise, you can be sure that your project will be completed successfully.";
+      const SERVICE_3_IMAGE = "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+      const SERVICE_3_BUTTON_LINK = "/project-management";
+
+      // SERVICE 4
+      const SERVICE_4_TITLE = "AI-enabled project management systems and practices";
+      const SERVICE_4_TEXT =
+        "Take your project management game to the next level with our cutting-edge AI-enabled systems and practices. Our team of experts are passionate about helping teams work smarter, not harder. We'll collaborate with you to achieve your goals, streamlining your workflow and improving overall efficiency. Experience the revolution in project management - contact us today!";
+      const SERVICE_4_IMAGE = "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+      const SERVICE_4_BUTTON_LINK = "/ai-solutions";
+
+      // BRANDING SECTION
+      const BRANDING_TITLE = "Elevate Your Branding with Our Expertise";
+      const BRANDING_TEXT =
+        "Our Branding consultancy offers cutting-edge solutions and insights to help businesses stand out in the competitive marketplace. We provide creative branding strategies that are tailored to your goals, with the help of our experienced team of experts. Our services are designed to help you build a powerful brand presence and reach your target market. We also offer comprehensive services for brand identity creation, including logo design, website development, and social media management. Our goal is to help you create a strong, memorable brand that will differentiate you from the competition.";
+
+      // BRANDING 1
+      const BRANDING_CARD_1_TITLE = "Unleash Your Finances with Expert Guidance";
+      const BRANDING_CARD_1_IMAGE = "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+
+      // BRANDING 2
+      const BRANDING_CARD_2_TITLE = "Release the power of knowledge with our Research Services";
+      const BRANDING_CARD_2_IMAGE = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+
+      // BRANDING 3
+      const BRANDING_CARD_3_TITLE = "Showcase Your Brand with our Expert Branding Services";
+      const BRANDING_CARD_3_IMAGE = "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+
+      // CONTACT SECTION
+      const CONTACT_TITLE = "Ready to Get Started?";
+      const CONTACT_SUBTITLE = "Transform your business with our expert consulting services";
+      const CONTACT_BUTTON_TEXT = "💬 Start Consultation";
+
+      // CONTACT INFORMATION
+      const CONTACT_ADDRESS_TITLE = "Address";
+      const CONTACT_ADDRESS = "Aspley Post Office PO Box";
+      const CONTACT_INFO_TITLE = "Contact";
+      const CONTACT_PHONE = "+61-450-547-418";
+      const CONTACT_EMAIL = "charleslee@realconsultptyltd.onmicrosoft.com";
+      const CONTACT_HOURS_TITLE = "Business Hours";
+      const CONTACT_HOURS = "Mon - Fri: 9:00 am – 5:00 pm";
+
+      // COLORS & BRANDING
+      const PRIMARY_COLOR = "#1a2332";
+      const SECONDARY_COLOR = "#2c3e50";
+      const HERO_BUTTON_COLOR_START = "#ff6b6b";
+      const HERO_BUTTON_COLOR_END = "#ee5a24";
+      const HERO_LETTER_HIGHLIGHT_COLOR = "#a29bfe";
+      const PRIMARY_BUTTON_COLOR = "#1a1a1a";
+      const PRIMARY_BUTTON_HOVER_COLOR = "#333";
+      const PRIMARY_BUTTON_TEXT_COLOR = "#ffffff";
+      const CONTACT_BUTTON_COLOR = "transparent";
+      const CONTACT_BUTTON_HOVER_COLOR = "rgba(255, 255, 255, 0.9)";
+      const CONTACT_BUTTON_TEXT_COLOR = "#ffffff";
+
+      // FONT SIZES
+      // Hero Section Font Sizes
+      const HERO_WELCOME_FONT_SIZE = "1.3rem";
+      const HERO_TITLE_FONT_SIZE = "3.2rem";
+      const HERO_VALUE_TITLE_FONT_SIZE = "1.6rem";
+      const HERO_VALUE_DESC_FONT_SIZE = "1rem";
+      const HERO_VALUE_LETTER_FONT_SIZE = "2.2rem";
+      const HERO_BUTTON_FONT_SIZE = "1.2rem";
+
+      // About Section Font Sizes
+      const ABOUT_TITLE_FONT_SIZE = "2.5rem";
+      const ABOUT_TEXT_FONT_SIZE = "1.1rem";
+      const ABOUT_BUTTON_FONT_SIZE = "0.95rem";
+
+      // Services Section Font Sizes
+      const SERVICES_TITLE_FONT_SIZE = "2.5rem";
+      const SERVICES_ITEM_TITLE_FONT_SIZE = "2rem";
+      const SERVICES_ITEM_TEXT_FONT_SIZE = "1.1rem";
+      const SERVICES_BUTTON_FONT_SIZE = "0.95rem";
+
+      // Branding Section Font Sizes
+      const BRANDING_TITLE_FONT_SIZE = "2.5rem";
+      const BRANDING_TEXT_FONT_SIZE = "1.1rem";
+      const BRANDING_CARD_TITLE_FONT_SIZE = "1.5rem";
+
+      // Contact Section Font Sizes
+      const CONTACT_TITLE_FONT_SIZE = "2.5rem";
+      const CONTACT_SUBTITLE_FONT_SIZE = "1.2rem";
+      const CONTACT_ITEM_TITLE_FONT_SIZE = "1.4rem";
+      const CONTACT_ITEM_TEXT_FONT_SIZE = "1rem";
+
+      // Mobile Font Sizes
+      const MOBILE_HERO_WELCOME_FONT_SIZE = "0.9rem";
+      const MOBILE_HERO_TITLE_FONT_SIZE = "1.8rem";
+      const MOBILE_HERO_VALUE_LETTER_FONT_SIZE = "1.5rem";
+      const MOBILE_HERO_BUTTON_FONT_SIZE = "0.9rem";
+      const MOBILE_ABOUT_TITLE_FONT_SIZE = "2.2rem";
+      const MOBILE_ABOUT_TEXT_FONT_SIZE = "1rem";
+      const MOBILE_SERVICES_TITLE_FONT_SIZE = "2.2rem";
+      const MOBILE_SERVICES_ITEM_TITLE_FONT_SIZE = "1.6rem";
+      const MOBILE_BRANDING_TITLE_FONT_SIZE = "2rem";
+      const MOBILE_BRANDING_CARD_TITLE_FONT_SIZE = "1.3rem";
+
+      // Small Mobile Font Sizes
+      const SMALL_MOBILE_ABOUT_TITLE_FONT_SIZE = "1.8rem";
+      const SMALL_MOBILE_BRANDING_CARD_TITLE_FONT_SIZE = "1.1rem";
+    </script>
+    <style>
+      /* Force iframe to fit content */
+      html,
+      body {
+        width: 100% !important;
+        height: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: transparent;
+        color: white;
+        padding-top: 100px;
+        padding-bottom: 80px;
+        text-align: center;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        min-height: 600px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+          var(--hero-bg-image, url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"));
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 1;
+        z-index: -1;
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-welcome {
+        font-size: var(--hero-welcome-font-size, 1.3rem);
+        margin-bottom: 1.2rem;
+        font-family: "Avenir", sans-serif;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.9);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        opacity: 0;
+        animation: fadeInUp 1s ease 0.2s forwards;
+      }
+
+      .hero h1 {
+        font-size: var(--hero-title-font-size, 3.2rem);
+        margin-bottom: 3rem;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        animation: fadeInUp 1.2s ease 0.4s forwards;
+        line-height: 1.2;
+      }
+
+      .hero-values {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin: 3rem 0;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .value-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        transition: all 0.4s ease;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .value-card:nth-child(1) {
+        animation: fadeInUp 1s ease 0.6s forwards;
+      }
+      .value-card:nth-child(2) {
+        animation: fadeInUp 1s ease 0.8s forwards;
+      }
+      .value-card:nth-child(3) {
+        animation: fadeInUp 1s ease 1s forwards;
+      }
+      .value-card:nth-child(4) {
+        animation: fadeInUp 1s ease 1.2s forwards;
+      }
+
+      .value-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .value-title .first-letter {
+        font-size: var(--hero-value-letter-font-size, 2.2rem);
+        color: var(--hero-letter-highlight-color, #a29bfe);
+        font-weight: 900;
+        text-shadow: 0 2px 8px rgba(43, 92, 230, 0.4);
+        margin-right: 3px;
+      }
+
+      .value-title {
+        font-size: var(--hero-value-title-font-size, 1.6rem);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: white;
+      }
+
+      .value-description {
+        font-size: var(--hero-value-desc-font-size, 1rem);
+        color: rgba(255, 255, 255, 0.85);
+        font-family: "Avenir", sans-serif;
+        line-height: 1.6;
+      }
+
+      .hero-actions {
+        margin-top: 3rem;
+        opacity: 0;
+        animation: fadeInUp 1.2s ease 1.4s forwards;
+      }
+
+      .btn-hero-primary {
+        background: linear-gradient(135deg, var(--hero-button-color-start, #ff6b6b) 0%, var(--hero-button-color-end, #ee5a24) 100%);
+        color: white;
+        padding: 1.3rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: var(--hero-button-font-size, 1.2rem);
+        margin: 0.5rem;
+        display: inline-block;
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .btn-hero-primary:hover {
+        background: linear-gradient(135deg, var(--hero-button-color-end, #ee5a24) 0%, var(--hero-button-color-start, #ff6b6b) 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(255, 107, 107, 0.4);
+      }
+
+      /* About Section */
+      .about {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-text h2 {
+        font-size: var(--about-title-font-size, 2.5rem);
+        margin-bottom: 1.5rem;
+        color: #333;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+      }
+
+      .about-text p {
+        font-size: var(--about-text-font-size, 1.1rem);
+        margin-bottom: 1.5rem;
+        color: #666;
+      }
+
+      .btn-primary {
+        background: var(--primary-button-color, #1a1a1a);
+        color: var(--primary-button-text-color, #ffffff);
+        padding: 0.8rem 1.8rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+        font-size: var(--about-button-font-size, 0.95rem);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-button-hover-color, #333);
+        transform: translateY(-2px);
+      }
+
+      .about-image {
+        text-align: center;
+      }
+
+      .about-image img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .about-image img:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Services Section */
+      .services {
+        padding: 80px 0;
+        background: #f8f9fa;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: var(--services-title-font-size, 2.5rem);
+        margin-bottom: 3rem;
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+      }
+
+      .service-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        margin-bottom: 0;
+        align-items: stretch;
+      }
+
+      .service-row:nth-child(even) .service-content {
+        order: 2;
+      }
+
+      .service-row:nth-child(even) .service-image {
+        order: 1;
+      }
+
+      .service-content {
+        padding: 4rem;
+        background: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .service-content h3 {
+        font-size: var(--services-item-title-font-size, 2rem);
+        margin-bottom: 1.5rem;
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      .service-content p {
+        color: #666;
+        font-size: var(--services-item-text-font-size, 1.1rem);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .service-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .service-image {
+        height: auto;
+        min-height: 400px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .service-image.marketing {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+          var(--service-1-image, url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"));
+      }
+
+      .service-image.corporate {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+          var(--service-2-image, url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"));
+      }
+
+      .service-image.project {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+          var(--service-3-image, url("https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"));
+      }
+
+      .service-image.ai {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+          var(--service-4-image, url("https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"));
+      }
+
+      /* Branding Section */
+      .branding-section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .branding-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 4rem auto;
+      }
+
+      .branding-title {
+        font-size: var(--branding-title-font-size, 2.5rem);
+        margin-bottom: 2rem;
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+      }
+
+      .branding-description {
+        font-size: var(--branding-text-font-size, 1.1rem);
+        line-height: 1.7;
+        color: #666;
+        text-align: center;
+      }
+
+      .branding-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .branding-card {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .branding-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-image {
+        height: 300px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+        z-index: 1;
+      }
+
+      .card-overlay-text {
+        position: relative;
+        z-index: 2;
+        color: white;
+        font-size: var(--branding-card-title-font-size, 1.5rem);
+        font-weight: 600;
+        font-family: "Playfair Display", serif;
+        text-align: center;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        padding: 0 1rem;
+        line-height: 1.3;
+      }
+
+      .card-image.finance {
+        background-image: var(
+          --branding-card1-image,
+          url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")
+        );
+      }
+
+      .card-image.research {
+        background-image: var(
+          --branding-card2-image,
+          url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")
+        );
+      }
+
+      .card-image.showcase {
+        background-image: var(
+          --branding-card3-image,
+          url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")
+        );
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 80px 0;
+        background: linear-gradient(135deg, var(--primary-color, #1a2332) 0%, var(--secondary-color, #2c3e50) 100%);
+        color: white;
+        text-align: center;
+      }
+
+      .contact h2 {
+        font-size: var(--contact-title-font-size, 2.5rem);
+        margin-bottom: 1rem;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+      }
+
+      .contact p {
+        font-size: var(--contact-subtitle-font-size, 1.2rem);
+        margin-bottom: 1rem;
+        opacity: 0.9;
+        font-family: "Playfair Display", serif;
+      }
+
+      .contact-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+        margin: 2rem 0;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-item {
+        text-align: center;
+      }
+
+      .contact-item h4 {
+        margin-bottom: 0.5rem;
+        font-size: var(--contact-item-title-font-size, 1.4rem);
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        color: white;
+      }
+
+      .contact-item p {
+        font-family: "Playfair Display", serif;
+        font-size: var(--contact-item-text-font-size, 1rem);
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+        opacity: 0.9;
+      }
+
+      .btn-contact {
+        background: var(--contact-button-color, transparent);
+        color: var(--contact-button-text-color, #ffffff);
+        padding: 1rem 2rem;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        font-family: "Playfair Display", serif;
+        transition: all 0.3s ease;
+      }
+
+      .btn-contact:hover {
+        background: var(--contact-button-hover-color, rgba(255, 255, 255, 0.9));
+        color: #1a2332;
+        border-color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .about-image {
+          order: 1;
+        }
+
+        .about-text {
+          order: 2;
+        }
+
+        .about-text h2 {
+          font-size: var(--mobile-about-title-font-size);
+          text-align: center;
+        }
+
+        .about-text p {
+          text-align: center;
+          font-size: var(--mobile-about-text-font-size);
+        }
+
+        .about-buttons {
+          text-align: center;
+        }
+
+        .service-row {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .service-content {
+          padding: 2rem;
+          order: 2;
+        }
+
+        .service-image {
+          height: 300px;
+          order: 1;
+        }
+
+        .service-row:nth-child(even) .service-content {
+          order: 2;
+        }
+
+        .service-row:nth-child(even) .service-image {
+          order: 1;
+        }
+
+        .service-content h3 {
+          font-size: var(--mobile-services-item-title-font-size, 1.6rem);
+          text-align: center;
+        }
+
+        .service-content p {
+          text-align: center;
+        }
+
+        .service-buttons {
+          justify-content: center;
+        }
+
+        .section-title {
+          font-size: var(--mobile-services-title-font-size, 2.2rem);
+        }
+
+        .hero-welcome {
+          font-size: var(--mobile-hero-welcome-font-size, 0.9rem);
+        }
+
+        .hero h1 {
+          font-size: var(--mobile-hero-title-font-size, 1.8rem);
+        }
+
+        .hero-values {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.8rem;
+          max-width: 350px;
+        }
+
+        .value-card {
+          padding: 0.7rem 0.5rem;
+        }
+
+        .value-title .first-letter {
+          font-size: var(--mobile-hero-value-letter-font-size, 1.5rem);
+        }
+
+        .value-title {
+          margin-bottom: 0;
+        }
+
+        .value-description {
+          display: none;
+        }
+
+        .hero-actions {
+          margin-top: 1.5rem;
+        }
+
+        .btn-hero-primary {
+          display: block;
+          margin: 0.5rem auto;
+          max-width: 280px;
+          padding: 0.8rem 1.5rem;
+          font-size: var(--mobile-hero-button-font-size, 0.9rem);
+        }
+
+        .branding-cards {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .branding-title {
+          font-size: var(--mobile-branding-title-font-size, 2rem);
+        }
+
+        .card-overlay-text {
+          font-size: var(--mobile-branding-card-title-font-size, 1.3rem);
+        }
+
+        .card-image {
+          height: 250px;
+        }
+
+        .contact-info {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 1rem;
+        }
+
+        .service-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn-primary {
+          text-align: center;
+          width: 100%;
+          max-width: 280px;
+        }
+
+        .about-text h2 {
+          font-size: var(--small-mobile-about-title-font-size, 1.8rem);
+        }
+
+        .card-overlay-text {
+          font-size: 1.1rem;
+        }
+
+        .card-image {
+          height: 200px;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <div class="hero-welcome">
+          <script>
+            document.write(HERO_WELCOME_TEXT);
+          </script>
+        </div>
+
+        <h1>
+          <script>
+            document.write(HERO_TITLE);
+          </script>
+        </h1>
+
+        <div class="hero-values">
+          <div class="value-card">
+            <!-- prettier-ignore -->
+            <div class="value-title"><span class="first-letter"><script>document.write(REALISTIC_TITLE.charAt(0));</script></span><script>document.write(REALISTIC_TITLE.substring(1));</script></div>
+            <div class="value-description">
+              <script>
+                document.write(REALISTIC_DESC);
+              </script>
+            </div>
+          </div>
+
+          <div class="value-card">
+            <!-- prettier-ignore -->
+            <div class="value-title"><span class="first-letter"><script>document.write(EFFICIENT_TITLE.charAt(0));</script></span><script>document.write(EFFICIENT_TITLE.substring(1));</script></div>
+            <div class="value-description">
+              <script>
+                document.write(EFFICIENT_DESC);
+              </script>
+            </div>
+          </div>
+
+          <div class="value-card">
+            <!-- prettier-ignore -->
+            <div class="value-title"><span class="first-letter"><script>document.write(AGILE_TITLE.charAt(0));</script></span><script>document.write(AGILE_TITLE.substring(1));</script></div>
+            <div class="value-description">
+              <script>
+                document.write(AGILE_DESC);
+              </script>
+            </div>
+          </div>
+
+          <div class="value-card">
+            <!-- prettier-ignore -->
+            <div class="value-title"><span class="first-letter"><script>document.write(LEAN_TITLE.charAt(0));</script></span><script>document.write(LEAN_TITLE.substring(1));</script></div>
+            <div class="value-description">
+              <script>
+                document.write(LEAN_DESC);
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#" class="btn-hero-primary" onclick="openChat()">
+            <script>
+              document.write(HERO_BUTTON_TEXT);
+            </script>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>
+              <script>
+                document.write(ABOUT_TITLE);
+              </script>
+            </h2>
+            <p>
+              <script>
+                document.write(ABOUT_TEXT_1);
+              </script>
+            </p>
+            <p>
+              <script>
+                document.write(ABOUT_TEXT_2);
+              </script>
+            </p>
+            <div style="margin-top: 2rem">
+              <a href="#" class="btn-primary" onClick="navigateToWixPage(ABOUT_BUTTON_LINK)">
+                <script>
+                  document.write(ABOUT_BUTTON_TEXT);
+                </script>
+              </a>
+            </div>
+          </div>
+          <div class="about-image fade-in-up">
+            <img src="" alt="" id="aboutImage" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <h2 class="section-title">
+          <script>
+            document.write(SERVICES_TITLE);
+          </script>
+        </h2>
+
+        <!-- Marketing & Advertising -->
+        <div class="service-row">
+          <div class="service-image marketing"></div>
+          <div class="service-content">
+            <h3>
+              <script>
+                document.write(SERVICE_1_TITLE);
+              </script>
+            </h3>
+            <p>
+              <script>
+                document.write(SERVICE_1_TEXT);
+              </script>
+            </p>
+            <div class="service-buttons">
+              <a href="#" class="btn-primary" onClick="navigateToWixPage(SERVICE_1_BUTTON_LINK)">
+                <script>
+                  document.write(SERVICES_BUTTON_TEXT);
+                </script>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Corporate Management -->
+        <div class="service-row">
+          <div class="service-content">
+            <h3>
+              <script>
+                document.write(SERVICE_2_TITLE);
+              </script>
+            </h3>
+            <p>
+              <script>
+                document.write(SERVICE_2_TEXT);
+              </script>
+            </p>
+            <div class="service-buttons">
+              <a href="#" class="btn-primary" onClick="navigateToWixPage(SERVICE_2_BUTTON_LINK)">
+                <script>
+                  document.write(SERVICES_BUTTON_TEXT);
+                </script>
+              </a>
+            </div>
+          </div>
+          <div class="service-image corporate"></div>
+        </div>
+
+        <!-- Project Management Service -->
+        <div class="service-row">
+          <div class="service-image project"></div>
+          <div class="service-content">
+            <h3>
+              <script>
+                document.write(SERVICE_3_TITLE);
+              </script>
+            </h3>
+            <p>
+              <script>
+                document.write(SERVICE_3_TEXT);
+              </script>
+            </p>
+            <div class="service-buttons">
+              <a href="#" class="btn-primary" onClick="navigateToWixPage(SERVICE_3_BUTTON_LINK)">
+                <script>
+                  document.write(SERVICES_BUTTON_TEXT);
+                </script>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI-Enabled Project Management -->
+        <div class="service-row">
+          <div class="service-content">
+            <h3>
+              <script>
+                document.write(SERVICE_4_TITLE);
+              </script>
+            </h3>
+            <p>
+              <script>
+                document.write(SERVICE_4_TEXT);
+              </script>
+            </p>
+            <div class="service-buttons">
+              <a href="#" class="btn-primary" onClick="navigateToWixPage(SERVICE_4_BUTTON_LINK)">
+                <script>
+                  document.write(SERVICES_BUTTON_TEXT);
+                </script>
+              </a>
+            </div>
+          </div>
+          <div class="service-image ai"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Branding Section -->
+    <section class="branding-section">
+      <div class="container">
+        <div class="branding-content">
+          <h2 class="branding-title">
+            <script>
+              document.write(BRANDING_TITLE);
+            </script>
+          </h2>
+          <p class="branding-description">
+            <script>
+              document.write(BRANDING_TEXT);
+            </script>
+          </p>
+        </div>
+
+        <div class="branding-cards">
+          <div class="branding-card">
+            <div class="card-image finance">
+              <h3 class="card-overlay-text">
+                <script>
+                  document.write(BRANDING_CARD_1_TITLE);
+                </script>
+              </h3>
+            </div>
+          </div>
+
+          <div class="branding-card">
+            <div class="card-image research">
+              <h3 class="card-overlay-text">
+                <script>
+                  document.write(BRANDING_CARD_2_TITLE);
+                </script>
+              </h3>
+            </div>
+          </div>
+
+          <div class="branding-card">
+            <div class="card-image showcase">
+              <h3 class="card-overlay-text">
+                <script>
+                  document.write(BRANDING_CARD_3_TITLE);
+                </script>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>
+          <script>
+            document.write(CONTACT_TITLE);
+          </script>
+        </h2>
+        <p>
+          <script>
+            document.write(CONTACT_SUBTITLE);
+          </script>
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <h4>
+              <script>
+                document.write(CONTACT_ADDRESS_TITLE);
+              </script>
+            </h4>
+            <p>
+              <script>
+                document.write(CONTACT_ADDRESS);
+              </script>
+            </p>
+          </div>
+          <div class="contact-item">
+            <h4>
+              <script>
+                document.write(CONTACT_INFO_TITLE);
+              </script>
+            </h4>
+            <p>
+              <script>
+                document.write(CONTACT_PHONE);
+              </script>
+            </p>
+            <p>
+              <script>
+                document.write(CONTACT_EMAIL);
+              </script>
+            </p>
+          </div>
+          <div class="contact-item">
+            <h4>
+              <script>
+                document.write(CONTACT_HOURS_TITLE);
+              </script>
+            </h4>
+            <p>
+              <script>
+                document.write(CONTACT_HOURS);
+              </script>
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem">
+          <a href="#" class="btn-contact" onclick="openChat()">
+            <script>
+              document.write(CONTACT_BUTTON_TEXT);
+            </script>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function navigateToWixPage(pagePath) {
+        window.top.location.href = WEBSITE_URL + pagePath;
+      }
+
+      function openChat(message) {
+        const payload = {
+          type: "OPEN_CHAT",
+        };
+
+        if (message) {
+          payload.message = message;
+        }
+
+        window.parent.postMessage(payload, "*");
+      }
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in-up");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".service-card, .real-item").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Chatbot pulse animation
+      setInterval(() => {
+        const chatbot = document.querySelector(".chatbot-widget");
+        chatbot.style.transform = "scale(1.1)";
+        setTimeout(() => {
+          chatbot.style.transform = "scale(1)";
+        }, 200);
+      }, 5000);
+
+      // ==========================================
+      // APPLY CSS VARIABLES
+      // ==========================================
+      document.documentElement.style.setProperty("--primary-color", PRIMARY_COLOR);
+      document.documentElement.style.setProperty("--secondary-color", SECONDARY_COLOR);
+      document.documentElement.style.setProperty("--hero-button-color-start", HERO_BUTTON_COLOR_START);
+      document.documentElement.style.setProperty("--hero-button-color-end", HERO_BUTTON_COLOR_END);
+      document.documentElement.style.setProperty("--hero-letter-highlight-color", HERO_LETTER_HIGHLIGHT_COLOR);
+      document.documentElement.style.setProperty("--primary-button-color", PRIMARY_BUTTON_COLOR);
+      document.documentElement.style.setProperty("--primary-button-hover-color", PRIMARY_BUTTON_HOVER_COLOR);
+      document.documentElement.style.setProperty("--primary-button-text-color", PRIMARY_BUTTON_TEXT_COLOR);
+      document.documentElement.style.setProperty("--contact-button-color", CONTACT_BUTTON_COLOR);
+      document.documentElement.style.setProperty("--contact-button-hover-color", CONTACT_BUTTON_HOVER_COLOR);
+      document.documentElement.style.setProperty("--contact-button-text-color", CONTACT_BUTTON_TEXT_COLOR);
+      document.documentElement.style.setProperty("--hero-bg-image", `url("${HERO_BACKGROUND_IMAGE}")`);
+      document.documentElement.style.setProperty("--service-1-image", `url("${SERVICE_1_IMAGE}")`);
+      document.documentElement.style.setProperty("--service-2-image", `url("${SERVICE_2_IMAGE}")`);
+      document.documentElement.style.setProperty("--service-3-image", `url("${SERVICE_3_IMAGE}")`);
+      document.documentElement.style.setProperty("--service-4-image", `url("${SERVICE_4_IMAGE}")`);
+      document.documentElement.style.setProperty("--branding-card1-image", `url("${BRANDING_CARD_1_IMAGE}")`);
+      document.documentElement.style.setProperty("--branding-card2-image", `url("${BRANDING_CARD_2_IMAGE}")`);
+      document.documentElement.style.setProperty("--branding-card3-image", `url("${BRANDING_CARD_3_IMAGE}")`);
+      document.getElementById("aboutImage").src = ABOUT_IMAGE_URL;
+      document.getElementById("aboutImage").alt = ABOUT_IMAGE_ALT;
+
+      // Font Size Variables
+      document.documentElement.style.setProperty("--hero-welcome-font-size", HERO_WELCOME_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-value-title-font-size", HERO_VALUE_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-value-desc-font-size", HERO_VALUE_DESC_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-value-letter-font-size", HERO_VALUE_LETTER_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-button-font-size", HERO_BUTTON_FONT_SIZE);
+      document.documentElement.style.setProperty("--about-title-font-size", ABOUT_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--about-text-font-size", ABOUT_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--about-button-font-size", ABOUT_BUTTON_FONT_SIZE);
+      document.documentElement.style.setProperty("--services-title-font-size", SERVICES_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--services-item-title-font-size", SERVICES_ITEM_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--services-item-text-font-size", SERVICES_ITEM_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--services-button-font-size", SERVICES_BUTTON_FONT_SIZE);
+      document.documentElement.style.setProperty("--branding-title-font-size", BRANDING_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--branding-text-font-size", BRANDING_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--branding-card-title-font-size", BRANDING_CARD_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--contact-title-font-size", CONTACT_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--contact-subtitle-font-size", CONTACT_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--contact-item-title-font-size", CONTACT_ITEM_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--contact-item-text-font-size", CONTACT_ITEM_TEXT_FONT_SIZE);
+
+      // Mobile Font Size Variables
+      document.documentElement.style.setProperty("--mobile-hero-welcome-font-size", MOBILE_HERO_WELCOME_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-title-font-size", MOBILE_HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-value-letter-font-size", MOBILE_HERO_VALUE_LETTER_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-button-font-size", MOBILE_HERO_BUTTON_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-about-title-font-size", MOBILE_ABOUT_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-about-text-font-size", MOBILE_ABOUT_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-services-title-font-size", MOBILE_SERVICES_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-services-item-title-font-size", MOBILE_SERVICES_ITEM_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-branding-title-font-size", MOBILE_BRANDING_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-branding-card-title-font-size", MOBILE_BRANDING_CARD_TITLE_FONT_SIZE);
+
+      // Small Mobile Font Size Variables
+      document.documentElement.style.setProperty("--small-mobile-about-title-font-size", SMALL_MOBILE_ABOUT_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--small-mobile-branding-card-title-font-size", SMALL_MOBILE_BRANDING_CARD_TITLE_FONT_SIZE);
+    </script>
+  </body>
+</html>

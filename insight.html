@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Project Management 2024 - Real Consult Insights</title>
+    <script>
+      // ==========================================
+      // CLIENT CUSTOMIZATION VARIABLES
+      // ==========================================
+
+      // WEBSITE SETTINGS
+      const WEBSITE_URL = "https://real-consult.com.au";
+
+      // BREADCRUMB
+      const BREADCRUMB_PARENT_TEXT = "Insights";
+      const BREADCRUMB_PARENT_LINK = "/insights";
+      const BREADCRUMB_CURRENT_TEXT = "Template Usage Guide";
+
+      // HERO SECTION
+      const HERO_TITLE = "How to Use the Insights Page Template: Complete Guide";
+      const HERO_IMAGE = "https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
+      const HERO_IMAGE_ALT = "Web development and template design";
+
+      // ARTICLE METADATA
+      const ARTICLE_METADATA = "Real Consult Team | June 18, 2025 | 8 min read | Tutorial";
+
+      // CONTENT SECTIONS ARRAY
+      const CONTENT_SECTIONS = [
+        {
+          heading: "How to Duplicate This Page in Wix Editor",
+          content:
+            "Before diving into the template features, let's first learn how to create a new page using this template. In the Wix Editor, navigate to 'Manage Pages' in the left sidebar. Find the current page you want to duplicate and click the three dots (...) button next to it. Select 'Duplicate' from the dropdown menu. This will create an exact copy of the page with all its content and styling. Once the new page is created, you'll see it appear in your pages list with a name like 'Copy of [Original Page Name]'. Click the three dots (...) next to your newly duplicated page and select 'Settings'. In the Page Settings dialog, go to the 'Page Info' tab first. Here you can change the page name to something more descriptive like 'Digital Transformation Guide' or 'Marketing Insights 2024'. Make sure to also check the 'Hide from menu' option if you don't want this page to appear in your main navigation menu initially. Next, switch to the 'SEO Basics' tab. This is where you'll set up the page hierarchy and URL structure. Change the 'Parent Page' dropdown to 'Insights' to properly organize your content. Finally, update the URL slug to match your content, such as 'digital-transformation-2024' or 'marketing-best-practices'. Keep the URL slug short, descriptive, and SEO-friendly with hyphens separating words.",
+          image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          imageAlt: "Wix editor interface showing page management",
+          imageCaption:
+            "The Wix Editor's page management interface allows you to easily duplicate and configure new pages with proper settings and SEO optimization.",
+        },
+        {
+          heading: "Section with Image but No Caption",
+          content:
+            "This section shows how content appears when you include an image but omit the caption. The image still floats to the right side, but there's no caption text below it. This is useful when the image is self-explanatory or when you want a cleaner look without additional descriptive text. The text behavior remains the same - it flows around the image and then continues at full width once the image area is cleared. You can see how the layout adapts based on whether you include the imageCaption property or not.",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          imageAlt: "AI analytics dashboard",
+          // No imageCaption property - this will result in no caption being displayed
+        },
+        {
+          heading: "Section without Image (Text Only)",
+          content:
+            "This section demonstrates how content appears when no image is included. The text spans the full width of the container, providing maximum reading space. This layout is ideal for sections that are purely informational and don't require visual support. Notice how the text flows naturally across the entire width without any image interruption. This gives you more space for detailed explanations, lists, or longer-form content. Use this format when your content is primarily textual and doesn't benefit from accompanying visuals.",
+          // No image, imageAlt, or imageCaption properties
+        },
+        {
+          heading: "Code Example: How to Structure Your Content",
+          content:
+            "To create your own sections, modify the CONTENT_SECTIONS array in the code. Each section is an object with specific properties. Here's the structure you need to follow: 'heading' (required) - The section title, 'content' (required) - The main text content, 'image' (optional) - URL to the image, 'imageAlt' (optional but recommended when image is present) - Accessibility description, 'imageCaption' (optional) - Text that appears below the image. The template automatically handles the layout based on which properties you include.",
+          image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          imageAlt: "Code example and development setup",
+          imageCaption: "The template automatically adapts the layout based on the properties you provide in the CONTENT_SECTIONS array.",
+        },
+      ];
+
+      // CTA SECTION
+      const CTA_TITLE = "Ready to Transform Your Project Management?";
+      const CTA_TEXT = "Our experts can help you implement AI-enabled project management solutions tailored to your organization's needs.";
+      const CTA_BUTTON_TEXT = "💬 Discuss AI Solutions";
+      const CTA_OPENING_MESSAGE = "I'd love to discuss how your AI solutions can help my business improve project management.";
+
+      // COLORS & STYLING
+      const PRIMARY_COLOR = "#1a2332";
+      const SECONDARY_COLOR = "#2c3e50";
+      const ACCENT_COLOR = "#4a90e2";
+
+      // FONT SIZES
+      const HERO_TITLE_FONT_SIZE = "3.5rem";
+      const SECTION_HEADING_FONT_SIZE = "2rem";
+      const BODY_TEXT_FONT_SIZE = "1.1rem";
+      const METADATA_FONT_SIZE = "0.9rem";
+
+      // Mobile Font Sizes
+      const MOBILE_HERO_TITLE_FONT_SIZE = "2.5rem";
+      const MOBILE_SECTION_HEADING_FONT_SIZE = "1.6rem";
+      const MOBILE_BODY_TEXT_FONT_SIZE = "1rem";
+
+      // Small Mobile Font Sizes
+      const SMALL_MOBILE_HERO_TITLE_FONT_SIZE = "2.2rem";
+    </script>
+    <style>
+      /* Force iframe to fit content */
+      html,
+      body {
+        height: auto !important;
+        overflow-x: hidden;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
+        line-height: 1.7;
+        color: #333;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+      }
+
+      html {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Breadcrumb */
+      .breadcrumb-section {
+        background: white;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .breadcrumb-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: #666;
+        font-family: "Avenir", sans-serif;
+      }
+
+      .breadcrumb a {
+        color: var(--accent-color, #4a90e2);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .breadcrumb a:hover {
+        color: var(--primary-color, #1a2332);
+      }
+
+      .breadcrumb-separator {
+        margin: 0 0.3rem;
+        opacity: 0.6;
+      }
+
+      /* Hero Title Section */
+      .hero-title-section {
+        background: white;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .hero-title-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .hero-title {
+        font-size: var(--hero-title-font-size, 3.5rem);
+        font-weight: 600;
+        font-family: "Playfair Display", serif;
+        color: var(--primary-color, #1a2332);
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+      }
+
+      .article-metadata {
+        font-size: var(--metadata-font-size, 0.9rem);
+        color: #666;
+        font-family: "Avenir", sans-serif;
+      }
+
+      /* Hero Image Section */
+      .hero-image-section {
+        background: white;
+        padding: 0 0 4rem 0;
+      }
+
+      .hero-image-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Content Sections */
+      .content-sections {
+        background: white;
+        padding: 0 0 4rem 0;
+      }
+
+      .content-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .content-section {
+        margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+        position: relative;
+      }
+
+      .section-heading {
+        font-size: var(--section-heading-font-size, 2rem);
+        color: var(--primary-color, #1a2332);
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+      }
+
+      .section-content {
+        position: relative;
+      }
+
+      .section-text {
+        font-size: var(--body-text-font-size, 1.1rem);
+        line-height: 1.8;
+        color: #555;
+        font-family: "Avenir", sans-serif;
+      }
+
+      .section-image-container {
+        float: right;
+        width: 350px;
+        margin: 0 0 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .section-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .section-image:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .image-caption {
+        font-size: 0.85rem;
+        color: #777;
+        font-style: italic;
+        font-family: "Avenir", sans-serif;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .content-section::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, var(--primary-color, #1a2332) 0%, var(--secondary-color, #2c3e50) 100%);
+        padding: 4rem 0;
+        text-align: center;
+        color: white;
+      }
+
+      .cta-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .cta-title {
+        font-size: 2.2rem;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .cta-text {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        font-family: "Avenir", sans-serif;
+      }
+
+      .btn-cta {
+        background: transparent;
+        color: white;
+        padding: 1rem 2.5rem;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        font-family: "Avenir", sans-serif;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-cta:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .breadcrumb-container,
+        .hero-title-container,
+        .hero-image-container,
+        .content-container {
+          padding: 0 1.5rem;
+        }
+
+        .hero-title {
+          font-size: var(--mobile-hero-title-font-size, 2.5rem);
+        }
+
+        .section-heading {
+          font-size: var(--mobile-section-heading-font-size, 1.6rem);
+        }
+
+        .section-text {
+          font-size: var(--mobile-body-text-font-size, 1rem);
+        }
+
+        .section-content.has-image .section-text {
+          /* Reset for mobile */
+        }
+
+        .section-image-container {
+          float: none;
+          width: 100%;
+          margin: 0 0 1.5rem 0;
+        }
+
+        .section-image {
+          height: 200px;
+        }
+
+        .hero-image {
+          height: 300px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .breadcrumb-container,
+        .hero-title-container,
+        .hero-image-container,
+        .content-container {
+          padding: 0 1rem;
+        }
+
+        .content-section {
+          margin-bottom: 3rem;
+        }
+
+        .cta-title {
+          font-size: 1.8rem;
+        }
+
+        .cta-text {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: var(--small-mobile-hero-title-font-size, 2.2rem);
+        }
+
+        .hero-title-section {
+          padding: 2rem 0;
+        }
+
+        .hero-image-section {
+          padding: 0 0 3rem 0;
+        }
+
+        .hero-image {
+          height: 250px;
+          border-radius: 8px;
+        }
+
+        .section-image {
+          height: 180px;
+        }
+
+        .breadcrumb {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-title {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease 0.2s forwards;
+      }
+
+      .article-metadata {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s ease 0.4s forwards;
+      }
+
+      .hero-image {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease 0.6s forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+      <div class="breadcrumb-container">
+        <nav class="breadcrumb">
+          <a href="#" onclick="navigateToWixPage(BREADCRUMB_PARENT_LINK)">
+            <script>
+              document.write(BREADCRUMB_PARENT_TEXT);
+            </script>
+          </a>
+          <span class="breadcrumb-separator">/</span>
+          <span
+            ><script>
+              document.write(BREADCRUMB_CURRENT_TEXT);
+            </script></span
+          >
+        </nav>
+      </div>
+    </section>
+
+    <!-- Hero Title -->
+    <section class="hero-title-section">
+      <div class="hero-title-container">
+        <h1 class="hero-title">
+          <script>
+            document.write(HERO_TITLE);
+          </script>
+        </h1>
+        <div class="article-metadata">
+          <script>
+            document.write(ARTICLE_METADATA);
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Image -->
+    <section class="hero-image-section">
+      <div class="hero-image-container">
+        <img src="" alt="" class="hero-image" id="heroImage" />
+      </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section class="content-sections">
+      <div class="content-container" id="contentContainer">
+        <!-- Sections will be dynamically generated here -->
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <h2 class="cta-title">
+          <script>
+            document.write(CTA_TITLE);
+          </script>
+        </h2>
+        <p class="cta-text">
+          <script>
+            document.write(CTA_TEXT);
+          </script>
+        </p>
+        <a href="#" class="btn-cta" onclick="openChat(CTA_OPENING_MESSAGE)">
+          <script>
+            document.write(CTA_BUTTON_TEXT);
+          </script>
+        </a>
+      </div>
+    </section>
+
+    <script>
+      function navigateToWixPage(pagePath) {
+        window.top.location.href = WEBSITE_URL + pagePath;
+      }
+
+      function openChat(message) {
+        const payload = {
+          type: "OPEN_CHAT",
+        };
+
+        if (message) {
+          payload.message = message;
+        }
+
+        window.parent.postMessage(payload, "*");
+      }
+
+      // ==========================================
+      // DYNAMIC CONTENT GENERATION
+      // ==========================================
+      function generateContentSections() {
+        const container = document.getElementById("contentContainer");
+        let sectionsHTML = "";
+
+        CONTENT_SECTIONS.forEach((section, index) => {
+          const hasImage = section.image && section.image.trim() !== "";
+          const animationDelay = 0.8 + index * 0.1;
+
+          sectionsHTML += `
+            <div class="content-section" style="animation-delay: ${animationDelay}s;">
+              <h2 class="section-heading">${section.heading}</h2>
+              <div class="section-content ${hasImage ? "has-image" : ""}">
+                ${
+                  hasImage
+                    ? `
+                  <div class="section-image-container">
+                    <img src="${section.image}" alt="${section.imageAlt || ""}" class="section-image" />
+                    ${section.imageCaption ? `<div class="image-caption">${section.imageCaption}</div>` : ""}
+                  </div>
+                `
+                    : ""
+                }
+                <div class="section-text">${section.content}</div>
+              </div>
+            </div>
+          `;
+        });
+
+        container.innerHTML = sectionsHTML;
+      }
+
+      // ==========================================
+      // INITIALIZE CONTENT ON PAGE LOAD
+      // ==========================================
+      document.addEventListener("DOMContentLoaded", function () {
+        generateContentSections();
+      });
+
+      // ==========================================
+      // APPLY VARIABLES TO DOM
+      // ==========================================
+      document.getElementById("heroImage").src = HERO_IMAGE;
+      document.getElementById("heroImage").alt = HERO_IMAGE_ALT;
+
+      // ==========================================
+      // APPLY CSS VARIABLES
+      // ==========================================
+      document.documentElement.style.setProperty("--primary-color", PRIMARY_COLOR);
+      document.documentElement.style.setProperty("--secondary-color", SECONDARY_COLOR);
+      document.documentElement.style.setProperty("--accent-color", ACCENT_COLOR);
+
+      // Font size variables
+      document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--section-heading-font-size", SECTION_HEADING_FONT_SIZE);
+      document.documentElement.style.setProperty("--body-text-font-size", BODY_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--metadata-font-size", METADATA_FONT_SIZE);
+
+      // Mobile font size variables
+      document.documentElement.style.setProperty("--mobile-hero-title-font-size", MOBILE_HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-section-heading-font-size", MOBILE_SECTION_HEADING_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-body-text-font-size", MOBILE_BODY_TEXT_FONT_SIZE);
+
+      // Small mobile font size variables
+      document.documentElement.style.setProperty("--small-mobile-hero-title-font-size", SMALL_MOBILE_HERO_TITLE_FONT_SIZE);
+    </script>
+  </body>
+</html>

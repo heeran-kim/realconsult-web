@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights - Real Consult</title>
+    <script>
+      // ==========================================
+      // CLIENT CUSTOMIZATION VARIABLES
+      // ==========================================
+
+      // WEBSITE SETTINGS
+      const WEBSITE_URL = "https://real-consult.com.au";
+
+      // HERO SECTION
+      const HERO_SUBTITLE = "Insights & Resources";
+      const HERO_TITLE = "Expert Knowledge & Industry Insights";
+      const HERO_BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
+      const HERO_IMAGE_ALT = "Business insights and knowledge sharing";
+
+      // BREADCRUMB
+      const BREADCRUMB_PARENT_TEXT = "Insights";
+      const BREADCRUMB_PARENT_LINK = "/insights";
+
+      // INTRO TEXT
+      const INTRO_TEXT =
+        "Stay ahead of the curve with our latest insights, expert analysis, and practical resources. From industry trends to actionable strategies, discover content that drives real business results.";
+
+      // INSIGHTS ARRAY
+      const INSIGHTS = [
+        {
+          id: "ai-project-management-2024",
+          type: "Article",
+          title: "The Future of AI-Enabled Project Management in 2024",
+          excerpt: "Discover how artificial intelligence is revolutionizing project management practices and what it means for your business.",
+          author: "Real Consult Team",
+          date: "2024-12-15",
+          readTime: "5 min read",
+          category: "AI & Technology",
+          image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: true,
+          link: "/insights/ai-project-management-2024",
+        },
+        {
+          id: "lean-business-processes",
+          type: "Blog",
+          title: "Implementing Lean Processes: A Step-by-Step Guide",
+          excerpt: "Learn how to eliminate waste and streamline your operations with proven lean methodology techniques.",
+          author: "Management Team",
+          date: "2024-12-10",
+          readTime: "7 min read",
+          category: "Operations",
+          image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: true,
+          link: "/insights/lean-business-processes",
+        },
+        {
+          id: "digital-marketing-trends-2024",
+          type: "Article",
+          title: "Digital Marketing Trends Every SME Should Know",
+          excerpt: "Stay competitive with the latest digital marketing strategies that are driving results for small and medium enterprises.",
+          author: "Marketing Team",
+          date: "2024-12-05",
+          readTime: "6 min read",
+          category: "Marketing",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: false,
+          link: "https://blog.hubspot.com/marketing/digital-marketing-trends",
+        },
+        {
+          id: "agile-transformation-guide",
+          type: "Blog",
+          title: "Agile Transformation: Lessons from Real-World Implementation",
+          excerpt: "Real stories and practical insights from businesses that successfully transformed their operations using agile methodologies.",
+          author: "Consulting Team",
+          date: "2024-11-28",
+          readTime: "8 min read",
+          category: "Transformation",
+          image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: false,
+          link: "/insights/agile-transformation-guide",
+        },
+        {
+          id: "corporate-governance-essentials",
+          type: "Article",
+          title: "Corporate Governance Essentials for Growing Businesses",
+          excerpt: "Essential governance frameworks and best practices that every growing business needs to implement.",
+          author: "Legal & Compliance Team",
+          date: "2024-11-20",
+          readTime: "9 min read",
+          category: "Governance",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: false,
+          link: "https://www.mckinsey.com/business-functions/strategy-and-corporate-finance",
+        },
+        {
+          id: "roi-measurement-strategies",
+          type: "Blog",
+          title: "Measuring ROI: Key Metrics That Actually Matter",
+          excerpt: "Cut through the noise and focus on the metrics that truly indicate business success and growth potential.",
+          author: "Analytics Team",
+          date: "2024-11-15",
+          readTime: "6 min read",
+          category: "Analytics",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: false,
+          link: "/insights/roi-measurement-strategies",
+        },
+        {
+          id: "change-management-playbook",
+          type: "Article",
+          title: "The Change Management Playbook: Driving Adoption",
+          excerpt: "Proven strategies for leading organizational change and ensuring successful adoption of new processes and technologies.",
+          author: "Change Management Team",
+          date: "2024-11-08",
+          readTime: "10 min read",
+          category: "Change Management",
+          image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: false,
+          link: "https://www.prosci.com/resources/articles",
+        },
+        {
+          id: "customer-experience-optimization",
+          type: "Blog",
+          title: "Customer Experience Optimization in the Digital Age",
+          excerpt: "Transform your customer journey with data-driven insights and personalization strategies that drive loyalty.",
+          author: "CX Team",
+          date: "2024-11-01",
+          readTime: "7 min read",
+          category: "Customer Experience",
+          image: "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: false,
+          link: "/insights/customer-experience-optimization",
+        },
+        {
+          id: "data-analytics-transformation",
+          type: "Article",
+          title: "Data Analytics Transformation for SMEs",
+          excerpt: "How small and medium enterprises can leverage data analytics to make better business decisions and drive growth.",
+          author: "Data Team",
+          date: "2024-10-25",
+          readTime: "8 min read",
+          category: "Data Analytics",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: false,
+          link: "/insights/data-analytics-transformation",
+        },
+        {
+          id: "remote-work-management",
+          type: "Blog",
+          title: "Remote Work Management: Best Practices for 2024",
+          excerpt: "Essential strategies for managing remote teams effectively and maintaining productivity in distributed work environments.",
+          author: "HR Team",
+          date: "2024-10-18",
+          readTime: "6 min read",
+          category: "Remote Work",
+          image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          featured: false,
+          link: "https://hbr.org/topic/remote-work",
+        },
+      ];
+
+      // PAGINATION SETTINGS
+      const ITEMS_PER_PAGE = 6;
+      const PAGINATION_TEXT = "Page";
+
+      // COLORS & STYLING
+      const PRIMARY_COLOR = "#1a2332";
+      const SECONDARY_COLOR = "#2c3e50";
+      const INSIGHTS_SECTION_BACKGROUND = "#f8f9fa";
+
+      // FONT SIZES
+      const HERO_SUBTITLE_FONT_SIZE = "1.2rem";
+      const HERO_TITLE_FONT_SIZE = "4rem";
+      const INTRO_TEXT_FONT_SIZE = "1.2rem";
+      const INSIGHT_TITLE_FONT_SIZE = "1.3rem";
+      const INSIGHT_EXCERPT_FONT_SIZE = "0.9rem";
+      const INSIGHT_META_FONT_SIZE = "0.8rem";
+
+      // Mobile Font Sizes
+      const MOBILE_HERO_SUBTITLE_FONT_SIZE = "1rem";
+      const MOBILE_HERO_TITLE_FONT_SIZE = "2.8rem";
+      const MOBILE_INTRO_TEXT_FONT_SIZE = "1.1rem";
+      const MOBILE_INSIGHT_TITLE_FONT_SIZE = "1.2rem";
+      const MOBILE_INSIGHT_EXCERPT_FONT_SIZE = "0.85rem";
+
+      // Small Mobile Font Sizes
+      const SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE = "0.9rem";
+      const SMALL_MOBILE_HERO_TITLE_FONT_SIZE = "2.5rem";
+    </script>
+    <style>
+      /* Force iframe to fit content */
+      html,
+      body {
+        height: auto !important;
+        overflow-x: hidden;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: var(--insights-background, #f8f9fa);
+      }
+
+      html {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Insights Hero Section */
+      .insights-hero {
+        position: relative;
+        height: 450px;
+        min-height: 350px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .insights-hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .insights-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.8) 100%);
+        z-index: 2;
+      }
+
+      .insights-hero-content {
+        position: relative;
+        z-index: 3;
+        color: white;
+        padding: 0 3rem 4rem 3rem;
+        max-width: 1200px;
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        position: absolute;
+        top: 2rem;
+        left: 3rem;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: "Avenir", sans-serif;
+      }
+
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .breadcrumb a:hover {
+        color: white;
+      }
+
+      .insights-hero-subtitle {
+        font-size: var(--hero-subtitle-font-size, 1.2rem);
+        font-weight: 300;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+        font-family: "Avenir", sans-serif;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .insights-hero-title {
+        font-size: var(--hero-title-font-size, 4rem);
+        font-weight: 400;
+        margin-bottom: 2rem;
+        font-family: "Playfair Display", serif;
+        line-height: 1.1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Insights Content Section */
+      .insights-content {
+        padding: 40px 0;
+        background: var(--insights-background, #f8f9fa);
+      }
+
+      .insights-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .intro-text {
+        font-size: var(--intro-text-font-size, 1.2rem);
+        line-height: 1.8;
+        color: #555;
+        font-family: "Avenir", sans-serif;
+        font-weight: 300;
+        max-width: 800px;
+        margin: 0 auto 4rem auto;
+        text-align: center;
+      }
+
+      /* Featured Section */
+      .featured-section {
+        margin-bottom: 4rem;
+      }
+
+      .featured-title {
+        font-size: 1.8rem;
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      /* Insights Grid */
+      .insights-grid {
+        --items-per-row: 3;
+        display: grid;
+        grid-template-columns: repeat(var(--items-per-row), 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .insight-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .insight-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .insight-card.featured {
+        border: 2px solid #e3f2fd;
+        position: relative;
+      }
+
+      .insight-card.featured::before {
+        content: "Featured";
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: linear-gradient(135deg, var(--primary-color, #1a2332) 0%, var(--secondary-color, #2c3e50) 100%);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        z-index: 2;
+      }
+
+      .insight-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .insight-card:hover .insight-image {
+        transform: scale(1.05);
+      }
+
+      .insight-content {
+        padding: 1.5rem;
+      }
+
+      .insight-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .insight-type {
+        background: var(--primary-color, #1a2332);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 12px;
+        font-size: var(--insight-meta-font-size, 0.8rem);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .insight-category {
+        color: #666;
+        font-size: var(--insight-meta-font-size, 0.8rem);
+        font-weight: 500;
+      }
+
+      .insight-title {
+        font-size: var(--insight-title-font-size, 1.3rem);
+        margin-bottom: 0.8rem;
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        line-height: 1.3;
+        transition: color 0.3s ease;
+      }
+
+      .insight-card:hover .insight-title {
+        color: var(--primary-color, #1a2332);
+      }
+
+      .insight-excerpt {
+        font-size: var(--insight-excerpt-font-size, 0.9rem);
+        color: #666;
+        font-family: "Avenir", sans-serif;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .insight-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        border-top: 1px solid #f0f0f0;
+        gap: 1rem;
+      }
+
+      .insight-author {
+        color: #888;
+        font-size: var(--insight-meta-font-size, 0.8rem);
+        font-family: "Avenir", sans-serif;
+      }
+
+      .insight-date-read {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        color: #888;
+        font-size: var(--insight-meta-font-size, 0.8rem);
+        font-family: "Avenir", sans-serif;
+        flex-shrink: 0;
+      }
+
+      /* Pagination */
+      .pagination-container {
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      .pagination {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background: white;
+        border-radius: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .page-btn {
+        background: transparent;
+        color: #666;
+        border: none;
+        padding: 0.7rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Avenir", sans-serif;
+        min-width: 40px;
+      }
+
+      .page-btn:hover {
+        background: rgba(26, 35, 50, 0.1);
+        color: var(--primary-color, #1a2332);
+      }
+
+      .page-btn.active {
+        background: var(--primary-color, #1a2332);
+        color: white;
+        box-shadow: 0 2px 8px rgba(26, 35, 50, 0.3);
+      }
+
+      .page-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
+      .page-btn:disabled:hover {
+        background: transparent;
+        color: #666;
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .breadcrumb {
+          left: 2rem;
+        }
+
+        .insights-hero-content {
+          padding: 0 2rem 3rem 2rem;
+        }
+
+        .insights-hero-title {
+          font-size: var(--mobile-hero-title-font-size, 2.8rem);
+        }
+
+        .insights-hero-subtitle {
+          font-size: var(--mobile-hero-subtitle-font-size, 1rem);
+        }
+
+        .intro-text {
+          font-size: var(--mobile-intro-text-font-size, 1.1rem);
+        }
+
+        .insights-grid {
+          --items-per-row: 2;
+          gap: 1.5rem;
+        }
+
+        .featured-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .insight-title {
+          font-size: var(--mobile-insight-title-font-size, 1.2rem);
+        }
+
+        .insight-excerpt {
+          font-size: var(--mobile-insight-excerpt-font-size, 0.85rem);
+        }
+
+        .insight-footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .breadcrumb {
+          left: 1.5rem;
+          font-size: 0.8rem;
+        }
+
+        .insights-hero-content {
+          padding: 0 1.5rem 2.5rem 1.5rem;
+        }
+
+        .insights-hero-title {
+          font-size: var(--small-mobile-hero-title-font-size, 2.5rem);
+        }
+
+        .insights-hero-subtitle {
+          font-size: var(--small-mobile-hero-subtitle-font-size, 0.9rem);
+        }
+
+        .insights-container {
+          padding: 0 1rem;
+        }
+
+        .insights-grid {
+          --items-per-row: 1;
+          gap: 1rem;
+        }
+
+        .insight-content {
+          padding: 1.2rem;
+        }
+
+        .insight-meta {
+          gap: 0.5rem;
+        }
+
+        .pagination {
+          gap: 0.2rem;
+          padding: 0.3rem;
+        }
+
+        .page-btn {
+          padding: 0.5rem 0.7rem;
+          font-size: 0.8rem;
+          min-width: 35px;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .insights-hero-content > * {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      .insights-hero-subtitle {
+        animation-delay: 0.2s;
+      }
+
+      .insights-hero-title {
+        animation-delay: 0.4s;
+      }
+
+      .insight-card {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Insights Hero Section -->
+    <section class="insights-hero">
+      <img src="" alt="" class="insights-hero-image" id="heroImage" />
+      <div class="insights-hero-overlay"></div>
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="#" onclick="navigateToWixPage(BREADCRUMB_PARENT_LINK)">
+          <script>
+            document.write(BREADCRUMB_PARENT_TEXT);
+          </script>
+        </a>
+      </nav>
+
+      <div class="insights-hero-content">
+        <div class="insights-hero-subtitle">
+          <script>
+            document.write(HERO_SUBTITLE);
+          </script>
+        </div>
+        <h1 class="insights-hero-title">
+          <script>
+            document.write(HERO_TITLE);
+          </script>
+        </h1>
+      </div>
+    </section>
+
+    <!-- Insights Content Section -->
+    <section class="insights-content">
+      <div class="insights-container">
+        <p class="intro-text">
+          <script>
+            document.write(INTRO_TEXT);
+          </script>
+        </p>
+
+        <!-- Featured Section -->
+        <div class="featured-section">
+          <h2 class="featured-title">Featured Insights</h2>
+          <div class="featured-grid" id="featuredGrid"></div>
+        </div>
+
+        <!-- All Insights Grid -->
+        <div class="insights-grid" id="insightsGrid"></div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // ==========================================
+      // PAGINATION LOGIC
+      // ==========================================
+      let currentPage = 1;
+      let totalPages = 1;
+      let allInsights = [];
+      let featuredInsights = [];
+      let regularInsights = [];
+
+      function initializeInsights() {
+        featuredInsights = INSIGHTS.filter((insight) => insight.featured);
+        regularInsights = INSIGHTS.filter((insight) => !insight.featured);
+        allInsights = [...regularInsights];
+
+        totalPages = Math.ceil(allInsights.length / ITEMS_PER_PAGE);
+
+        generateFeaturedHTML();
+        generateInsightsHTML(1);
+        generatePagination();
+      }
+
+      function generateFeaturedHTML() {
+        const featuredGrid = document.getElementById("featuredGrid");
+        let featuredHTML = "";
+
+        featuredInsights.forEach((insight, index) => {
+          featuredHTML += createInsightCardHTML(insight, index, true);
+        });
+
+        featuredGrid.innerHTML = featuredHTML;
+      }
+
+      function generateInsightsHTML(page) {
+        const insightsGrid = document.getElementById("insightsGrid");
+        const startIndex = (page - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        const insightsToShow = allInsights.slice(startIndex, endIndex);
+
+        let insightsHTML = "";
+        insightsToShow.forEach((insight, index) => {
+          insightsHTML += createInsightCardHTML(insight, startIndex + index);
+        });
+
+        insightsGrid.innerHTML = insightsHTML;
+      }
+
+      function createInsightCardHTML(insight, index, isFeatured = false) {
+        const formattedDate = new Date(insight.date).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+
+        return `
+          <div class="insight-card ${isFeatured ? "featured" : ""}" onclick="navigateToInsight('${insight.link}')" style="animation-delay: ${
+          0.1 + (index % 6) * 0.1
+        }s;">
+            <img src="${insight.image}" alt="${insight.title}" class="insight-image" />
+            <div class="insight-content">
+              <div class="insight-meta">
+                <span class="insight-type">${insight.type}</span>
+                <span class="insight-category">${insight.category}</span>
+              </div>
+              <h3 class="insight-title">${insight.title}</h3>
+              <p class="insight-excerpt">${insight.excerpt}</p>
+              <div class="insight-footer">
+                <span class="insight-author">By ${insight.author}</span>
+                <div class="insight-date-read">
+                  <span>${formattedDate}</span>
+                  <span>•</span>
+                  <span>${insight.readTime}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function generatePagination() {
+        const paginationContainer = document.getElementById("pagination");
+        let paginationHTML = "";
+
+        // Previous button
+        paginationHTML += `
+          <button class="page-btn" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""}>
+            ‹
+          </button>
+        `;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+          paginationHTML += `
+            <button class="page-btn ${i === currentPage ? "active" : ""}" onclick="goToPage(${i})">
+              ${i}
+            </button>
+          `;
+        }
+
+        // Next button
+        paginationHTML += `
+          <button class="page-btn" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? "disabled" : ""}>
+            ›
+          </button>
+        `;
+
+        paginationContainer.innerHTML = paginationHTML;
+      }
+
+      function goToPage(page) {
+        if (page < 1 || page > totalPages || page === currentPage) return;
+
+        currentPage = page;
+        generateInsightsHTML(page);
+        generatePagination();
+
+        // Scroll to insights grid
+        document.getElementById("insightsGrid").scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      function navigateToInsight(link) {
+        // Check if it's an internal link (starts with /) or external link (starts with http)
+        if (link.startsWith("/")) {
+          // Internal link - use Wix navigation
+          const url = `${WEBSITE_URL}${link}`;
+          window.top.location.href = url;
+        } else if (link.startsWith("http")) {
+          // External link - open in new tab
+          window.open(link, "_blank");
+        } else {
+          // Fallback - treat as internal link
+          const url = `${WEBSITE_URL}/${link}`;
+          window.top.location.href = url;
+        }
+      }
+
+      // ==========================================
+      // INITIALIZE ON PAGE LOAD
+      // ==========================================
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeInsights();
+      });
+
+      // ==========================================
+      // APPLY VARIABLES TO DOM
+      // ==========================================
+      document.getElementById("heroImage").src = HERO_BACKGROUND_IMAGE;
+      document.getElementById("heroImage").alt = HERO_IMAGE_ALT;
+
+      // ==========================================
+      // APPLY CSS VARIABLES
+      // ==========================================
+      document.documentElement.style.setProperty("--primary-color", PRIMARY_COLOR);
+      document.documentElement.style.setProperty("--secondary-color", SECONDARY_COLOR);
+      document.documentElement.style.setProperty("--insights-background", INSIGHTS_SECTION_BACKGROUND);
+
+      // Font size variables
+      document.documentElement.style.setProperty("--hero-subtitle-font-size", HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--intro-text-font-size", INTRO_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--insight-title-font-size", INSIGHT_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--insight-excerpt-font-size", INSIGHT_EXCERPT_FONT_SIZE);
+      document.documentElement.style.setProperty("--insight-meta-font-size", INSIGHT_META_FONT_SIZE);
+
+      // Mobile font size variables
+      document.documentElement.style.setProperty("--mobile-hero-subtitle-font-size", MOBILE_HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-title-font-size", MOBILE_HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-intro-text-font-size", MOBILE_INTRO_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-insight-title-font-size", MOBILE_INSIGHT_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-insight-excerpt-font-size", MOBILE_INSIGHT_EXCERPT_FONT_SIZE);
+
+      // Small mobile font size variables
+      document.documentElement.style.setProperty("--small-mobile-hero-subtitle-font-size", SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--small-mobile-hero-title-font-size", SMALL_MOBILE_HERO_TITLE_FONT_SIZE);
+    </script>
+  </body>
+</html>

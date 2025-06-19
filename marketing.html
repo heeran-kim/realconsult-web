@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketing & Advertising - Real Consult</title>
+    <script>
+      // ==========================================
+      // CLIENT CUSTOMIZATION VARIABLES
+      // ==========================================
+
+      // WEBSITE SETTINGS
+      const WEBSITE_URL = "https://real-consult.com.au";
+
+      // HERO SECTION
+      const HERO_SUBTITLE = "Marketing & Advertising";
+      const HERO_TITLE = "Strategic Marketing Solutions That Drive Results";
+      const HERO_BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
+      const HERO_IMAGE_ALT = "Strategic marketing and advertising consultation";
+
+      // BREADCRUMB
+      const BREADCRUMB_PARENT_TEXT = "Our Services";
+      const BREADCRUMB_PARENT_LINK = "/services";
+      const BREADCRUMB_CURRENT_TEXT = "Marketing & Advertising";
+
+      // INTRO TEXT
+      const INTRO_TEXT =
+        "Our consultancy business offers a comprehensive marketing and advertising service designed to elevate your brand presence and drive meaningful engagement with your target audience. We combine strategic thinking with creative execution to deliver campaigns that not only capture attention but also convert prospects into loyal customers. From digital marketing strategies to traditional advertising approaches, we help you navigate the ever-changing marketing landscape with confidence and clarity.";
+
+      // KEY BENEFITS SECTION
+      const BENEFITS_SECTION_TITLE = "Key Benefits";
+      const BENEFIT_1_TITLE = "Strategic Campaign Development";
+      const BENEFIT_1_DESC =
+        "We create data-driven marketing campaigns tailored to your specific business objectives and target audience demographics.";
+
+      const BENEFIT_2_TITLE = "Multi-Channel Approach";
+      const BENEFIT_2_DESC =
+        "Leverage the power of integrated marketing across digital platforms, traditional media, and emerging channels for maximum reach.";
+
+      const BENEFIT_3_TITLE = "ROI Optimization";
+      const BENEFIT_3_DESC =
+        "Every marketing dollar is strategically allocated to maximize return on investment with comprehensive tracking and analytics.";
+
+      // SUCCESS STORIES SECTION
+      const SUCCESS_SECTION_TITLE = "Client Success Stories";
+
+      const SUCCESS_CARD_1_TITLE = "Digital Transformation Success";
+      const SUCCESS_CARD_1_DESC =
+        "Helped a local retail business increase online sales by 300% through targeted social media campaigns and SEO optimization.";
+      const SUCCESS_CARD_1_IMAGE = "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+
+      const SUCCESS_CARD_2_TITLE = "Brand Awareness Campaign";
+      const SUCCESS_CARD_2_DESC =
+        "Launched a comprehensive brand awareness campaign that resulted in 150% increase in brand recognition within 6 months.";
+      const SUCCESS_CARD_2_IMAGE = "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+
+      const SUCCESS_CARD_3_TITLE = "Lead Generation Strategy";
+      const SUCCESS_CARD_3_DESC =
+        "Developed a multi-touch lead generation strategy that increased qualified leads by 250% for a B2B technology company.";
+      const SUCCESS_CARD_3_IMAGE = "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+
+      // CTA SECTION
+      const CTA_TEXT = "Ready to elevate your marketing strategy?";
+      const CTA_LINK_TEXT = "Chat with our marketing experts";
+      const CTA_OPENING_MESSAGE = "I'd love to discuss how your marketing services can help my business grow.";
+
+      // SECTION BACKGROUND COLORS
+      const INTRO_BACKGROUND = "#f8f9fa";
+      const BENEFITS_BACKGROUND = "#f8f9fa";
+      const SUCCESS_BACKGROUND = "#ffffff";
+      const CTA_BACKGROUND_START = "#1a2332";
+      const CTA_BACKGROUND_END = "#2c3e50";
+
+      // FONT SIZES
+      const HERO_SUBTITLE_FONT_SIZE = "1.2rem";
+      const HERO_TITLE_FONT_SIZE = "4rem";
+      const SECTION_TITLE_FONT_SIZE = "2.5rem";
+      const INTRO_TEXT_FONT_SIZE = "1.2rem";
+      const BENEFIT_TITLE_FONT_SIZE = "1.4rem";
+      const BENEFIT_DESC_FONT_SIZE = "0.95rem";
+      const SUCCESS_CARD_TITLE_FONT_SIZE = "1.3rem";
+      const SUCCESS_CARD_DESC_FONT_SIZE = "0.9rem";
+      const CTA_TEXT_FONT_SIZE = "1.8rem";
+
+      // Mobile Font Sizes
+      const MOBILE_HERO_SUBTITLE_FONT_SIZE = "1rem";
+      const MOBILE_HERO_TITLE_FONT_SIZE = "2.8rem";
+      const MOBILE_SECTION_TITLE_FONT_SIZE = "2rem";
+      const MOBILE_INTRO_TEXT_FONT_SIZE = "1.1rem";
+      const MOBILE_BENEFIT_TITLE_FONT_SIZE = "1.2rem";
+      const MOBILE_BENEFIT_DESC_FONT_SIZE = "0.9rem";
+      const MOBILE_SUCCESS_CARD_TITLE_FONT_SIZE = "1.1rem";
+      const MOBILE_SUCCESS_CARD_DESC_FONT_SIZE = "0.85rem";
+      const MOBILE_CTA_TEXT_FONT_SIZE = "1.4rem";
+
+      // Small Mobile Font Sizes
+      const SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE = "0.9rem";
+      const SMALL_MOBILE_HERO_TITLE_FONT_SIZE = "2.5rem";
+    </script>
+    <style>
+      /* Force iframe to fit content */
+      html,
+      body {
+        height: auto !important;
+        overflow-x: hidden;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+      }
+
+      html {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Service Detail Hero Section */
+      .service-hero {
+        position: relative;
+        height: 450px;
+        min-height: 350px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .service-hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .service-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.8) 100%);
+        z-index: 2;
+      }
+
+      .service-hero-content {
+        position: relative;
+        z-index: 3;
+        color: white;
+        padding: 0 3rem 4rem 3rem;
+        max-width: 1200px;
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        position: absolute;
+        top: 2rem;
+        left: 3rem;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: "Avenir", sans-serif;
+      }
+
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .breadcrumb a:hover {
+        color: white;
+      }
+
+      .breadcrumb-separator {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0 0.3rem;
+      }
+
+      .breadcrumb-current {
+        color: white;
+        font-weight: 500;
+      }
+
+      .service-hero-subtitle {
+        font-size: var(--hero-subtitle-font-size, 1.2rem);
+        font-weight: 300;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+        font-family: "Avenir", sans-serif;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .service-hero-title {
+        font-size: var(--hero-title-font-size, 4rem);
+        font-weight: 400;
+        margin-bottom: 2rem;
+        font-family: "Playfair Display", serif;
+        line-height: 1.1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Intro Section */
+      .intro-section {
+        padding: 40px 0;
+        background: var(--intro-background, #f8f9fa);
+      }
+
+      .intro-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        text-align: center;
+      }
+
+      .intro-text {
+        font-size: var(--intro-text-font-size, 1.2rem);
+        line-height: 1.8;
+        color: #555;
+        font-family: "Avenir", sans-serif;
+        font-weight: 300;
+      }
+
+      /* Benefits Section */
+      .benefits-section {
+        padding: 0px 0 40px 0;
+        background: var(--benefits-background, #f8f9fa);
+      }
+
+      .benefits-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .benefits-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      .benefits-title {
+        font-size: var(--section-title-font-size, 2.5rem);
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        margin: 0;
+        padding: 0 2rem;
+        background: var(--benefits-background, #f8f9fa);
+        display: inline-block;
+        position: relative;
+      }
+
+      .benefits-header::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #ddd;
+        z-index: 1;
+      }
+
+      .benefits-title {
+        z-index: 2;
+        position: relative;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border: 1px solid #e9ecef;
+      }
+
+      .benefit-item {
+        text-align: left;
+        padding: 2.5rem 2rem;
+        position: relative;
+        transition: all 0.3s ease;
+        cursor: default;
+        background: transparent;
+        border-right: 1px solid #e9ecef;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .benefit-item:nth-child(3n) {
+        border-right: none;
+      }
+
+      .benefit-item::before {
+        content: "";
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 15px;
+        height: 15px;
+        border-top: 2px solid #ddd;
+        border-right: 2px solid #ddd;
+        transition: all 0.3s ease;
+        opacity: 0.5;
+      }
+
+      .benefit-item:hover::before {
+        border-color: #1a2332;
+        opacity: 1;
+      }
+
+      .benefit-item-title {
+        font-size: var(--benefit-title-font-size, 1.4rem);
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .benefit-item:hover .benefit-item-title {
+        color: #1a2332;
+      }
+
+      .benefit-item-desc {
+        font-size: var(--benefit-desc-font-size, 0.95rem);
+        line-height: 1.6;
+        color: #666;
+        font-family: "Avenir", sans-serif;
+        font-weight: 300;
+      }
+
+      /* Success Stories Section */
+      .success-section {
+        padding: 80px 0;
+        background: var(--success-background, #ffffff);
+      }
+
+      .success-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .success-title {
+        font-size: var(--section-title-font-size, 2.5rem);
+        color: #1a1a1a;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .success-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .success-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .success-card {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .success-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-image {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+        z-index: 1;
+      }
+
+      .card-overlay-text {
+        position: relative;
+        z-index: 2;
+        color: white;
+        font-size: var(--success-card-title-font-size, 1.3rem);
+        font-weight: 600;
+        font-family: "Playfair Display", serif;
+        text-align: center;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        padding: 0 1rem;
+        line-height: 1.3;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+        background: white;
+      }
+
+      .card-desc {
+        font-size: var(--success-card-desc-font-size, 0.9rem);
+        line-height: 1.6;
+        color: #666;
+        font-family: "Avenir", sans-serif;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 60px 0;
+        background: linear-gradient(135deg, var(--cta-background-start, #1a2332) 0%, var(--cta-background-end, #2c3e50) 100%);
+        text-align: center;
+      }
+
+      .cta-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .cta-text {
+        font-size: var(--cta-text-font-size, 1.8rem);
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+
+      .cta-link {
+        color: white;
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.6);
+        text-underline-offset: 8px;
+        text-decoration-thickness: 2px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .cta-link:hover {
+        text-decoration-color: white;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 12px;
+        transform: translateY(-2px);
+        text-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .breadcrumb {
+          left: 2rem;
+        }
+
+        .service-hero-content {
+          padding: 0 2rem 3rem 2rem;
+        }
+
+        .service-hero-title {
+          font-size: var(--mobile-hero-title-font-size, 2.8rem);
+        }
+
+        .service-hero-subtitle {
+          font-size: var(--mobile-hero-subtitle-font-size, 1rem);
+        }
+
+        .intro-container {
+          padding: 0 1rem;
+        }
+
+        .intro-text {
+          font-size: var(--mobile-intro-text-font-size, 1.1rem);
+        }
+
+        .benefits-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .benefit-item {
+          padding: 2rem 1.5rem;
+        }
+
+        .benefit-item-title {
+          font-size: var(--mobile-benefit-title-font-size, 1.2rem);
+        }
+
+        .benefit-item-desc {
+          font-size: var(--mobile-benefit-desc-font-size, 0.9rem);
+        }
+
+        .benefits-header {
+          margin-bottom: 2rem;
+        }
+
+        .success-cards {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .success-title {
+          font-size: var(--mobile-section-title-font-size, 2rem);
+        }
+
+        .card-overlay-text {
+          font-size: var(--mobile-success-card-title-font-size, 1.1rem);
+        }
+
+        .card-desc {
+          font-size: var(--mobile-success-card-desc-font-size, 0.85rem);
+        }
+
+        .card-image {
+          height: 200px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .benefit-item:nth-child(3n) {
+          border-right: 1px solid #e9ecef;
+        }
+
+        .benefit-item:nth-child(2n) {
+          border-right: none;
+        }
+
+        .benefit-item {
+          padding: 2rem 1.5rem;
+        }
+
+        .success-header {
+          margin-bottom: 2rem;
+        }
+
+        .cta-text {
+          font-size: var(--mobile-cta-text-font-size, 1.4rem);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .breadcrumb {
+          left: 1.5rem;
+          font-size: 0.8rem;
+        }
+
+        .service-hero-content {
+          padding: 0 1.5rem 2.5rem 1.5rem;
+        }
+
+        .service-hero-title {
+          font-size: var(--small-mobile-hero-title-font-size, 2.5rem);
+        }
+
+        .service-hero-subtitle {
+          font-size: var(--small-mobile-hero-subtitle-font-size, 0.9rem);
+        }
+
+        .intro-container,
+        .success-container,
+        .cta-container,
+        .benefits-container {
+          padding: 0 1rem;
+        }
+
+        .intro-text {
+          font-size: var(--mobile-intro-text-font-size, 1rem);
+        }
+
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefit-item {
+          padding: 1.5rem;
+          border-right: none !important;
+        }
+
+        .benefit-item:not(:last-child) {
+          border-bottom: 1px solid #e9ecef;
+        }
+
+        .card-image {
+          height: 180px;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      .service-hero-content > * {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      .service-hero-subtitle {
+        animation-delay: 0.2s;
+      }
+
+      .service-hero-title {
+        animation-delay: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Service Detail Hero Section -->
+    <section class="service-hero">
+      <img src="" alt="" class="service-hero-image" id="heroImage" />
+      <div class="service-hero-overlay"></div>
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="#" onclick="navigateToWixPage(BREADCRUMB_PARENT_LINK)">
+          <script>
+            document.write(BREADCRUMB_PARENT_TEXT);
+          </script>
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">
+          <script>
+            document.write(BREADCRUMB_CURRENT_TEXT);
+          </script>
+        </span>
+      </nav>
+
+      <div class="service-hero-content">
+        <div class="service-hero-subtitle">
+          <script>
+            document.write(HERO_SUBTITLE);
+          </script>
+        </div>
+        <h1 class="service-hero-title">
+          <script>
+            document.write(HERO_TITLE);
+          </script>
+        </h1>
+      </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+      <div class="intro-container">
+        <p class="intro-text">
+          <script>
+            document.write(INTRO_TEXT);
+          </script>
+        </p>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="benefits-container">
+        <div class="benefits-header">
+          <h2 class="benefits-title">
+            <script>
+              document.write(BENEFITS_SECTION_TITLE);
+            </script>
+          </h2>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <h3 class="benefit-item-title">
+              <script>
+                document.write(BENEFIT_1_TITLE);
+              </script>
+            </h3>
+            <p class="benefit-item-desc">
+              <script>
+                document.write(BENEFIT_1_DESC);
+              </script>
+            </p>
+          </div>
+          <div class="benefit-item">
+            <h3 class="benefit-item-title">
+              <script>
+                document.write(BENEFIT_2_TITLE);
+              </script>
+            </h3>
+            <p class="benefit-item-desc">
+              <script>
+                document.write(BENEFIT_2_DESC);
+              </script>
+            </p>
+          </div>
+          <div class="benefit-item">
+            <h3 class="benefit-item-title">
+              <script>
+                document.write(BENEFIT_3_TITLE);
+              </script>
+            </h3>
+            <p class="benefit-item-desc">
+              <script>
+                document.write(BENEFIT_3_DESC);
+              </script>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-section">
+      <div class="success-header">
+        <h2 class="success-title">
+          <script>
+            document.write(SUCCESS_SECTION_TITLE);
+          </script>
+        </h2>
+      </div>
+      <div class="success-container">
+        <div class="success-cards">
+          <div class="success-card">
+            <div class="card-image" id="successCard1Image">
+              <h3 class="card-overlay-text">
+                <script>
+                  document.write(SUCCESS_CARD_1_TITLE);
+                </script>
+              </h3>
+            </div>
+            <div class="card-content">
+              <p class="card-desc">
+                <script>
+                  document.write(SUCCESS_CARD_1_DESC);
+                </script>
+              </p>
+            </div>
+          </div>
+
+          <div class="success-card">
+            <div class="card-image" id="successCard2Image">
+              <h3 class="card-overlay-text">
+                <script>
+                  document.write(SUCCESS_CARD_2_TITLE);
+                </script>
+              </h3>
+            </div>
+            <div class="card-content">
+              <p class="card-desc">
+                <script>
+                  document.write(SUCCESS_CARD_2_DESC);
+                </script>
+              </p>
+            </div>
+          </div>
+
+          <div class="success-card">
+            <div class="card-image" id="successCard3Image">
+              <h3 class="card-overlay-text">
+                <script>
+                  document.write(SUCCESS_CARD_3_TITLE);
+                </script>
+              </h3>
+            </div>
+            <div class="card-content">
+              <p class="card-desc">
+                <script>
+                  document.write(SUCCESS_CARD_3_DESC);
+                </script>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <p class="cta-text">
+          <script>
+            document.write(CTA_TEXT);
+          </script>
+          <span class="cta-link" onclick="openChat(CTA_OPENING_MESSAGE)">
+            <script>
+              document.write(CTA_LINK_TEXT);
+            </script>
+          </span>
+        </p>
+      </div>
+    </section>
+
+    <script>
+      function navigateToWixPage(pagePath) {
+        window.top.location.href = WEBSITE_URL + pagePath;
+      }
+
+      function openChat(message) {
+        const payload = {
+          type: "OPEN_CHAT",
+        };
+
+        if (message) {
+          payload.message = message;
+        }
+
+        window.parent.postMessage(payload, "*");
+      }
+
+      // ==========================================
+      // APPLY VARIABLES TO DOM
+      // ==========================================
+      document.getElementById("heroImage").src = HERO_BACKGROUND_IMAGE;
+      document.getElementById("heroImage").alt = HERO_IMAGE_ALT;
+
+      // Success card images
+      document.getElementById("successCard1Image").style.backgroundImage = `url("${SUCCESS_CARD_1_IMAGE}")`;
+      document.getElementById("successCard2Image").style.backgroundImage = `url("${SUCCESS_CARD_2_IMAGE}")`;
+      document.getElementById("successCard3Image").style.backgroundImage = `url("${SUCCESS_CARD_3_IMAGE}")`;
+
+      // ==========================================
+      // APPLY CSS VARIABLES
+      // ==========================================
+      document.documentElement.style.setProperty("--hero-subtitle-font-size", HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-subtitle-font-size", MOBILE_HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-title-font-size", MOBILE_HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--small-mobile-hero-subtitle-font-size", SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--small-mobile-hero-title-font-size", SMALL_MOBILE_HERO_TITLE_FONT_SIZE);
+
+      // Section variables
+      document.documentElement.style.setProperty("--intro-background", INTRO_BACKGROUND);
+      document.documentElement.style.setProperty("--benefits-background", BENEFITS_BACKGROUND);
+      document.documentElement.style.setProperty("--success-background", SUCCESS_BACKGROUND);
+      document.documentElement.style.setProperty("--cta-background-start", CTA_BACKGROUND_START);
+      document.documentElement.style.setProperty("--cta-background-end", CTA_BACKGROUND_END);
+
+      // Font size variables
+      document.documentElement.style.setProperty("--section-title-font-size", SECTION_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--intro-text-font-size", INTRO_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--benefit-title-font-size", BENEFIT_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--benefit-desc-font-size", BENEFIT_DESC_FONT_SIZE);
+      document.documentElement.style.setProperty("--success-card-title-font-size", SUCCESS_CARD_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--success-card-desc-font-size", SUCCESS_CARD_DESC_FONT_SIZE);
+      document.documentElement.style.setProperty("--cta-text-font-size", CTA_TEXT_FONT_SIZE);
+
+      // Mobile font size variables
+      document.documentElement.style.setProperty("--mobile-section-title-font-size", MOBILE_SECTION_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-intro-text-font-size", MOBILE_INTRO_TEXT_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-benefit-title-font-size", MOBILE_BENEFIT_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-benefit-desc-font-size", MOBILE_BENEFIT_DESC_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-success-card-title-font-size", MOBILE_SUCCESS_CARD_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-success-card-desc-font-size", MOBILE_SUCCESS_CARD_DESC_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-cta-text-font-size", MOBILE_CTA_TEXT_FONT_SIZE);
+    </script>
+  </body>
+</html>
