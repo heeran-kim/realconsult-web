@@ -1,0 +1,91 @@
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener("message", function (event) {
+      if (event.data && event.data.type === "OPEN_CALENDAR_MODAL") {
+        openCalendarModal();
+      }
+    });
+
+    function openCalendarModal() {
+      console.log("Opening calendar modal...");
+
+      const existing = document.getElementById("calendar-modal-overlay");
+      if (existing) {
+        existing.remove();
+      }
+
+      const modal = document.createElement("div");
+      modal.id = "calendar-modal-overlay";
+      modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        `;
+
+      modal.innerHTML = `
+            <div style="
+                background: white;
+                border-radius: 10px;
+                padding: 20px;
+                width: 90%;
+                max-width: 600px;
+                max-height: 80%;
+                position: relative;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            ">
+                <button onclick="closeCalendarModal()" style="
+                    position: absolute;
+                    top: 10px;
+                    right: 15px;
+                    background: none;
+                    border: none;
+                    font-size: 24px;
+                    cursor: pointer;
+                    color: #666;
+                ">×</button>
+                
+                <h3 style="margin-top: 0; margin-bottom: 15px; color: #333;">Choose Your Consultation Time</h3>
+                <iframe src="https://real-consult.com.au/booking" 
+                        width="100%" 
+                        height="500px"
+                        style="border: none; border-radius: 5px;">
+                </iframe>
+            </div>
+        `;
+
+      document.body.appendChild(modal);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeCalendarModal();
+        }
+      });
+    }
+
+    function closeCalendarModal() {
+      console.log("Closing calendar modal...");
+      const modal = document.getElementById("calendar-modal-overlay");
+      if (modal) {
+        modal.remove();
+      }
+    }
+
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.id === "calendar-modal-overlay") {
+        closeCalendarModal();
+      }
+    });
+
+    window.openCalendarModal = openCalendarModal;
+    window.closeCalendarModal = closeCalendarModal;
+
+    console.log("✅ Calendar modal system initialized");
+  });
+</script>

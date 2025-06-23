@@ -1,0 +1,367 @@
+<link href="https://cdn.jsdelivr.net/npm/air-datepicker@3.4.0/air-datepicker.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.4.0/air-datepicker.js"></script>
+
+<style>
+  .booking-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .booking-modal.show {
+    display: flex;
+  }
+
+  .booking-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 420px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #999;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .close-btn:hover {
+    background: #f5f5f5;
+    color: #666;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    color: #333;
+  }
+
+  .time-section {
+    margin-top: 1.5rem;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .time-section.show {
+    display: block;
+  }
+
+  .time-label {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .time-slot {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    transition: all 0.2s ease;
+    background: white;
+  }
+
+  .time-slot:hover {
+    border-color: #1a2332;
+    color: #1a2332;
+    background: #f8f9fa;
+  }
+
+  .time-slot.selected {
+    background: #1a2332;
+    color: white;
+    border-color: #1a2332;
+  }
+
+  .confirm-btn {
+    background: #1a2332;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .confirm-btn:hover:not(:disabled) {
+    background: #2c3e50;
+  }
+
+  .confirm-btn:disabled {
+    background: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+  }
+
+  .air-datepicker {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .air-datepicker-nav {
+    justify-content: center !important;
+  }
+
+  .air-datepicker-cell.-selected- {
+    background: #1a2332 !important;
+    color: white !important;
+  }
+
+  .air-datepicker-cell.-focus- {
+    background: #f0f8ff !important;
+  }
+
+  @media (max-width: 480px) {
+    .booking-content {
+      padding: 1.5rem;
+      max-width: 350px;
+    }
+
+    .time-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<div id="bookingModal" class="booking-modal">
+  <div class="booking-content">
+    <button class="close-btn" onclick="closeBooking()">&times;</button>
+    <h3 class="modal-title">Book Your Consultation</h3>
+
+    <div id="calendar"></div>
+
+    <div class="time-section" id="timeSection">
+      <div class="time-label">Available Times</div>
+      <div class="time-grid" id="timeGrid"></div>
+    </div>
+
+    <button class="confirm-btn" id="confirmBtn" onclick="confirmBooking()" disabled>Confirm Booking</button>
+  </div>
+</div>
+
+<script>
+  function getLocalDateString(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  async function getAvailableSlots() {
+    try {
+      const data = findWixBookingData();
+      return data.bookingData || {};
+    } catch (error) {
+      console.error("Failed to read booking data:", error);
+      return null;
+    }
+  }
+
+  function findWixBookingData() {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith("platform_app_")) {
+        const data = JSON.parse(localStorage.getItem(key));
+        if (data.globalBookingData && data.isDataReady) {
+          return {
+            bookingData: JSON.parse(data.globalBookingData),
+            isReady: data.isDataReady === "true",
+          };
+        }
+      }
+    }
+    return null;
+  }
+
+  let selectedDate = null;
+  let selectedTime = null;
+  let calendar = null;
+  let availabilityData = {};
+
+  // Listen for booking modal trigger
+  window.addEventListener("message", function (event) {
+    if (event.data.type === "OPEN_CALENDAR_MODAL") {
+      openBookingModal();
+    }
+  });
+
+  async function openBookingModal() {
+    document.getElementById("bookingModal").classList.add("show");
+    document.getElementById("calendar").innerHTML = '<div style="text-align: center; padding: 2rem; color: #666;">Loading available dates...</div>';
+
+    try {
+      availabilityData = await getAvailableSlots();
+      initializeCalendar();
+    } catch (error) {
+      console.error("Failed to load availability:", error);
+      document.getElementById("calendar").innerHTML =
+        '<div style="text-align: center; padding: 2rem; color: #ff6b6b;">Failed to load available dates. Please try again.</div>';
+    }
+  }
+
+  function initializeCalendar() {
+    const calendarElement = document.getElementById("calendar");
+    if (calendar) {
+      calendar.destroy();
+    }
+    calendarElement.innerHTML = "";
+
+    calendar = new AirDatepicker("#calendar", {
+      inline: true,
+      minDate: new Date(),
+      locale: {
+        days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        today: "Today",
+        clear: "Clear",
+        dateFormat: "MM/dd/yyyy",
+        timeFormat: "hh:mm aa",
+        firstDay: 1,
+      },
+      onSelect({ date, formattedDate }) {
+        if (date) {
+          const dateStr = getLocalDateString(date);
+          selectDate(dateStr);
+        }
+      },
+      onRenderCell({ date, cellType }) {
+        if (cellType === "day") {
+          const dateStr = getLocalDateString(date);
+          const hasSlots = availabilityData[dateStr] && availabilityData[dateStr].length > 0;
+
+          if (!hasSlots) {
+            return {
+              disabled: true,
+            };
+          }
+        }
+      },
+    });
+  }
+
+  function closeBooking() {
+    document.getElementById("bookingModal").classList.remove("show");
+    if (calendar) {
+      calendar.destroy();
+      calendar = null;
+    }
+    selectedDate = null;
+    selectedTime = null;
+    document.getElementById("timeSection").classList.remove("show");
+    document.getElementById("confirmBtn").disabled = true;
+    document.querySelectorAll(".time-slot.selected").forEach((el) => {
+      el.classList.remove("selected");
+    });
+  }
+
+  function selectDate(dateStr) {
+    selectedDate = dateStr;
+    selectedTime = null;
+
+    const timeSection = document.getElementById("timeSection");
+    const timeGrid = document.getElementById("timeGrid");
+    const times = availabilityData[dateStr] || [];
+
+    if (times.length > 0) {
+      let html = "";
+      times.forEach((time) => {
+        html += `<div class="time-slot" onclick="selectTime('${time}')">${formatTime(time)}</div>`;
+      });
+
+      timeGrid.innerHTML = html;
+      timeSection.classList.add("show");
+    } else {
+      timeSection.classList.remove("show");
+    }
+
+    document.getElementById("confirmBtn").disabled = true;
+  }
+
+  function selectTime(time) {
+    document.querySelectorAll(".time-slot.selected").forEach((el) => {
+      el.classList.remove("selected");
+    });
+
+    const timeSlot = document.querySelector(`[onclick="selectTime('${time}')"]`);
+    if (timeSlot) {
+      timeSlot.classList.add("selected");
+    }
+
+    selectedTime = time;
+    document.getElementById("confirmBtn").disabled = false;
+  }
+
+  function formatTime(time) {
+    if (!time) return "";
+
+    const [hours, minutes] = time.split(":");
+    const hour12 = hours % 12 || 12;
+    const ampm = hours >= 12 ? "PM" : "AM";
+    return `${hour12}:${minutes} ${ampm}`;
+  }
+
+  function confirmBooking() {
+    if (!selectedDate || !selectedTime) {
+      alert("Please select both date and time");
+      return;
+    }
+
+    const message = `I want to schedule for [${selectedDate}] [${selectedTime}]`;
+    window.botpress.open();
+    window.botpress.sendMessage(message);
+
+    closeBooking();
+  }
+
+  // Close modal when clicking outside
+  document.getElementById("bookingModal").addEventListener("click", function (e) {
+    if (e.target === this) {
+      closeBooking();
+    }
+  });
+</script>

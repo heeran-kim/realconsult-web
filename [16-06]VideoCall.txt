@@ -1,0 +1,313 @@
+
+audio_2025-06-16_10-52-40.mp4 was uploaded using the Transcribe feature on OneNote for Win32.
+10:55 AM Monday, June 16, 2025
+Audio file
+audio_2025-06-16_10-52-40.mp4
+
+Transcript
+00:00:00 Speaker 1
+Could be something that you used to do the the the chatbot flow umm in the sense that if you choose a then then there might be other questions that we want to ask.
+00:00:12 Speaker 1
+Yeah. Which we haven't, you know, done at the moment. Yeah, but I'll build this one up as I go as we go, but at least give you some idea.
+00:00:19 Speaker 1
+What can be there?
+00:00:22 Speaker 2
+Alright, sounds good.
+00:00:24 Speaker 1
+Yeah. So the same thing of the AI readiness questions, we're still standardising what we want to to do it on the readiness, but so we need to learn more as a page about what does it mean by AI readiness obviously or business AI readiness. Same thing as project management and project Corporal.
+00:00:45 Speaker 1
+Corporation. So I think content wise in terms of what should be on the on the learn more page throughout the week, I'll start building this up for you. But meanwhile, while it's not there, just use the placeholder or just just use some of this text if the formatting are not too.
+00:01:05 Speaker 1
+Troublesome.
+00:01:07 Speaker 1
+But definitely the questions is that would be a good take for you know your custom checkpoint for the.
+00:01:12 Speaker 2
+Oh.
+00:01:17 Speaker 1
+Yeah. And then think about also whether we can or we can't engage the using open AI.
+00:01:25 Speaker 1
+To do a bit more.
+00:01:26 Speaker 1
+Of suggest where we can actually.
+00:01:30 Speaker 1
+Tap out to open AI to get any surges in there.
+00:01:38 Speaker 1
+Oh.
+00:01:40 Speaker 1
+To actually regret the answer, but yeah, but that's.
+00:01:45 Speaker 1
+We'll cross that bridge when you actually get down to that and we'll have a little bit more discussion.
+00:01:50 Speaker 2
+Alright.
+00:01:51 Speaker 1
+Yeah, but at least I'll give you a little bit of more information on what could be the questions and things that we're looking into.
+00:02:00 Speaker 1
+And that these are just refinement that we need to continue to do. We've got this already, but we just need to have a few more. Mm-hmm. I'm gonna talk about those, but it doesn't stop.
+00:02:11 Speaker 1
+You stop your project in that sense because once we know once we once you know roughly what it is, once you even even you've implemented as is and then we want to change, we know exactly where to change.
+00:02:13 Speaker 2
+Give me.
+00:02:23 Speaker 2
+Yeah, correct.
+00:02:25 Speaker 1
+Story that would be fantastic. And then once that once done, we tested this one for what we want. And so the concept then we can actually move on to the Elks project because it's fairly similar.
+00:02:38 Speaker 1
+Yeah, the business assessment one where we have on the else project we.
+00:02:45 Speaker 1
+We've got a few.
+00:02:47 Speaker 1
+Uh.
+00:02:51 Speaker 1
+We got a few pages, but 10 pages of questions from the HR corporate perspective.
+00:02:59 Speaker 1
+That we need to sort like, discuss and see what's the best way.
+00:03:03
+Hmm.
+00:03:04 Speaker 1
+So I'll put more information for that particular one. Once you guys got through this.
+00:03:09 Speaker 1
+To a point of working, so we don't expect you to be completely.
+00:03:16 Speaker 1
+Got that through to perfect for us. It's more just getting all the information, getting all the shells. So that then all the details that we need to do afterwards, then we can actually modify those.
+00:03:29 Speaker 1
+Yeah. So unfortunately it is still Wix hosting it. We don't want to change it at this point, but if you say that you can actually still switch over.
+00:03:35 Speaker 1
+To code base and that's great.
+00:03:37 Speaker 2
+Yeah, that works.
+00:03:42 Speaker 1
+So if you don't mind just clipping up because because of the limited access at the moment I don't have access to weeks, that's why I need you to post a code up here for me.
+00:03:57 Speaker 2
+Here or on the regional?
+00:04:02 Speaker 1
+Because of the collaborator.
+00:04:03 Speaker 2
+Yeah.
+00:04:04 Speaker 1
+There's only a limited there's there's only a limited numbers of people that can go in there to see on the design. So I have relinquished my access to actually make sure both of you can go in.
+00:04:15 Speaker 1
+There you and Daniel.
+00:04:16 Speaker 2
+Yeah.
+00:04:17 Speaker 1
+So that's why I need you to copy the code out to the design journal so that I can.
+00:04:24 Speaker 1
+Have a quick look.
+00:04:24 Speaker 2
+OK. Yeah, I'll copy and paste my code to the design journal.
+00:04:29 Speaker 1
+Yeah. Thanks.
+00:04:31 Speaker 1
+Just to make sure that if if, if there's anything in there I thought ohh that probably could, you know change or can we add is it possible there at least we're not demanding something that code can't can't handle that's all.
+00:04:34 Speaker 2
+OK.
+00:04:49 Speaker 1
+So that's fantastic.
+00:04:51 Speaker 1
+OK. That's fantastic. That's a very. Are you enjoying doing this?
+00:04:58 Speaker 2
+I think it's a new platform and yeah, it's quite interesting.
+00:05:03 Speaker 1
+Yeah, yeah. Something that you don't have it on your list just yet.
+00:05:08 Speaker 2
+Yeah.
+00:05:08 Speaker 1
+But that's something that you can do.
+00:05:10 Speaker 1
+Yeah, that's great.
+00:05:12 Speaker 1
+But I think will be more interesting when I start.
+00:05:14 Speaker 1
+Doing the chat bot bit.
+00:05:14 Speaker 2
+Yeah, OK. Yeah, sure.
+00:05:17 Speaker 1
+Yeah, because because that's what everyone else is out there are trying to do. And I think a lot of the checkpoints.
+00:05:23 Speaker 1
+Out there are not very mature at all.
+00:05:24 Speaker 2
+Yeah.
+00:05:26 Speaker 1
+And trying to try and I think uh, I'm really interested in see how you designed in the chatbot and what you 2 come up with.
+00:05:33 Speaker 1
+In terms of saving, training and making sure that you know some of the information that we're retained, some of the information we might be able to go to open AI and grab information.
+00:05:43 Speaker 1
+So think about those.
+00:05:49 Speaker 1
+Daniel.
+00:05:53 Speaker 3
+Yeah.
+00:05:57 Speaker 1
+Because he was just on Monday and I said 10:00, OK, he said yes.
+00:06:00 Speaker 3
+Speaking.
+00:06:03 Speaker 1
+Must be too cold.
+00:06:08 Speaker 1
+How do you find working with Daniel at the moment with this? Is he coming up with some work or you're doing most of the work?
+00:06:16 Speaker 2
+No, we separate it. We divide it over work. And so he researched the Chapel part and I researched about the design redesign part.
+00:06:26 Speaker 1
+Right. OK, great. Alright. So which part is actually at the moment on the journal which part is actually dead?
+00:06:35
+When you're done.
+00:06:36 Speaker 2
+I think chequebook port. Yeah, I did.
+00:06:42 Speaker 2
+Only the website design and use improvement part so.
+00:06:47 Speaker 2
+Start that.
+00:06:47 Speaker 1
+All right, so the technology research area is from it's from Daniel, right?
+00:06:53 Speaker 1
+OK.
+00:06:57 Speaker 1
+Alright, great. OK, maybe we'll, I'll in that case. Thank you for your time. That's good. If you don't mind, keep going with with the design and.
+00:07:09 Speaker 1
+Improve those like the suggestion. What do you think, Charles? I think that's really nice.
+00:07:16 Speaker 3
+Yes, it's fantastic. At least we have option and also I think here in a very deep research regarding our website and also have a lot of suggestion. I think it's you know in a in a good progress. Yeah. Thank you. Thank you. Yeah.
+00:07:35 Speaker 1
+Yeah. No, it's all good.
+00:07:37 Speaker 1
+So yeah, I think you chose the right pictures too.
+00:07:41 Speaker 1
+Yeah, really good. Well done, yeah.
+00:07:50 Speaker 1
+Yeah, and and the, yeah, the the footer.
+00:07:53 Speaker 1
+I like that. That's all good.
+00:07:55 Speaker 2
+Thank you.
+00:07:57 Speaker 1
+Yeah. No, that's fantastic. Let's do that. Let's, let's go with your design. So just Polish that one off and then all the the linkages and stuff, and then you might need to go and work with the a bit more or with the.
+00:08:16 Speaker 1
+Talk to Daniel about the chequebook flow design and all this, and look at the the the information in there and if you have.
+00:08:22 Speaker 1
+Anything.
+00:08:24 Speaker 1
+Let us know when would you like to catch up again.
+00:08:29 Speaker 1
+You want to talk to us about it and just give us a once, once you talk to Daniel.
+00:08:37
+There.
+00:08:37 Speaker 1
+Yeah.
+00:08:39 Speaker 1
+OK. No, that's fantastic. Yeah. So I'm really interested once you can as you get her hand on doing the the chat. But when I think that with.
+00:08:46 Speaker 1
+That we'll probably.
+00:08:47 Speaker 1
+Need a little bit more.
+00:08:48 Speaker 1
+Uh.
+00:08:51 Speaker 1
+Uh conversations. Once you have, uh, a prototype going.
+00:08:55 Speaker 2
+Yeah.
+00:08:55 Speaker 1
+Yeah. So either way, with his the potential choices, think about which one that you would like to try best.
+00:09:11 Speaker 1
+Yeah. And just some, yeah, probably I want to say maybe check with each of the one and see which one is easier to.
+00:09:20 Speaker 1
+To do.
+00:09:24 Speaker 1
+And give us an example for those because they're he has that. He said that there is 2 potential option. One is the native app extension.
+00:09:30 Speaker 2
+Uh, yeah, yeah.
+00:09:32 Speaker 1
+In and the AI side chat, yeah, maybe. Maybe we can deploy the other one, which is the simple one that is within the website thing for chat. And then maybe try the other one that we we need to do more in depth.
+00:09:51 Speaker 1
+Because there's if you can actually get into more history and additional history, AML and websites where.
+00:09:57 Speaker 1
+Is maybe the the the checkbox the native checkbox can't handle the complex question there.
+00:10:07 Speaker 1
+Maybe.
+00:10:07 Speaker 1
+The the custom one that you believe you you you know we built or you built we've run it back end would actually be more beneficial.
+00:10:11
+Yeah, yeah.
+00:10:17 Speaker 3
+Hmm.
+00:10:18 Speaker 1
+So then, because within the website you.
+00:10:20 Speaker 1
+Can switch which which?
+00:10:21 Speaker 1
+Checkbox it's going to be so yeah, maybe just have a look at that one in there to have a discussion and.
+00:10:23 Speaker 2
+Yeah, I think so, yeah.
+00:10:35 Speaker 1
+Then try both and see the actual limitation when using one. Pick one of the.
+00:10:44 Speaker 1
+The section to do.
+00:10:47 Speaker 1
+Umm, maybe 1 section using one one days and you know I don't know you guys you guys decide which one is best to just stretch the yeah.
+00:10:56 Speaker 2
+Yeah, yeah.
+00:10:56 Speaker 1
+The limitation.
+00:10:59 Speaker 1
+Something it is fun to to look at. I'm going to get in there later. I'm. I'm playing with the WordPress one at the moment for the else project.
+00:11:11 Speaker 1
+So doing other doing event management. So that's the next step. Once the the chat bot ones going, we'll probably add a page on event.
+00:11:15 Speaker 3
+Yeah.
+00:11:23 Speaker 1
+Like online courses or online.
+00:11:24 Speaker 3
+OK.
+00:11:30 Speaker 1
+Talk about that one. I'll talk to Charles about what we're going to do with the with the online meeting or online training things where about that would be, I'll put the information in there. Then you can modify the front page should actually have that in there as well, because we probably would be able to offer that.
+00:11:52 Speaker 1
+To make it a bit bit more automated with the information.
+00:11:58 Speaker 1
+But yeah, but meanwhile things are fine.
+00:12:06 Speaker 1
+OK. Well, thanks for that.
+00:12:09 Speaker 3
+Thank you.
+00:12:12 Speaker 1
+So the next time we check, let us know on teams. I use this channel, do a post up there, don't do private chat if you're gonna do chat. If you're gonna use chat, make sure that you know all four bars are are on the same.
+00:12:28 Speaker 1
+Channel.
+00:12:28 Speaker 2
+Ah yeah.
+00:12:29 Speaker 1
+Yeah. Otherwise do a post, do a post will be fine.
+00:12:32 Speaker 1
+And just post it up here to ask questions and do things and all of us get notified. Yes. Yeah. Then yeah, if you do, just check, it will be individual between you and me. And Charles won't say unless you add him in.
+00:12:32
+Yeah.
+00:12:45
+MHM.
+00:12:47 Speaker 1
+Yeah.
+00:12:48 Speaker 1
+So I think the post using the pose would.
+00:12:51 Speaker 1
+Be OK.
+00:12:52 Speaker 2
+Yeah. OK, I'll do that.
+00:12:54 Speaker 1
+Yeah. Keep everything in one place. Yeah. One place and then any files up there. That would be great.
+00:12:58 Speaker 3
+Yeah.
+00:13:01 Speaker 1
+Thank you.
+00:13:03 Speaker 2
+OK. Thank you. Thank you. And yeah, thank you.
+00:13:04 Speaker 1
+Not looking forward to it.
+00:13:10 Speaker 1
+Thanks for the help and yeah. So we'll talk to you guys when you let us know roughly when either do you want another meeting this week or?
+00:13:18 Speaker 1
+Next week.
+00:13:19 Speaker 2
+Alright.
+00:13:20 Speaker 1
+Great.
+00:13:22 Speaker 1
+Yeah, thanks. Thank you.
+00:13:29 Speaker 2
+Bye bye.
