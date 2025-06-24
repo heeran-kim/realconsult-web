@@ -189,6 +189,18 @@
     return `${year}-${month}-${day}`;
   }
 
+  function sendToIframes(message) {
+    const iframes = document.querySelectorAll("iframe");
+
+    iframes.forEach((iframe) => {
+      try {
+        iframe.contentWindow.postMessage(message, "*");
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    });
+  }
+
   async function getAvailableSlots() {
     try {
       const data = findWixBookingData();
@@ -220,10 +232,30 @@
   let calendar = null;
   let availabilityData = {};
 
-  // Listen for booking modal trigger
-  window.addEventListener("message", function (event) {
-    if (event.data.type === "OPEN_CALENDAR_MODAL") {
+  window.botpress.on("message", async function (data) {
+    const text = data.block.block.text;
+
+    if (text === "📅 View Available Slots") {
       openBookingModal();
+    }
+
+    if (text.includes("I want to schedule for")) {
+      const user = await window.botpress.getUser();
+
+      const text = data.block.block.text;
+      const dateMatch = text.match(/\[(\d{4}-\d{2}-\d{2})\]/);
+      const timeMatch = text.match(/\[(\d{2}:\d{2})\]/);
+
+      sendToIframes({
+        type: "CREATE_BOOKING",
+        data: {
+          name: user.name,
+          email: user.data.email,
+          date: dateMatch[1],
+          time: timeMatch[1],
+          message: user.data.message || "",
+        },
+      });
     }
   });
 

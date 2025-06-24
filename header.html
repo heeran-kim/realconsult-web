@@ -3,8 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Header - Real Consult</title>
+    <title>Real Consult Header</title>
+    <script>
+      // ==========================================
+      // CLIENT CUSTOMIZATION VARIABLES
+      // ==========================================
+
+      // WEBSITE SETTINGS
+      const WEBSITE_URL = "https://real-consult.com.au";
+      const COMPANY_NAME = "REAL CONSULT";
+      const COMPANY_TAGLINE = "Realistic • Efficient • Agile • Lean";
+
+      // NAVIGATION MENU ARRAY
+      const NAVIGATION_ITEMS = [
+        {
+          text: "Home",
+          link: "/",
+        },
+        {
+          text: "About Us",
+          link: "/about",
+        },
+        {
+          text: "Our Services",
+          link: "/services",
+        },
+        {
+          text: "Insights",
+          link: "/insights",
+        },
+        {
+          text: "Contact",
+          link: "/contact",
+        },
+        {
+          text: "💬 Chat Now",
+          link: "#",
+          action: "openChat()",
+        },
+      ];
+
+      // COLORS & BRANDING
+      const PRIMARY_COLOR = "#1a2332";
+      const SECONDARY_COLOR = "#2c3e50";
+    </script>
     <style>
+      /* Force iframe to fit content */
       html,
       body {
         width: 100% !important;
@@ -13,6 +57,8 @@
         box-sizing: border-box;
       }
 
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
+
       * {
         margin: 0;
         padding: 0;
@@ -20,7 +66,6 @@
       }
 
       body {
-        background: var(--text-color);
         font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
         margin: 0;
         padding: 0;
@@ -29,12 +74,14 @@
 
       /* Header */
       .header {
+        background: white;
         backdrop-filter: blur(20px);
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
         position: relative;
         width: 100%;
         z-index: 1000;
         padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         transition: all 0.3s ease;
       }
 
@@ -50,23 +97,26 @@
       .logo {
         font-size: 2rem;
         font-weight: 900;
-        color: var(--text-inverse-color);
+        color: #1a1a1a;
         font-family: "Playfair Display", serif;
         letter-spacing: -0.5px;
+        transition: color 0.3s ease;
         cursor: pointer;
-        text-align: center;
-        text-transform: uppercase;
+      }
+
+      .logo:hover {
+        color: var(--secondary-color);
       }
 
       .logo-subtitle {
         font-size: 0.75rem;
-        color: var(--text-inverse-color);
-        opacity: 0.7;
+        color: #666;
         font-weight: 400;
         margin-top: 0.2rem;
         font-family: "Avenir", sans-serif;
         letter-spacing: 0.5px;
         text-transform: uppercase;
+        transition: color 0.3s ease;
       }
 
       .nav-menu {
@@ -78,7 +128,7 @@
 
       .nav-menu a {
         text-decoration: none;
-        color: var(--text-inverse-color);
+        color: #333;
         font-weight: 300;
         transition: color 0.3s ease;
         font-size: 1rem;
@@ -88,7 +138,7 @@
       }
 
       .nav-menu a:hover {
-        color: var(--light-color);
+        color: var(--secondary-color);
       }
 
       .nav-menu a:not(.chat-btn):hover::after {
@@ -102,14 +152,13 @@
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--light-color) 100%);
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
         transition: width 0.3s ease;
       }
 
       .chat-btn {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--light-color) 100%);
-        color: var(--text-color) !important;
-        font-weight: 400 !important;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: white !important;
         padding: 0.6rem 1.2rem;
         border-radius: 30px;
         transition: all 0.3s ease;
@@ -117,10 +166,9 @@
       }
 
       .chat-btn:hover {
-        background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
-        color: var(--text-color) !important;
-        font-weight: 400 !important;
+        background: linear-gradient(135deg, #243447 0%, #34495e 100%);
         transform: translateY(-2px);
+        color: white !important;
       }
 
       /* Responsive */
@@ -168,33 +216,22 @@
     <header class="header">
       <div class="nav-container">
         <div class="logo" onclick="navigateToWixPage('/')">
-          <span id="companyName"></span>
-          <div class="logo-subtitle" id="companyTagline"></div>
+          <script>
+            document.write(COMPANY_NAME);
+          </script>
+          <div class="logo-subtitle">
+            <script>
+              document.write(COMPANY_TAGLINE);
+            </script>
+          </div>
         </div>
-        <ul class="nav-menu" id="navMenu"></ul>
+        <ul class="nav-menu" id="navMenu">
+          <!-- Navigation items will be dynamically generated -->
+        </ul>
       </div>
     </header>
 
     <script>
-      let WEBSITE_URL;
-
-      window.addEventListener("message", function (event) {
-        if (event.data.type === "header_data") {
-          generateNavigationHTML(event.data.message.navigationItems);
-
-          const colors = event.data.message.globalSettings.colors;
-          WEBSITE_URL = event.data.message.globalSettings.websiteUrl;
-
-          document.getElementById("companyName").innerText = event.data.message.globalSettings.companyName;
-          document.getElementById("companyTagline").innerText = event.data.message.globalSettings.companyTagline;
-          document.documentElement.style.setProperty("--primary-color", colors.main);
-          document.documentElement.style.setProperty("--light-color", colors.light);
-          document.documentElement.style.setProperty("--dark-color", colors.dark);
-          document.documentElement.style.setProperty("--text-color", colors.text);
-          document.documentElement.style.setProperty("--text-inverse-color", colors.textInverse);
-        }
-      });
-
       function navigateToWixPage(pagePath) {
         window.top.location.href = WEBSITE_URL + pagePath;
       }
@@ -211,11 +248,11 @@
         window.parent.postMessage(payload, "*");
       }
 
-      function generateNavigationHTML(items) {
+      function generateNavigationHTML() {
         const navMenu = document.getElementById("navMenu");
         let navHTML = "";
 
-        items.forEach((item) => {
+        NAVIGATION_ITEMS.forEach((item) => {
           if (item.action) {
             navHTML += `
         <li>
@@ -237,6 +274,27 @@
 
         navMenu.innerHTML = navHTML;
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        generateNavigationHTML();
+      });
+
+      window.addEventListener("message", function (event) {
+        if (event.data.type === "CREATE_BOOKING") {
+          window.parent.postMessage(
+            {
+              type: "CREATE_BOOKING",
+              data: event.data.data,
+            },
+            "*"
+          );
+        }
+      });
+      // ==========================================
+      // APPLY CSS VARIABLES
+      // ==========================================
+      document.documentElement.style.setProperty("--primary-color", PRIMARY_COLOR);
+      document.documentElement.style.setProperty("--secondary-color", SECONDARY_COLOR);
     </script>
   </body>
 </html>
