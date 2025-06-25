@@ -91,7 +91,7 @@
         padding: 0 2rem;
       }
 
-      .logo {
+      .logo-main {
         font-size: 2rem;
         font-weight: 900;
         color: #1a1a1a;
@@ -99,10 +99,6 @@
         letter-spacing: -0.5px;
         transition: color 0.3s ease;
         cursor: pointer;
-      }
-
-      .logo:hover {
-        color: var(--secondary-color);
       }
 
       .logo-subtitle {
@@ -177,7 +173,7 @@
       }
 
       @media (max-width: 980px) {
-        .logo {
+        .logo-main {
           font-size: 1.5rem;
         }
 
@@ -199,7 +195,7 @@
           display: none;
         }
 
-        .logo {
+        .logo-main {
           font-size: 1.3rem;
         }
 
@@ -212,19 +208,11 @@
   <body>
     <header class="header">
       <div class="nav-container">
-        <div class="logo" onclick="navigateToWixPage('/')">
-          <script>
-            document.write(COMPANY_NAME);
-          </script>
-          <div class="logo-subtitle">
-            <script>
-              document.write(COMPANY_TAGLINE);
-            </script>
-          </div>
+        <div onclick="navigateToWixPage('/')">
+          <div class="logo-main" id="logoMain"></div>
+          <div class="logo-subtitle" id="logoSubtitle"></div>
         </div>
-        <ul class="nav-menu" id="navMenu">
-          <!-- Navigation items will be dynamically generated -->
-        </ul>
+        <ul class="nav-menu" id="navMenu"></ul>
       </div>
     </header>
 
@@ -252,20 +240,20 @@
         NAVIGATION_ITEMS.forEach((item) => {
           if (item.action) {
             navHTML += `
-        <li>
-          <a href="${item.link}" class="chat-btn" onclick="${item.action}">
-            ${item.text}
-          </a>
-        </li>
-      `;
+              <li>
+                <a href="${item.link}" class="chat-btn" onclick="${item.action}">
+                  ${item.text}
+                </a>
+              </li>
+            `;
           } else {
             navHTML += `
-        <li>
-          <a href="#" onclick="navigateToWixPage('${item.link}')">
-            ${item.text}
-          </a>
-        </li>
-      `;
+              <li>
+                <a href="#" onclick="navigateToWixPage('${item.link}')">
+                  ${item.text}
+                </a>
+              </li>
+            `;
           }
         });
 
@@ -273,6 +261,9 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("logoMain").textContent = COMPANY_NAME;
+        document.getElementById("logoSubtitle").textContent = COMPANY_TAGLINE;
+
         generateNavigationHTML();
       });
 

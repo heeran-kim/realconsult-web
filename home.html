@@ -13,8 +13,8 @@
       const WEBSITE_URL = "https://real-consult.com.au";
 
       // HERO SECTION
-      const HERO_WELCOME_TEXT = "Welcome";
-      const HERO_TITLE = '"Get Real Results with REAL Consult"';
+      const HERO_SUBTITLE = "Welcome";
+      const HERO_MAIN_TITLE = "Get Real Results with REAL Consult";
       const HERO_BUTTON_TEXT = "💬 Chat with our virtual consultant now!";
       const HERO_BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80";
 
@@ -135,8 +135,8 @@
 
       // FONT SIZES
       // Hero Section Font Sizes
-      const HERO_WELCOME_FONT_SIZE = "1.3rem";
-      const HERO_TITLE_FONT_SIZE = "3.2rem";
+      const HERO_SUBTITLE_FONT_SIZE = "1.3rem";
+      const HERO_MAIN_TITLE_FONT_SIZE = "3rem";
       const HERO_VALUE_TITLE_FONT_SIZE = "1.6rem";
       const HERO_VALUE_DESC_FONT_SIZE = "1rem";
       const HERO_VALUE_LETTER_FONT_SIZE = "2.2rem";
@@ -164,8 +164,8 @@
       const CONTACT_ITEM_TEXT_FONT_SIZE = "1rem";
 
       // Mobile Font Sizes
-      const MOBILE_HERO_WELCOME_FONT_SIZE = "0.9rem";
-      const MOBILE_HERO_TITLE_FONT_SIZE = "1.8rem";
+      const MOBILE_HERO_SUBTITLE_FONT_SIZE = "0.9rem";
+      const MOBILE_HERO_MAIN_TITLE_FONT_SIZE = "1.8rem";
       const MOBILE_HERO_VALUE_LETTER_FONT_SIZE = "1.5rem";
       const MOBILE_HERO_BUTTON_FONT_SIZE = "0.9rem";
       const MOBILE_ABOUT_TITLE_FONT_SIZE = "2.2rem";
@@ -248,15 +248,15 @@
       }
 
       .hero-content {
-        max-width: 900px;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 3rem;
+        padding: 0 2rem;
         position: relative;
         z-index: 2;
       }
 
-      .hero-welcome {
-        font-size: var(--hero-welcome-font-size, 1.3rem);
+      .hero-subtitle {
+        font-size: var(--hero-subtitle-font-size, 1.3rem);
         margin-bottom: 1.2rem;
         font-family: "Avenir", sans-serif;
         font-weight: 300;
@@ -268,7 +268,9 @@
       }
 
       .hero h1 {
-        font-size: var(--hero-title-font-size, 3.2rem);
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: var(--hero-main-title-font-size, 3.2rem);
         margin-bottom: 3rem;
         font-weight: 700;
         font-family: "Playfair Display", serif;
@@ -283,19 +285,21 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
-        margin: 3rem 0;
+        margin: 3rem auto;
         max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
       }
 
       .hero-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 15px;
         padding: 1.5rem 1rem;
-        text-align: center;
         transition: all 0.4s ease;
         opacity: 0;
         transform: translateY(30px);
@@ -725,18 +729,19 @@
           font-size: var(--mobile-services-title-font-size, 2.2rem);
         }
 
-        .hero-welcome {
-          font-size: var(--mobile-hero-welcome-font-size, 0.9rem);
+        .hero-subtitle {
+          font-size: var(--mobile-hero-subtitle-font-size, 0.9rem);
         }
 
         .hero h1 {
-          font-size: var(--mobile-hero-title-font-size, 1.8rem);
+          font-size: var(--mobile-hero-main-title-font-size, 1.8rem);
         }
 
         .hero-cards {
           grid-template-columns: repeat(2, 1fr);
           gap: 0.8rem;
           max-width: 350px;
+          margin: 3rem auto;
         }
 
         .hero-card {
@@ -819,9 +824,15 @@
           padding-bottom: 40px;
         }
 
+        .hero-content {
+          padding: 0 1rem;
+        }
+
         .hero-cards {
           grid-template-columns: 1fr;
           gap: 1rem;
+          max-width: 200px;
+          margin: 3rem auto;
         }
 
         .hero-card-desc {
@@ -866,8 +877,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-        <div class="hero-welcome" id="heroWelcome"></div>
-        <h1 id="heroTitle"></h1>
+        <div class="hero-subtitle" id="heroSubtitle"></div>
+        <h1 id="heroMainTitle"></h1>
         <div class="hero-cards" id="heroCards"></div>
         <div class="hero-actions">
           <a id="heroButton" href="#" class="btn-hero-primary"></a>
@@ -971,15 +982,15 @@
           const restOfTitle = card.title.substring(1);
 
           cardsHTML += `
-            <div class="hero-card" onClick="toggleCard(this)">
-              <div class="hero-card-title">
-                <span class="first-letter">${firstLetter}</span>${restOfTitle}
+              <div class="hero-card" onClick="toggleCard(this)">
+                <div class="hero-card-title">
+                  <span class="first-letter">${firstLetter}</span>${restOfTitle}
+                </div>
+                <div class="hero-card-desc">
+                  ${card.desc}
+                </div>
               </div>
-              <div class="hero-card-desc">
-                ${card.desc}
-              </div>
-            </div>
-          `;
+            `;
         });
 
         heroCardsContainer.innerHTML = cardsHTML;
@@ -991,19 +1002,19 @@
 
         SERVICES.forEach((service, index) => {
           servicesHTML += `
-            <div class="service-row">
-              <div class="service-content">
-                <h3>${service.title}</h3>
-                <p>${service.text}</p>
-                <div class="service-buttons">
-                  <a href="#" class="btn-primary" onClick="navigateToWixPage('${service.buttonLink}')">
-                    ${SERVICES_BUTTON_TEXT}
-                  </a>
+              <div class="service-row">
+                <div class="service-content">
+                  <h3>${service.title}</h3>
+                  <p>${service.text}</p>
+                  <div class="service-buttons">
+                    <a href="#" class="btn-primary" onClick="navigateToWixPage('${service.buttonLink}')">
+                      ${SERVICES_BUTTON_TEXT}
+                    </a>
+                  </div>
                 </div>
+                <div class="service-image" style="background-image: url('${service.image}')"></div>
               </div>
-              <div class="service-image" style="background-image: url('${service.image}')"></div>
-            </div>
-          `;
+            `;
         });
 
         servicesContainer.innerHTML = servicesHTML;
@@ -1015,12 +1026,12 @@
 
         BRANDING_CARDS.forEach((card) => {
           cardsHTML += `
-            <div class="branding-card">
-              <div class="card-image" style="background-image: url('${card.image}')">
-                <h3 class="card-overlay-text">${card.title}</h3>
+              <div class="branding-card">
+                <div class="card-image" style="background-image: url('${card.image}')">
+                  <h3 class="card-overlay-text">${card.title}</h3>
+                </div>
               </div>
-            </div>
-          `;
+            `;
         });
 
         brandingContainer.innerHTML = cardsHTML;
@@ -1032,19 +1043,19 @@
 
         CONTACT_INFO.forEach((section) => {
           contactHTML += `
-            <div class="contact-item">
-              <h4>${section.title}</h4>
-              ${section.items.map((item) => `<p>${item}</p>`).join("")}
-            </div>
-          `;
+              <div class="contact-item">
+                <h4>${section.title}</h4>
+                ${section.items.map((item) => `<p>${item}</p>`).join("")}
+              </div>
+            `;
         });
 
         contactContainer.innerHTML = contactHTML;
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("heroWelcome").textContent = HERO_WELCOME_TEXT;
-        document.getElementById("heroTitle").textContent = HERO_TITLE;
+        document.getElementById("heroSubtitle").textContent = HERO_SUBTITLE;
+        document.getElementById("heroMainTitle").textContent = HERO_MAIN_TITLE;
         document.getElementById("heroButton").textContent = HERO_BUTTON_TEXT;
 
         document.getElementById("aboutTitle").textContent = ABOUT_TITLE;
@@ -1101,8 +1112,8 @@
       document.getElementById("aboutImage").alt = ABOUT_IMAGE_ALT;
 
       // Font Size Variables
-      document.documentElement.style.setProperty("--hero-welcome-font-size", HERO_WELCOME_FONT_SIZE);
-      document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-subtitle-font-size", HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-main-title-font-size", HERO_MAIN_TITLE_FONT_SIZE);
       document.documentElement.style.setProperty("--hero-card-title-font-size", HERO_VALUE_TITLE_FONT_SIZE);
       document.documentElement.style.setProperty("--hero-value-desc-font-size", HERO_VALUE_DESC_FONT_SIZE);
       document.documentElement.style.setProperty("--hero-value-letter-font-size", HERO_VALUE_LETTER_FONT_SIZE);
@@ -1122,8 +1133,8 @@
       document.documentElement.style.setProperty("--contact-item-text-font-size", CONTACT_ITEM_TEXT_FONT_SIZE);
 
       // Mobile Font Size Variables
-      document.documentElement.style.setProperty("--mobile-hero-welcome-font-size", MOBILE_HERO_WELCOME_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-hero-title-font-size", MOBILE_HERO_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-subtitle-font-size", MOBILE_HERO_SUBTITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--mobile-hero-main-title-font-size", MOBILE_HERO_MAIN_TITLE_FONT_SIZE);
       document.documentElement.style.setProperty("--mobile-hero-value-letter-font-size", MOBILE_HERO_VALUE_LETTER_FONT_SIZE);
       document.documentElement.style.setProperty("--mobile-hero-button-font-size", MOBILE_HERO_BUTTON_FONT_SIZE);
       document.documentElement.style.setProperty("--mobile-about-title-font-size", MOBILE_ABOUT_TITLE_FONT_SIZE);
