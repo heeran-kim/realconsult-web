@@ -20,7 +20,7 @@
 
       // REAL VALUES (R.E.A.L Cards)
       const REALISTIC_TITLE = "Realistic";
-      const REALISTIC_DESC = "Setting achievable project goals and expectations";
+      const REALISTIC_DESC = "Setting achievable project goals";
       const EFFICIENT_TITLE = "Efficient";
       const EFFICIENT_DESC = "Optimizing resources and processes";
       const AGILE_TITLE = "Agile";
@@ -163,7 +163,6 @@
       const SMALL_MOBILE_BRANDING_CARD_TITLE_FONT_SIZE = "1.1rem";
     </script>
     <style>
-      /* Force iframe to fit content */
       html,
       body {
         width: 100% !important;
@@ -171,8 +170,6 @@
         overflow-x: hidden !important;
         box-sizing: border-box;
       }
-
-      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
 
       * {
         margin: 0;
@@ -285,6 +282,8 @@
         transition: all 0.4s ease;
         opacity: 0;
         transform: translateY(30px);
+        width: 200px;
+        height: 120px;
       }
 
       .value-card:nth-child(1) {
@@ -778,10 +777,6 @@
           margin-bottom: 0;
         }
 
-        .value-description {
-          display: none;
-        }
-
         .hero-actions {
           margin-top: 1.5rem;
         }
@@ -844,6 +839,34 @@
         .card-image {
           height: 200px;
         }
+
+        .hero-values {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .value-description {
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+        }
+
+        .value-card {
+          height: 80px;
+        }
+
+        .value-card.expanded .value-description {
+          max-height: 100px;
+          opacity: 1;
+          animation: fadeInUp 0.3s ease;
+        }
+
+        .value-card.expanded .value-title {
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+          animation: fadeInUp 0.3s ease;
+        }
       }
 
       /* Animations */
@@ -880,7 +903,7 @@
         </h1>
 
         <div class="hero-values">
-          <div class="value-card">
+          <div class="value-card" onClick="toggleCard(this)">
             <!-- prettier-ignore -->
             <div class="value-title"><span class="first-letter"><script>document.write(REALISTIC_TITLE.charAt(0));</script></span><script>document.write(REALISTIC_TITLE.substring(1));</script></div>
             <div class="value-description">
@@ -890,7 +913,7 @@
             </div>
           </div>
 
-          <div class="value-card">
+          <div class="value-card" onClick="toggleCard(this)">
             <!-- prettier-ignore -->
             <div class="value-title"><span class="first-letter"><script>document.write(EFFICIENT_TITLE.charAt(0));</script></span><script>document.write(EFFICIENT_TITLE.substring(1));</script></div>
             <div class="value-description">
@@ -900,7 +923,7 @@
             </div>
           </div>
 
-          <div class="value-card">
+          <div class="value-card" onClick="toggleCard(this)">
             <!-- prettier-ignore -->
             <div class="value-title"><span class="first-letter"><script>document.write(AGILE_TITLE.charAt(0));</script></span><script>document.write(AGILE_TITLE.substring(1));</script></div>
             <div class="value-description">
@@ -910,7 +933,7 @@
             </div>
           </div>
 
-          <div class="value-card">
+          <div class="value-card" onClick="toggleCard(this)">
             <!-- prettier-ignore -->
             <div class="value-title"><span class="first-letter"><script>document.write(LEAN_TITLE.charAt(0));</script></span><script>document.write(LEAN_TITLE.substring(1));</script></div>
             <div class="value-description">
@@ -1192,6 +1215,26 @@
     </section>
 
     <script>
+      function toggleCard(card) {
+        if (window.innerWidth < 480) {
+          document.querySelectorAll(".value-card").forEach((otherCard) => {
+            if (otherCard !== card) {
+              otherCard.classList.remove("expanded");
+            }
+          });
+
+          card.classList.toggle("expanded");
+        }
+      }
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 480) {
+          document.querySelectorAll(".value-card").forEach((card) => {
+            card.classList.remove("expanded");
+          });
+        }
+      });
+
       function navigateToWixPage(pagePath) {
         window.top.location.href = WEBSITE_URL + pagePath;
       }
