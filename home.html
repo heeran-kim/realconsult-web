@@ -39,41 +39,41 @@
       ];
 
       // ABOUT SECTION
-      const ABOUT_TITLE = "About REAL Consult Group";
-      const ABOUT_TEXT_1 =
-        "REAL Consult Group is a boutique consultancy firm specialized in management, strategy and leadership. We are a multi-disciplinary consultancy offering professional services in Corporate consulting, AI project management and marketing & advertising.";
-      const ABOUT_TEXT_2 =
-        "Our experienced team of experts provide tailored solutions to SME businesses, helping transform their operations and reach their fullest potential.";
+      const ABOUT_TITLE = "About REAL Consult";
+      const ABOUT_TEXT = `REAL Consult Group is a boutique consultancy firm specialized in management, strategy and leadership. We are a multi-disciplinary consultancy offering professional services in Corporate consulting, AI project management and marketing & advertising. 
+      
+      Our experienced team of experts provide tailored solutions to SME businesses, helping transform their operations and reach their fullest potential.
+      `;
       const ABOUT_BUTTON_TEXT = "Get to Know Us Better";
       const ABOUT_BUTTON_LINK = "/about";
       const ABOUT_IMAGE_URL = "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
       const ABOUT_IMAGE_ALT = "Professional business consulting team";
 
       // SERVICES SECTION
-      const SERVICES_TITLE = "Professional Services for Your Business Growth";
+      const SERVICES_TITLE = "How We Help";
       const SERVICES_BUTTON_TEXT = "Learn More";
 
       const SERVICES = [
         {
-          title: "Marketing & Advertising Service",
+          title: "Marketing & Advertising",
           text: "Our Consultancy business offers a comprehensive marketing and advertising service. We can help you create effective campaigns to reach your target audience and maximize your ROI.",
           image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
           buttonLink: "/marketing-advertising",
         },
         {
-          title: "Corporate Management Service",
-          text: "Our consultancy business provides comprehensive company management services to help you stay organized and on top of your operations from strategic planning and budgeting to data analysis and employee training.",
+          title: "Corporate Management",
+          text: "Our consultancy business provides comprehensive company management services to help you stay organized and on top of your operations.",
           image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
           buttonLink: "/corporate-management",
         },
         {
-          title: "Project Management Service",
+          title: "Project Management",
           text: "Our project management service is designed to help you define the scope of your project, set timelines for each phase, and ensure that you complete your project on time and within budget.",
           image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
           buttonLink: "/project-management",
         },
         {
-          title: "AI-enabled project management systems and practices",
+          title: "AI Solutions",
           text: "Take your project management game to the next level with our cutting-edge AI-enabled systems and practices. Our team of experts are passionate about helping teams work smarter, not harder.",
           image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
           buttonLink: "/ai-solutions",
@@ -81,9 +81,9 @@
       ];
 
       // BRANDING SECTION
-      const BRANDING_TITLE = "Elevate Your Branding with Our Expertise";
+      const BRANDING_TITLE = "Build Your Brand";
       const BRANDING_TEXT =
-        "Our Branding consultancy offers cutting-edge solutions and insights to help businesses stand out in the competitive marketplace. We provide creative branding strategies that are tailored to your goals, with the help of our experienced team of experts. Our services are designed to help you build a powerful brand presence and reach your target market. We also offer comprehensive services for brand identity creation, including logo design, website development, and social media management. Our goal is to help you create a strong, memorable brand that will differentiate you from the competition.";
+        "Our Branding consultancy offers cutting-edge solutions and insights to help businesses stand out in the competitive marketplace. We provide creative branding strategies that are tailored to your goals, with the help of our experienced team of experts. Our services are designed to help you build a powerful brand presence and reach your target market. We also offer comprehensive services for brand identity creation, including logo design, website development, and social media management.";
 
       const BRANDING_CARDS = [
         {
@@ -101,22 +101,25 @@
       ];
 
       // CONTACT SECTION
-      const CONTACT_TITLE = "Ready to Get Started?";
+      const CONTACT_TITLE = "Ready to Transform?";
       const CONTACT_SUBTITLE = "Transform your business with our expert consulting services";
       const CONTACT_BUTTON_TEXT = "💬 Start Consultation";
 
       const CONTACT_INFO = [
         {
-          title: "Address",
-          items: ["Aspley Post Office PO Box"],
+          title: "Email",
+          info: "charleslee@realconsultptyltd.onmicrosoft.com",
+          action: "sendEmail",
         },
         {
-          title: "Contact",
-          items: ["+61-450-547-418", "charleslee@realconsultptyltd.onmicrosoft.com"],
+          title: "Phone",
+          info: "+61-450-547-418",
+          action: "callPhone",
         },
         {
-          title: "Business Hours",
-          items: ["Mon - Fri: 9:00 am – 5:00 pm"],
+          title: "Location",
+          info: "Aspley Post Office PO Box",
+          action: "viewLocation",
         },
       ];
 
@@ -161,7 +164,7 @@
       const CONTACT_TITLE_FONT_SIZE = "2.5rem";
       const CONTACT_SUBTITLE_FONT_SIZE = "1.2rem";
       const CONTACT_ITEM_TITLE_FONT_SIZE = "1.4rem";
-      const CONTACT_ITEM_TEXT_FONT_SIZE = "1rem";
+      const CONTACT_ITEM_TEXT_FONT_SIZE = "1.1rem";
 
       // Mobile Font Sizes
       const MOBILE_HERO_SUBTITLE_FONT_SIZE = "0.9rem";
@@ -197,9 +200,8 @@
       body {
         font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
         line-height: 1.6;
-        color: #333;
+        background-color: var(--secondary-color, #2c3e50);
         overflow-x: hidden;
-        background-color: #333;
         margin: 0;
         padding: 0;
       }
@@ -402,6 +404,7 @@
         font-size: var(--about-text-font-size, 1.1rem);
         margin-bottom: 1.5rem;
         color: #666;
+        white-space: pre-line;
       }
 
       .btn-primary {
@@ -414,6 +417,8 @@
         transition: all 0.3s ease;
         display: inline-block;
         font-size: var(--about-button-font-size, 0.95rem);
+        width: fit-content;
+        text-align: center;
       }
 
       .btn-primary:hover {
@@ -422,14 +427,19 @@
       }
 
       .about-image {
-        text-align: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: white;
       }
 
       .about-image img {
         width: 100%;
-        max-width: 500px;
+        height: 100%;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
+        object-fit: cover;
+        object-position: center;
       }
 
       .about-image img:hover {
@@ -457,6 +467,8 @@
         gap: 0;
         margin-bottom: 0;
         align-items: stretch;
+        height: 350px;
+        overflow: hidden;
       }
 
       .service-row:nth-child(even) .service-content {
@@ -468,7 +480,7 @@
       }
 
       .service-content {
-        padding: 4rem;
+        padding: 2rem;
         background: #f8f9fa;
         display: flex;
         flex-direction: column;
@@ -491,15 +503,7 @@
         margin-bottom: 2rem;
       }
 
-      .service-buttons {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
       .service-image {
-        height: auto;
-        min-height: 400px;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -514,7 +518,7 @@
       .branding-content {
         text-align: center;
         max-width: 800px;
-        margin: 0 auto 4rem auto;
+        margin: 0 auto;
       }
 
       .branding-title {
@@ -590,7 +594,7 @@
       /* Contact Section */
       .contact {
         padding: 80px 0;
-        background: linear-gradient(135deg, var(--primary-color, #1a2332) 0%, var(--secondary-color, #2c3e50) 100%);
+        background: linear-gradient(to bottom, var(--primary-color, #1a2332) 0%, var(--secondary-color, #2c3e50) 100%);
         color: white;
         text-align: center;
       }
@@ -637,6 +641,13 @@
         line-height: 1.6;
         margin-bottom: 0.5rem;
         opacity: 0.9;
+        overflow-wrap: anywhere;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .contact-item p:hover {
+        color: rgba(255, 255, 255, 0.7);
       }
 
       .btn-contact {
@@ -647,9 +658,11 @@
         border-radius: 50px;
         text-decoration: none;
         font-weight: 600;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         font-family: "Playfair Display", serif;
         transition: all 0.3s ease;
+        display: inline-block;
+        margin-top: 1.3rem;
       }
 
       .btn-contact:hover {
@@ -670,17 +683,6 @@
           margin-bottom: 1.5rem;
         }
 
-        .hero-cards {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.8rem;
-          max-width: 350px;
-          margin: 3rem auto;
-        }
-
-        .hero-card {
-          padding: 0.7rem 0.5rem;
-        }
-
         .hero-card-title .first-letter {
           font-size: var(--mobile-hero-value-letter-font-size, 1.5rem);
         }
@@ -693,21 +695,17 @@
           margin-top: 1.5rem;
         }
 
-        .btn-hero-primary {
-          display: block;
-          margin: 0.5rem auto;
-          max-width: 280px;
-          padding: 0.8rem 1.5rem;
-          font-size: var(--mobile-hero-button-font-size, 0.9rem);
-        }
-
         .about-content {
           grid-template-columns: 1fr;
-          gap: 2rem;
+          gap: 1rem;
         }
 
         .about-image {
           order: 1;
+        }
+
+        .about-image img {
+          height: 300px;
         }
 
         .about-text {
@@ -724,57 +722,16 @@
           font-size: var(--mobile-about-text-font-size);
         }
 
-        .about-buttons {
+        .btn-primary {
+          display: block;
           text-align: center;
-        }
-
-        .service-row {
-          grid-template-columns: 1fr;
-          min-height: auto;
-        }
-
-        .service-content {
-          padding: 2rem;
-          order: 2;
-        }
-
-        .service-image {
-          height: 300px;
-          order: 1;
-        }
-
-        .service-row:nth-child(even) .service-content {
-          order: 2;
-        }
-
-        .service-row:nth-child(even) .service-image {
-          order: 1;
-        }
-
-        .service-content h3 {
-          font-size: var(--mobile-services-item-title-font-size, 1.6rem);
-          text-align: center;
-        }
-
-        .service-content p {
-          text-align: center;
-        }
-
-        .service-buttons {
-          justify-content: center;
+          width: 100%;
+          max-width: 280px;
+          margin: 0 auto 1rem auto;
         }
 
         .section-title {
           font-size: var(--mobile-services-title-font-size, 2.2rem);
-        }
-
-        .branding-cards {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .branding-title {
-          font-size: var(--mobile-branding-title-font-size, 2rem);
         }
 
         .card-overlay-text {
@@ -783,11 +740,6 @@
 
         .card-image {
           height: 250px;
-        }
-
-        .contact-info {
-          grid-template-columns: 1fr;
-          gap: 2rem;
         }
       }
 
@@ -799,9 +751,17 @@
         .hero,
         .about,
         .services,
-        .branding,
-        .contact {
+        .branding {
           padding: 40px 0;
+        }
+
+        .contact {
+          padding-top: 40px;
+          padding-bottom: 10px;
+        }
+
+        .section-title {
+          margin-bottom: 40px;
         }
 
         .hero-content {
@@ -824,6 +784,7 @@
         .hero-card {
           width: 200px;
           height: 80px;
+          padding: 0.7rem 0.5rem;
         }
 
         .hero-card.expanded .hero-card-desc {
@@ -839,19 +800,16 @@
           animation: fadeInUp 0.3s ease;
         }
 
+        .btn-hero-primary {
+          display: block;
+          margin: 0.5rem auto;
+          max-width: 280px;
+          padding: 0.8rem 1.5rem;
+          font-size: var(--mobile-hero-button-font-size, 0.9rem);
+        }
+
         .about-text h2 {
           font-size: var(--small-mobile-about-title-font-size, 1.8rem);
-        }
-
-        .service-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .btn-primary {
-          text-align: center;
-          width: 100%;
-          max-width: 280px;
         }
 
         .card-overlay-text {
@@ -860,6 +818,46 @@
 
         .card-image {
           height: 200px;
+        }
+
+        .service-row {
+          grid-template-columns: 1fr;
+          height: auto;
+          gap: 1rem;
+        }
+
+        .service-content {
+          padding: 1rem 0;
+          order: 2;
+        }
+
+        .service-image {
+          height: 250px;
+          order: 1;
+        }
+
+        .service-content h3 {
+          font-size: var(--mobile-services-item-title-font-size, 1.6rem);
+          text-align: center;
+        }
+
+        .service-content p {
+          text-align: center;
+        }
+
+        .branding-cards {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          margin-top: 30px;
+        }
+
+        .branding-title {
+          font-size: var(--mobile-branding-title-font-size, 2rem);
+        }
+
+        .contact-info {
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
       }
 
@@ -895,11 +893,8 @@
         <div class="about-content">
           <div class="about-text">
             <h2 id="aboutTitle"></h2>
-            <p id="aboutText1"></p>
-            <p id="aboutText2"></p>
-            <div style="margin-top: 2rem">
-              <a id="aboutButton" href="#" class="btn-primary"></a>
-            </div>
+            <p id="aboutText"></p>
+            <a id="aboutButton" href="#" class="btn-primary"></a>
           </div>
           <div class="about-image fade-in-up">
             <img src="" alt="" id="aboutImage" />
@@ -933,9 +928,7 @@
         <h2 id="contactTitle"></h2>
         <p id="contactSubtitle"></p>
         <div class="contact-info" id="contactInfo"></div>
-        <div style="margin-top: 2rem">
-          <a id="contactButton" href="#" class="btn-contact"></a>
-        </div>
+        <a id="contactButton" href="#" class="btn-contact"></a>
       </div>
     </section>
 
@@ -989,6 +982,33 @@
         window.parent.postMessage(payload, "*");
       }
 
+      function executeAction(action, info) {
+        switch (action) {
+          case "sendEmail":
+            sendEmail(info);
+            break;
+          case "callPhone":
+            callPhone(info);
+            break;
+          case "viewLocation":
+            viewLocation(info);
+            break;
+        }
+      }
+
+      function callPhone(info) {
+        window.open(`tel:${info}`, "_self");
+      }
+
+      function sendEmail(info) {
+        window.open(`mailto:${info}?subject=Business Inquiry - Real Consult`, "_self");
+      }
+
+      function viewLocation(info) {
+        const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(info)}`;
+        window.open(mapUrl, "_blank");
+      }
+
       function generateHeroCards() {
         const heroCardsContainer = document.getElementById("heroCards");
         let cardsHTML = "";
@@ -1022,11 +1042,9 @@
                 <div class="service-content">
                   <h3>${service.title}</h3>
                   <p>${service.text}</p>
-                  <div class="service-buttons">
-                    <a href="#" class="btn-primary" onClick="navigateToWixPage('${service.buttonLink}')">
-                      ${SERVICES_BUTTON_TEXT}
-                    </a>
-                  </div>
+                  <a href="#" class="btn-primary" onClick="navigateToWixPage('${service.buttonLink}')">
+                    ${SERVICES_BUTTON_TEXT}
+                  </a>
                 </div>
                 <div class="service-image" style="background-image: url('${service.image}')"></div>
               </div>
@@ -1059,11 +1077,11 @@
 
         CONTACT_INFO.forEach((section) => {
           contactHTML += `
-              <div class="contact-item">
-                <h4>${section.title}</h4>
-                ${section.items.map((item) => `<p>${item}</p>`).join("")}
-              </div>
-            `;
+            <div class="contact-item">
+              <h4>${section.title}</h4>
+              <p onclick="executeAction('${section.action}', '${section.info}')">${section.info}</p>
+            </div>
+          `;
         });
 
         contactContainer.innerHTML = contactHTML;
@@ -1075,8 +1093,7 @@
         document.getElementById("heroButton").textContent = HERO_BUTTON_TEXT;
 
         document.getElementById("aboutTitle").textContent = ABOUT_TITLE;
-        document.getElementById("aboutText1").textContent = ABOUT_TEXT_1;
-        document.getElementById("aboutText2").textContent = ABOUT_TEXT_2;
+        document.getElementById("aboutText").textContent = ABOUT_TEXT;
         document.getElementById("aboutButton").textContent = ABOUT_BUTTON_TEXT;
 
         document.getElementById("servicesTitle").textContent = SERVICES_TITLE;
