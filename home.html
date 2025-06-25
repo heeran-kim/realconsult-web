@@ -219,8 +219,7 @@
       .hero {
         background: transparent;
         color: white;
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding: 80px 0;
         text-align: center;
         height: auto;
         overflow: hidden;
@@ -507,7 +506,7 @@
       }
 
       /* Branding Section */
-      .branding-section {
+      .branding {
         padding: 80px 0;
         background: white;
       }
@@ -662,6 +661,46 @@
 
       /* Responsive */
       @media (max-width: 980px) {
+        .hero-subtitle {
+          font-size: var(--mobile-hero-subtitle-font-size, 0.9rem);
+        }
+
+        .hero h1 {
+          font-size: var(--mobile-hero-main-title-font-size, 1.8rem);
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-cards {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.8rem;
+          max-width: 350px;
+          margin: 3rem auto;
+        }
+
+        .hero-card {
+          padding: 0.7rem 0.5rem;
+        }
+
+        .hero-card-title .first-letter {
+          font-size: var(--mobile-hero-value-letter-font-size, 1.5rem);
+        }
+
+        .hero-card-title {
+          margin-bottom: 0;
+        }
+
+        .hero-actions {
+          margin-top: 1.5rem;
+        }
+
+        .btn-hero-primary {
+          display: block;
+          margin: 0.5rem auto;
+          max-width: 280px;
+          padding: 0.8rem 1.5rem;
+          font-size: var(--mobile-hero-button-font-size, 0.9rem);
+        }
+
         .about-content {
           grid-template-columns: 1fr;
           gap: 2rem;
@@ -729,45 +768,6 @@
           font-size: var(--mobile-services-title-font-size, 2.2rem);
         }
 
-        .hero-subtitle {
-          font-size: var(--mobile-hero-subtitle-font-size, 0.9rem);
-        }
-
-        .hero h1 {
-          font-size: var(--mobile-hero-main-title-font-size, 1.8rem);
-        }
-
-        .hero-cards {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.8rem;
-          max-width: 350px;
-          margin: 3rem auto;
-        }
-
-        .hero-card {
-          padding: 0.7rem 0.5rem;
-        }
-
-        .hero-card-title .first-letter {
-          font-size: var(--mobile-hero-value-letter-font-size, 1.5rem);
-        }
-
-        .hero-card-title {
-          margin-bottom: 0;
-        }
-
-        .hero-actions {
-          margin-top: 1.5rem;
-        }
-
-        .btn-hero-primary {
-          display: block;
-          margin: 0.5rem auto;
-          max-width: 280px;
-          padding: 0.8rem 1.5rem;
-          font-size: var(--mobile-hero-button-font-size, 0.9rem);
-        }
-
         .branding-cards {
           grid-template-columns: 1fr;
           gap: 1.5rem;
@@ -796,32 +796,12 @@
           padding: 0 1rem;
         }
 
-        .service-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .btn-primary {
-          text-align: center;
-          width: 100%;
-          max-width: 280px;
-        }
-
-        .about-text h2 {
-          font-size: var(--small-mobile-about-title-font-size, 1.8rem);
-        }
-
-        .card-overlay-text {
-          font-size: 1.1rem;
-        }
-
-        .card-image {
-          height: 200px;
-        }
-
-        .hero {
-          padding-top: 40px;
-          padding-bottom: 40px;
+        .hero,
+        .about,
+        .services,
+        .branding,
+        .contact {
+          padding: 40px 0;
         }
 
         .hero-content {
@@ -832,7 +812,7 @@
           grid-template-columns: 1fr;
           gap: 1rem;
           max-width: 200px;
-          margin: 3rem auto;
+          margin: 2rem auto;
         }
 
         .hero-card-desc {
@@ -857,6 +837,29 @@
           opacity: 0;
           overflow: hidden;
           animation: fadeInUp 0.3s ease;
+        }
+
+        .about-text h2 {
+          font-size: var(--small-mobile-about-title-font-size, 1.8rem);
+        }
+
+        .service-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn-primary {
+          text-align: center;
+          width: 100%;
+          max-width: 280px;
+        }
+
+        .card-overlay-text {
+          font-size: 1.1rem;
+        }
+
+        .card-image {
+          height: 200px;
         }
       }
 
@@ -914,7 +917,7 @@
     </section>
 
     <!-- Branding Section -->
-    <section class="branding-section">
+    <section class="branding">
       <div class="container">
         <div class="branding-content">
           <h2 class="branding-title" id="brandingTitle"></h2>
@@ -949,11 +952,24 @@
         }
       }
 
+      function closeAllCards() {
+        document.querySelectorAll(".hero-card").forEach((card) => {
+          card.classList.remove("expanded");
+        });
+      }
+
+      document.addEventListener("click", function (event) {
+        if (window.innerWidth < 480) {
+          const isCard = event.target.closest(".hero-card");
+          if (!isCard) {
+            closeAllCards();
+          }
+        }
+      });
+
       window.addEventListener("resize", function () {
         if (window.innerWidth > 480) {
-          document.querySelectorAll(".hero-card").forEach((card) => {
-            card.classList.remove("expanded");
-          });
+          closeAllCards();
         }
       });
 
