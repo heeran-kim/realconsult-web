@@ -18,15 +18,25 @@
       const HERO_BUTTON_TEXT = "💬 Chat with our virtual consultant now!";
       const HERO_BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80";
 
-      // REAL VALUES (R.E.A.L Cards)
-      const REALISTIC_TITLE = "Realistic";
-      const REALISTIC_DESC = "Setting achievable project goals";
-      const EFFICIENT_TITLE = "Efficient";
-      const EFFICIENT_DESC = "Optimizing resources and processes";
-      const AGILE_TITLE = "Agile";
-      const AGILE_DESC = "Embracing flexibility and adaptability";
-      const LEAN_TITLE = "Lean";
-      const LEAN_DESC = "Reducing waste and unnecessary steps";
+      // HERO CARDS
+      const HERO_CARDS = [
+        {
+          title: "Realistic",
+          desc: "Setting achievable project goals",
+        },
+        {
+          title: "Efficient",
+          desc: "Optimizing resources and processes",
+        },
+        {
+          title: "Agile",
+          desc: "Embracing flexibility and adaptability",
+        },
+        {
+          title: "Lean",
+          desc: "Reducing waste and unnecessary steps",
+        },
+      ];
 
       // ABOUT SECTION
       const ABOUT_TITLE = "About REAL Consult Group";
@@ -202,7 +212,7 @@
       .hero {
         background: transparent;
         color: white;
-        padding-top: 100px;
+        padding-top: 80px;
         padding-bottom: 80px;
         text-align: center;
         height: auto;
@@ -262,7 +272,7 @@
         line-height: 1.2;
       }
 
-      .hero-values {
+      .hero-cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
@@ -272,7 +282,7 @@
         margin-right: auto;
       }
 
-      .value-card {
+      .hero-card {
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.2);
@@ -282,30 +292,29 @@
         transition: all 0.4s ease;
         opacity: 0;
         transform: translateY(30px);
-        width: 200px;
         height: 120px;
       }
 
-      .value-card:nth-child(1) {
+      .hero-card:nth-child(1) {
         animation: fadeInUp 1s ease 0.6s forwards;
       }
-      .value-card:nth-child(2) {
+      .hero-card:nth-child(2) {
         animation: fadeInUp 1s ease 0.8s forwards;
       }
-      .value-card:nth-child(3) {
+      .hero-card:nth-child(3) {
         animation: fadeInUp 1s ease 1s forwards;
       }
-      .value-card:nth-child(4) {
+      .hero-card:nth-child(4) {
         animation: fadeInUp 1s ease 1.2s forwards;
       }
 
-      .value-card:hover {
+      .hero-card:hover {
         transform: translateY(-5px);
         background: rgba(255, 255, 255, 0.2);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
       }
 
-      .value-title .first-letter {
+      .hero-card-title .first-letter {
         font-size: var(--hero-value-letter-font-size, 2.2rem);
         color: var(--hero-letter-highlight-color, #a29bfe);
         font-weight: 900;
@@ -313,15 +322,15 @@
         margin-right: 3px;
       }
 
-      .value-title {
-        font-size: var(--hero-value-title-font-size, 1.6rem);
+      .hero-card-title {
+        font-size: var(--hero-card-title-font-size, 1.6rem);
         font-weight: 700;
         margin-bottom: 0.5rem;
         font-family: "Playfair Display", serif;
         color: white;
       }
 
-      .value-description {
+      .hero-card-desc {
         font-size: var(--hero-value-desc-font-size, 1rem);
         color: rgba(255, 255, 255, 0.85);
         font-family: "Avenir", sans-serif;
@@ -759,21 +768,21 @@
           font-size: var(--mobile-hero-title-font-size, 1.8rem);
         }
 
-        .hero-values {
+        .hero-cards {
           grid-template-columns: repeat(2, 1fr);
           gap: 0.8rem;
           max-width: 350px;
         }
 
-        .value-card {
+        .hero-card {
           padding: 0.7rem 0.5rem;
         }
 
-        .value-title .first-letter {
+        .hero-card-title .first-letter {
           font-size: var(--mobile-hero-value-letter-font-size, 1.5rem);
         }
 
-        .value-title {
+        .hero-card-title {
           margin-bottom: 0;
         }
 
@@ -840,28 +849,34 @@
           height: 200px;
         }
 
-        .hero-values {
+        .hero {
+          padding-top: 40px;
+          padding-bottom: 40px;
+        }
+
+        .hero-cards {
           grid-template-columns: 1fr;
           gap: 1rem;
         }
 
-        .value-description {
+        .hero-card-desc {
           max-height: 0;
           opacity: 0;
           overflow: hidden;
         }
 
-        .value-card {
+        .hero-card {
+          width: 200px;
           height: 80px;
         }
 
-        .value-card.expanded .value-description {
+        .hero-card.expanded .hero-card-desc {
           max-height: 100px;
           opacity: 1;
           animation: fadeInUp 0.3s ease;
         }
 
-        .value-card.expanded .value-title {
+        .hero-card.expanded .hero-card-title {
           max-height: 0;
           opacity: 0;
           overflow: hidden;
@@ -902,47 +917,7 @@
           </script>
         </h1>
 
-        <div class="hero-values">
-          <div class="value-card" onClick="toggleCard(this)">
-            <!-- prettier-ignore -->
-            <div class="value-title"><span class="first-letter"><script>document.write(REALISTIC_TITLE.charAt(0));</script></span><script>document.write(REALISTIC_TITLE.substring(1));</script></div>
-            <div class="value-description">
-              <script>
-                document.write(REALISTIC_DESC);
-              </script>
-            </div>
-          </div>
-
-          <div class="value-card" onClick="toggleCard(this)">
-            <!-- prettier-ignore -->
-            <div class="value-title"><span class="first-letter"><script>document.write(EFFICIENT_TITLE.charAt(0));</script></span><script>document.write(EFFICIENT_TITLE.substring(1));</script></div>
-            <div class="value-description">
-              <script>
-                document.write(EFFICIENT_DESC);
-              </script>
-            </div>
-          </div>
-
-          <div class="value-card" onClick="toggleCard(this)">
-            <!-- prettier-ignore -->
-            <div class="value-title"><span class="first-letter"><script>document.write(AGILE_TITLE.charAt(0));</script></span><script>document.write(AGILE_TITLE.substring(1));</script></div>
-            <div class="value-description">
-              <script>
-                document.write(AGILE_DESC);
-              </script>
-            </div>
-          </div>
-
-          <div class="value-card" onClick="toggleCard(this)">
-            <!-- prettier-ignore -->
-            <div class="value-title"><span class="first-letter"><script>document.write(LEAN_TITLE.charAt(0));</script></span><script>document.write(LEAN_TITLE.substring(1));</script></div>
-            <div class="value-description">
-              <script>
-                document.write(LEAN_DESC);
-              </script>
-            </div>
-          </div>
-        </div>
+        <div class="hero-cards" id="heroCards"></div>
 
         <div class="hero-actions">
           <a href="#" class="btn-hero-primary" onclick="openChat()">
@@ -1217,7 +1192,7 @@
     <script>
       function toggleCard(card) {
         if (window.innerWidth < 480) {
-          document.querySelectorAll(".value-card").forEach((otherCard) => {
+          document.querySelectorAll(".hero-card").forEach((otherCard) => {
             if (otherCard !== card) {
               otherCard.classList.remove("expanded");
             }
@@ -1229,7 +1204,7 @@
 
       window.addEventListener("resize", function () {
         if (window.innerWidth > 480) {
-          document.querySelectorAll(".value-card").forEach((card) => {
+          document.querySelectorAll(".hero-card").forEach((card) => {
             card.classList.remove("expanded");
           });
         }
@@ -1283,14 +1258,30 @@
         observer.observe(el);
       });
 
-      // Chatbot pulse animation
-      setInterval(() => {
-        const chatbot = document.querySelector(".chatbot-widget");
-        chatbot.style.transform = "scale(1.1)";
-        setTimeout(() => {
-          chatbot.style.transform = "scale(1)";
-        }, 200);
-      }, 5000);
+      function generateHeroCards() {
+        const heroCardsContainer = document.getElementById("heroCards");
+        let cardsHTML = "";
+
+        HERO_CARDS.forEach((card, index) => {
+          const firstLetter = card.title.charAt(0);
+          const restOfTitle = card.title.substring(1);
+
+          cardsHTML += `
+            <div class="hero-card" onClick="toggleCard(this)">
+              <div class="hero-card-title">
+                <span class="first-letter">${firstLetter}</span>${restOfTitle}
+              </div>
+              <div class="hero-card-desc">
+                ${card.desc}
+              </div>
+            </div>
+          `;
+        });
+
+        heroCardsContainer.innerHTML = cardsHTML;
+      }
+
+      document.addEventListener("DOMContentLoaded", generateHeroCards);
 
       // ==========================================
       // APPLY CSS VARIABLES
@@ -1320,7 +1311,7 @@
       // Font Size Variables
       document.documentElement.style.setProperty("--hero-welcome-font-size", HERO_WELCOME_FONT_SIZE);
       document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--hero-value-title-font-size", HERO_VALUE_TITLE_FONT_SIZE);
+      document.documentElement.style.setProperty("--hero-card-title-font-size", HERO_VALUE_TITLE_FONT_SIZE);
       document.documentElement.style.setProperty("--hero-value-desc-font-size", HERO_VALUE_DESC_FONT_SIZE);
       document.documentElement.style.setProperty("--hero-value-letter-font-size", HERO_VALUE_LETTER_FONT_SIZE);
       document.documentElement.style.setProperty("--hero-button-font-size", HERO_BUTTON_FONT_SIZE);
