@@ -85,31 +85,40 @@
       const BRANDING_TEXT =
         "Our Branding consultancy offers cutting-edge solutions and insights to help businesses stand out in the competitive marketplace. We provide creative branding strategies that are tailored to your goals, with the help of our experienced team of experts. Our services are designed to help you build a powerful brand presence and reach your target market. We also offer comprehensive services for brand identity creation, including logo design, website development, and social media management. Our goal is to help you create a strong, memorable brand that will differentiate you from the competition.";
 
-      // BRANDING 1
-      const BRANDING_CARD_1_TITLE = "Unleash Your Finances with Expert Guidance";
-      const BRANDING_CARD_1_IMAGE = "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
-
-      // BRANDING 2
-      const BRANDING_CARD_2_TITLE = "Release the power of knowledge with our Research Services";
-      const BRANDING_CARD_2_IMAGE = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
-
-      // BRANDING 3
-      const BRANDING_CARD_3_TITLE = "Showcase Your Brand with our Expert Branding Services";
-      const BRANDING_CARD_3_IMAGE = "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+      const BRANDING_CARDS = [
+        {
+          title: "Unleash Your Finances with Expert Guidance",
+          image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        },
+        {
+          title: "Release the power of knowledge with our Research Services",
+          image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        },
+        {
+          title: "Showcase Your Brand with our Expert Branding Services",
+          image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        },
+      ];
 
       // CONTACT SECTION
       const CONTACT_TITLE = "Ready to Get Started?";
       const CONTACT_SUBTITLE = "Transform your business with our expert consulting services";
       const CONTACT_BUTTON_TEXT = "💬 Start Consultation";
 
-      // CONTACT INFORMATION
-      const CONTACT_ADDRESS_TITLE = "Address";
-      const CONTACT_ADDRESS = "Aspley Post Office PO Box";
-      const CONTACT_INFO_TITLE = "Contact";
-      const CONTACT_PHONE = "+61-450-547-418";
-      const CONTACT_EMAIL = "charleslee@realconsultptyltd.onmicrosoft.com";
-      const CONTACT_HOURS_TITLE = "Business Hours";
-      const CONTACT_HOURS = "Mon - Fri: 9:00 am – 5:00 pm";
+      const CONTACT_INFO = [
+        {
+          title: "Address",
+          items: ["Aspley Post Office PO Box"],
+        },
+        {
+          title: "Contact",
+          items: ["+61-450-547-418", "charleslee@realconsultptyltd.onmicrosoft.com"],
+        },
+        {
+          title: "Business Hours",
+          items: ["Mon - Fri: 9:00 am – 5:00 pm"],
+        },
+      ];
 
       // COLORS & BRANDING
       const PRIMARY_COLOR = "#1a2332";
@@ -142,7 +151,6 @@
       const SERVICES_TITLE_FONT_SIZE = "2.5rem";
       const SERVICES_ITEM_TITLE_FONT_SIZE = "2rem";
       const SERVICES_ITEM_TEXT_FONT_SIZE = "1.1rem";
-      const SERVICES_BUTTON_FONT_SIZE = "0.95rem";
 
       // Branding Section Font Sizes
       const BRANDING_TITLE_FONT_SIZE = "2.5rem";
@@ -576,27 +584,6 @@
         line-height: 1.3;
       }
 
-      .card-image.finance {
-        background-image: var(
-          --branding-card1-image,
-          url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")
-        );
-      }
-
-      .card-image.research {
-        background-image: var(
-          --branding-card2-image,
-          url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")
-        );
-      }
-
-      .card-image.showcase {
-        background-image: var(
-          --branding-card3-image,
-          url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")
-        );
-      }
-
       /* Contact Section */
       .contact {
         padding: 80px 0;
@@ -873,36 +860,17 @@
           transform: translateY(0);
         }
       }
-
-      .fade-in-up {
-        animation: fadeInUp 0.8s ease forwards;
-      }
     </style>
   </head>
   <body>
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-        <div class="hero-welcome">
-          <script>
-            document.write(HERO_WELCOME_TEXT);
-          </script>
-        </div>
-
-        <h1>
-          <script>
-            document.write(HERO_TITLE);
-          </script>
-        </h1>
-
+        <div class="hero-welcome" id="heroWelcome"></div>
+        <h1 id="heroTitle"></h1>
         <div class="hero-cards" id="heroCards"></div>
-
         <div class="hero-actions">
-          <a href="#" class="btn-hero-primary" onclick="openChat()">
-            <script>
-              document.write(HERO_BUTTON_TEXT);
-            </script>
-          </a>
+          <a id="heroButton" href="#" class="btn-hero-primary"></a>
         </div>
       </div>
     </section>
@@ -912,27 +880,11 @@
       <div class="container">
         <div class="about-content">
           <div class="about-text">
-            <h2>
-              <script>
-                document.write(ABOUT_TITLE);
-              </script>
-            </h2>
-            <p>
-              <script>
-                document.write(ABOUT_TEXT_1);
-              </script>
-            </p>
-            <p>
-              <script>
-                document.write(ABOUT_TEXT_2);
-              </script>
-            </p>
+            <h2 id="aboutTitle"></h2>
+            <p id="aboutText1"></p>
+            <p id="aboutText2"></p>
             <div style="margin-top: 2rem">
-              <a href="#" class="btn-primary" onClick="navigateToWixPage(ABOUT_BUTTON_LINK)">
-                <script>
-                  document.write(ABOUT_BUTTON_TEXT);
-                </script>
-              </a>
+              <a id="aboutButton" href="#" class="btn-primary"></a>
             </div>
           </div>
           <div class="about-image fade-in-up">
@@ -945,11 +897,7 @@
     <!-- Services Section -->
     <section id="services" class="services">
       <div class="container">
-        <h2 class="section-title">
-          <script>
-            document.write(SERVICES_TITLE);
-          </script>
-        </h2>
+        <h2 class="section-title" id="servicesTitle"></h2>
         <div id="servicesContainer"></div>
       </div>
     </section>
@@ -958,116 +906,21 @@
     <section class="branding-section">
       <div class="container">
         <div class="branding-content">
-          <h2 class="branding-title">
-            <script>
-              document.write(BRANDING_TITLE);
-            </script>
-          </h2>
-          <p class="branding-description">
-            <script>
-              document.write(BRANDING_TEXT);
-            </script>
-          </p>
+          <h2 class="branding-title" id="brandingTitle"></h2>
+          <p class="branding-description" id="brandingText"></p>
         </div>
-
-        <div class="branding-cards">
-          <div class="branding-card">
-            <div class="card-image finance">
-              <h3 class="card-overlay-text">
-                <script>
-                  document.write(BRANDING_CARD_1_TITLE);
-                </script>
-              </h3>
-            </div>
-          </div>
-
-          <div class="branding-card">
-            <div class="card-image research">
-              <h3 class="card-overlay-text">
-                <script>
-                  document.write(BRANDING_CARD_2_TITLE);
-                </script>
-              </h3>
-            </div>
-          </div>
-
-          <div class="branding-card">
-            <div class="card-image showcase">
-              <h3 class="card-overlay-text">
-                <script>
-                  document.write(BRANDING_CARD_3_TITLE);
-                </script>
-              </h3>
-            </div>
-          </div>
-        </div>
+        <div class="branding-cards" id="brandingCards"></div>
       </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2>
-          <script>
-            document.write(CONTACT_TITLE);
-          </script>
-        </h2>
-        <p>
-          <script>
-            document.write(CONTACT_SUBTITLE);
-          </script>
-        </p>
-
-        <div class="contact-info">
-          <div class="contact-item">
-            <h4>
-              <script>
-                document.write(CONTACT_ADDRESS_TITLE);
-              </script>
-            </h4>
-            <p>
-              <script>
-                document.write(CONTACT_ADDRESS);
-              </script>
-            </p>
-          </div>
-          <div class="contact-item">
-            <h4>
-              <script>
-                document.write(CONTACT_INFO_TITLE);
-              </script>
-            </h4>
-            <p>
-              <script>
-                document.write(CONTACT_PHONE);
-              </script>
-            </p>
-            <p>
-              <script>
-                document.write(CONTACT_EMAIL);
-              </script>
-            </p>
-          </div>
-          <div class="contact-item">
-            <h4>
-              <script>
-                document.write(CONTACT_HOURS_TITLE);
-              </script>
-            </h4>
-            <p>
-              <script>
-                document.write(CONTACT_HOURS);
-              </script>
-            </p>
-          </div>
-        </div>
-
+        <h2 id="contactTitle"></h2>
+        <p id="contactSubtitle"></p>
+        <div class="contact-info" id="contactInfo"></div>
         <div style="margin-top: 2rem">
-          <a href="#" class="btn-contact" onclick="openChat()">
-            <script>
-              document.write(CONTACT_BUTTON_TEXT);
-            </script>
-          </a>
+          <a id="contactButton" href="#" class="btn-contact"></a>
         </div>
       </div>
     </section>
@@ -1108,38 +961,6 @@
 
         window.parent.postMessage(payload, "*");
       }
-
-      // Smooth scrolling
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-
-      // Animation on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in-up");
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".service-card, .real-item").forEach((el) => {
-        observer.observe(el);
-      });
 
       function generateHeroCards() {
         const heroCardsContainer = document.getElementById("heroCards");
@@ -1188,8 +1009,78 @@
         servicesContainer.innerHTML = servicesHTML;
       }
 
-      document.addEventListener("DOMContentLoaded", generateHeroCards);
-      document.addEventListener("DOMContentLoaded", generateServices);
+      function generateBrandingCards() {
+        const brandingContainer = document.getElementById("brandingCards");
+        let cardsHTML = "";
+
+        BRANDING_CARDS.forEach((card) => {
+          cardsHTML += `
+            <div class="branding-card">
+              <div class="card-image" style="background-image: url('${card.image}')">
+                <h3 class="card-overlay-text">${card.title}</h3>
+              </div>
+            </div>
+          `;
+        });
+
+        brandingContainer.innerHTML = cardsHTML;
+      }
+
+      function generateContactInfo() {
+        const contactContainer = document.getElementById("contactInfo");
+        let contactHTML = "";
+
+        CONTACT_INFO.forEach((section) => {
+          contactHTML += `
+            <div class="contact-item">
+              <h4>${section.title}</h4>
+              ${section.items.map((item) => `<p>${item}</p>`).join("")}
+            </div>
+          `;
+        });
+
+        contactContainer.innerHTML = contactHTML;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("heroWelcome").textContent = HERO_WELCOME_TEXT;
+        document.getElementById("heroTitle").textContent = HERO_TITLE;
+        document.getElementById("heroButton").textContent = HERO_BUTTON_TEXT;
+
+        document.getElementById("aboutTitle").textContent = ABOUT_TITLE;
+        document.getElementById("aboutText1").textContent = ABOUT_TEXT_1;
+        document.getElementById("aboutText2").textContent = ABOUT_TEXT_2;
+        document.getElementById("aboutButton").textContent = ABOUT_BUTTON_TEXT;
+
+        document.getElementById("servicesTitle").textContent = SERVICES_TITLE;
+
+        document.getElementById("brandingTitle").textContent = BRANDING_TITLE;
+        document.getElementById("brandingText").textContent = BRANDING_TEXT;
+
+        document.getElementById("contactTitle").textContent = CONTACT_TITLE;
+        document.getElementById("contactSubtitle").textContent = CONTACT_SUBTITLE;
+        document.getElementById("contactButton").textContent = CONTACT_BUTTON_TEXT;
+
+        document.getElementById("heroButton").addEventListener("click", function (e) {
+          e.preventDefault();
+          openChat();
+        });
+
+        document.getElementById("aboutButton").addEventListener("click", function (e) {
+          e.preventDefault();
+          navigateToWixPage(ABOUT_BUTTON_LINK);
+        });
+
+        document.getElementById("contactButton").addEventListener("click", function (e) {
+          e.preventDefault();
+          openChat();
+        });
+
+        generateHeroCards();
+        generateServices();
+        generateBrandingCards();
+        generateContactInfo();
+      });
 
       // ==========================================
       // APPLY CSS VARIABLES
@@ -1206,9 +1097,6 @@
       document.documentElement.style.setProperty("--contact-button-hover-color", CONTACT_BUTTON_HOVER_COLOR);
       document.documentElement.style.setProperty("--contact-button-text-color", CONTACT_BUTTON_TEXT_COLOR);
       document.documentElement.style.setProperty("--hero-bg-image", `url("${HERO_BACKGROUND_IMAGE}")`);
-      document.documentElement.style.setProperty("--branding-card1-image", `url("${BRANDING_CARD_1_IMAGE}")`);
-      document.documentElement.style.setProperty("--branding-card2-image", `url("${BRANDING_CARD_2_IMAGE}")`);
-      document.documentElement.style.setProperty("--branding-card3-image", `url("${BRANDING_CARD_3_IMAGE}")`);
       document.getElementById("aboutImage").src = ABOUT_IMAGE_URL;
       document.getElementById("aboutImage").alt = ABOUT_IMAGE_ALT;
 
@@ -1225,7 +1113,6 @@
       document.documentElement.style.setProperty("--services-title-font-size", SERVICES_TITLE_FONT_SIZE);
       document.documentElement.style.setProperty("--services-item-title-font-size", SERVICES_ITEM_TITLE_FONT_SIZE);
       document.documentElement.style.setProperty("--services-item-text-font-size", SERVICES_ITEM_TEXT_FONT_SIZE);
-      document.documentElement.style.setProperty("--services-button-font-size", SERVICES_BUTTON_FONT_SIZE);
       document.documentElement.style.setProperty("--branding-title-font-size", BRANDING_TITLE_FONT_SIZE);
       document.documentElement.style.setProperty("--branding-text-font-size", BRANDING_TEXT_FONT_SIZE);
       document.documentElement.style.setProperty("--branding-card-title-font-size", BRANDING_CARD_TITLE_FONT_SIZE);
