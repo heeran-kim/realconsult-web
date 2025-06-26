@@ -103,7 +103,7 @@
       // CONTACT SECTION
       const CONTACT_TITLE = "Ready to Transform?";
       const CONTACT_SUBTITLE = "Transform your business with our expert consulting services";
-      const CONTACT_BUTTON_TEXT = "💬 Start Consultation";
+      const CONTACT_BUTTON_TEXT = "Start Consultation";
 
       const CONTACT_INFO = [
         {
@@ -131,10 +131,10 @@
       const HERO_LETTER_HIGHLIGHT_COLOR = "#a29bfe";
       const PRIMARY_BUTTON_COLOR = "#1a1a1a";
       const PRIMARY_BUTTON_HOVER_COLOR = "#333";
-      const PRIMARY_BUTTON_TEXT_COLOR = "#ffffff";
+      const PRIMARY_BUTTON_TEXT_COLOR = "#fafafa";
       const CONTACT_BUTTON_COLOR = "transparent";
       const CONTACT_BUTTON_HOVER_COLOR = "rgba(255, 255, 255, 0.9)";
-      const CONTACT_BUTTON_TEXT_COLOR = "#ffffff";
+      const CONTACT_BUTTON_TEXT_COLOR = "#fafafa";
 
       // FONT SIZES
       // Hero Section Font Sizes
@@ -185,10 +185,8 @@
     <style>
       html,
       body {
-        width: 100% !important;
         height: 100% !important;
         overflow-x: hidden !important;
-        box-sizing: border-box;
       }
 
       * {
@@ -220,7 +218,7 @@
       /* Hero Section */
       .hero {
         background: transparent;
-        color: white;
+        color: #fafafa;
         padding: 80px 0;
         text-align: center;
         height: auto;
@@ -275,7 +273,7 @@
         margin-bottom: 3rem;
         font-weight: 700;
         font-family: "Playfair Display", serif;
-        color: white;
+        color: #fafafa;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         opacity: 0;
         animation: fadeInUp 1.2s ease 0.4s forwards;
@@ -339,7 +337,7 @@
         font-weight: 700;
         margin-bottom: 0.5rem;
         font-family: "Playfair Display", serif;
-        color: white;
+        color: #fafafa;
       }
 
       .hero-card-desc {
@@ -357,7 +355,7 @@
 
       .btn-hero-primary {
         background: linear-gradient(135deg, var(--hero-button-color-start, #ff6b6b) 0%, var(--hero-button-color-end, #ee5a24) 100%);
-        color: white;
+        color: #fafafa;
         padding: 1.3rem 2.5rem;
         border-radius: 50px;
         text-decoration: none;
@@ -409,7 +407,7 @@
 
       .btn-primary {
         background: var(--primary-button-color, #1a1a1a);
-        color: var(--primary-button-text-color, #ffffff);
+        color: var(--primary-button-text-color);
         padding: 0.8rem 1.8rem;
         border-radius: 30px;
         text-decoration: none;
@@ -430,7 +428,6 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background-color: white;
       }
 
       .about-image img {
@@ -581,7 +578,7 @@
       .card-overlay-text {
         position: relative;
         z-index: 2;
-        color: white;
+        color: #fafafa;
         font-size: var(--branding-card-title-font-size, 1.5rem);
         font-weight: 600;
         font-family: "Playfair Display", serif;
@@ -632,7 +629,7 @@
         font-size: var(--contact-item-title-font-size, 1.4rem);
         font-family: "Playfair Display", serif;
         font-weight: 600;
-        color: white;
+        color: #fafafa;
       }
 
       .contact-item p {
@@ -652,7 +649,7 @@
 
       .btn-contact {
         background: var(--contact-button-color, transparent);
-        color: var(--contact-button-text-color, #ffffff);
+        color: var(--contact-button-text-color);
         padding: 1rem 2rem;
         border: 2px solid rgba(255, 255, 255, 0.8);
         border-radius: 50px;
@@ -668,7 +665,7 @@
       .btn-contact:hover {
         background: var(--contact-button-hover-color, rgba(255, 255, 255, 0.9));
         color: #1a2332;
-        border-color: white;
+        border-color: #fafafa;
         transform: translateY(-2px);
       }
 

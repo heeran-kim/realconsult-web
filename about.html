@@ -11,7 +11,7 @@
 
       // HERO SECTION
       const HERO_SUBTITLE = "About Real Consult";
-      const HERO_TITLE = "Real Solutions for Real Business Growth";
+      const HERO_TITLE = "Real Guidance for Real Growth";
       const HERO_BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
       const HERO_IMAGE_ALT = "Professional business team collaborating";
 
@@ -20,16 +20,25 @@
         "Founded with a vision to transform how businesses approach growth and efficiency, Real Consult Group emerged from the recognition that small and medium enterprises needed more than just generic consulting solutions. Our REAL methodology - focusing on Realistic, Efficient, Agile, and Lean practices - was developed through years of hands-on experience working with diverse businesses across various industries. We believe in practical, implementable strategies that deliver measurable results, not theoretical frameworks that gather dust on shelves.";
 
       // VALUES SECTION
-      const VALUES_SECTION_TITLE = "What We Bring";
-      const VALUE_1_TITLE = "Realistic";
-      const VALUE_1_DESC =
-        "We set achievable goals and expectations, ensuring every strategy is grounded in practical reality and market conditions.";
-      const VALUE_2_TITLE = "Efficient";
-      const VALUE_2_DESC = "We optimize your resources and processes to maximize productivity while minimizing waste and unnecessary complexity.";
-      const VALUE_3_TITLE = "Agile";
-      const VALUE_3_DESC = "We embrace flexibility and adaptability, helping your business respond quickly to changing market demands.";
-      const VALUE_4_TITLE = "Lean";
-      const VALUE_4_DESC = "We eliminate unnecessary steps and streamline operations to create sustainable, scalable business processes.";
+      const VALUES_SECTION_TITLE = "Our Approach";
+      const VALUE_CARDS = [
+        {
+          title: "Realistic",
+          description: "We set achievable goals and expectations, ensuring every strategy is grounded in practical reality and market conditions.",
+        },
+        {
+          title: "Efficient",
+          description: "We optimize your resources and processes to maximize productivity while minimizing waste and unnecessary complexity.",
+        },
+        {
+          title: "Agile",
+          description: "We embrace flexibility and adaptability, helping your business respond quickly to changing market demands.",
+        },
+        {
+          title: "Lean",
+          description: "We eliminate unnecessary steps and streamline operations to create sustainable, scalable business processes.",
+        },
+      ];
 
       // FOUNDER/LEADERSHIP SECTION
       const LEADERSHIP_TITLE = "Meet Our Team";
@@ -53,9 +62,9 @@
       const CTA_BACKGROUND_END = "#2c3e50";
 
       // FONT SIZES
-      const SECTION_TITLE_FONT_SIZE = "2.5rem";
+      const SECTION_TITLE_FONT_SIZE = "2rem";
       const HISTORY_TEXT_FONT_SIZE = "1.2rem";
-      const VALUE_TITLE_FONT_SIZE = "1.4rem";
+      const VALUE_TITLE_FONT_SIZE = "1.2rem";
       const VALUE_DESC_FONT_SIZE = "0.95rem";
       const FOUNDER_NAME_FONT_SIZE = "2rem";
       const FOUNDER_TITLE_FONT_SIZE = "1.2rem";
@@ -88,8 +97,6 @@
         overflow-x: hidden;
       }
 
-      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
-
       * {
         margin: 0;
         padding: 0;
@@ -99,12 +106,10 @@
       body {
         font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
         line-height: 1.6;
-        color: #333;
+        background-color: var(--secondary-color, #2c3e50);
         overflow-x: hidden;
         margin: 0;
         padding: 0;
-        min-height: auto;
-        background-color: #333;
       }
 
       html {
@@ -163,7 +168,7 @@
       }
 
       .about-hero-title {
-        font-size: var(--hero-title-font-size, 4.5rem);
+        font-size: var(--hero-title-font-size);
         font-weight: 400;
         margin-bottom: 2rem;
         font-family: "Playfair Display", serif;
@@ -211,7 +216,7 @@
       }
 
       .values-title {
-        font-size: var(--section-title-font-size, 2.5rem);
+        font-size: var(--section-title-font-size);
         color: #1a1a1a;
         font-family: "Playfair Display", serif;
         font-weight: 600;
@@ -256,10 +261,6 @@
         border-bottom: 1px solid #e9ecef;
       }
 
-      .value-item:nth-child(4n) {
-        border-right: none;
-      }
-
       .value-item::before {
         content: "";
         position: absolute;
@@ -279,7 +280,7 @@
       }
 
       .value-item-title {
-        font-size: var(--value-title-font-size, 1.4rem);
+        font-size: var(--value-title-font-size);
         margin-bottom: 1rem;
         color: #1a1a1a;
         font-family: "Playfair Display", serif;
@@ -312,7 +313,7 @@
       }
 
       .leadership-title {
-        font-size: var(--section-title-font-size, 2.5rem);
+        font-size: var(--section-title-font-size);
         color: #1a1a1a;
         font-family: "Playfair Display", serif;
         font-weight: 600;
@@ -381,7 +382,7 @@
       /* CTA Section */
       .cta-section {
         padding: 60px 0;
-        background: linear-gradient(135deg, var(--cta-background-start, #1a2332) 0%, var(--cta-background-end, #2c3e50) 100%);
+        background: linear-gradient(to bottom, var(--primary-color, #1a2332) 0%, var(--secondary-color, #2c3e50) 100%);
         text-align: center;
       }
 
@@ -456,7 +457,7 @@
         }
 
         .value-item-title {
-          font-size: var(--mobile-value-title-font-size, 1.2rem);
+          font-size: var(--mobile-value-title-font-size);
         }
 
         .value-item-desc {
@@ -642,56 +643,7 @@
             </script>
           </h2>
         </div>
-        <div class="values-grid">
-          <div class="value-item">
-            <h3 class="value-item-title">
-              <script>
-                document.write(VALUE_1_TITLE);
-              </script>
-            </h3>
-            <p class="value-item-desc">
-              <script>
-                document.write(VALUE_1_DESC);
-              </script>
-            </p>
-          </div>
-          <div class="value-item">
-            <h3 class="value-item-title">
-              <script>
-                document.write(VALUE_2_TITLE);
-              </script>
-            </h3>
-            <p class="value-item-desc">
-              <script>
-                document.write(VALUE_2_DESC);
-              </script>
-            </p>
-          </div>
-          <div class="value-item">
-            <h3 class="value-item-title">
-              <script>
-                document.write(VALUE_3_TITLE);
-              </script>
-            </h3>
-            <p class="value-item-desc">
-              <script>
-                document.write(VALUE_3_DESC);
-              </script>
-            </p>
-          </div>
-          <div class="value-item">
-            <h3 class="value-item-title">
-              <script>
-                document.write(VALUE_4_TITLE);
-              </script>
-            </h3>
-            <p class="value-item-desc">
-              <script>
-                document.write(VALUE_4_DESC);
-              </script>
-            </p>
-          </div>
-        </div>
+        <div class="values-grid" id="valuesGrid"></div>
       </div>
     </section>
 
@@ -758,6 +710,44 @@
 
         window.parent.postMessage(payload, "*");
       }
+
+      function generateValueCards() {
+        const valuesSection = document.querySelector(".values-section");
+
+        if (!VALUE_CARDS || VALUE_CARDS.length === 0) {
+          valuesSection.style.display = "none";
+          return;
+        }
+
+        valuesSection.style.display = "block";
+
+        const valuesGrid = document.getElementById("valuesGrid");
+        let gridHTML = "";
+
+        const cardCount = VALUE_CARDS.length;
+        valuesGrid.style.gridTemplateColumns = `repeat(${cardCount}, 1fr)`;
+
+        VALUE_CARDS.forEach((value, index) => {
+          const isLastCard = index === cardCount - 1;
+          const borderStyle = isLastCard ? "border-right: none !important;" : "";
+
+          gridHTML += `
+            <div class="value-item" style="animation-delay: ${0.1 + index * 0.1}s; ${borderStyle}">
+              <h3 class="value-item-title">${value.title}</h3>
+              <p class="value-item-desc">${value.description}</p>
+            </div>
+          `;
+        });
+
+        valuesGrid.innerHTML = gridHTML;
+      }
+
+      // ==========================================
+      // INITIALIZE CONTENT ON PAGE LOAD
+      // ==========================================
+      document.addEventListener("DOMContentLoaded", function () {
+        generateValueCards();
+      });
 
       // ==========================================
       // APPLY VARIABLES TO DOM
