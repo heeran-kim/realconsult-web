@@ -17,7 +17,7 @@
 
       // COMPANY HISTORY SECTION
       const HISTORY_TEXT =
-        "Founded with a vision to transform how businesses approach growth and efficiency, Real Consult Group emerged from the recognition that small and medium enterprises needed more than just generic consulting solutions. Our REAL methodology - focusing on Realistic, Efficient, Agile, and Lean practices - was developed through years of hands-on experience working with diverse businesses across various industries. We believe in practical, implementable strategies that deliver measurable results, not theoretical frameworks that gather dust on shelves.";
+        "Founded with a vision to transform how businesses approach growth and efficiency, Real Consult Group emerged from the recognition that small and medium enterprises needed more than just generic consulting solutions. Our REAL methodology - focusing on Realistic, Efficient, Agile, and Lean practices - was developed through years of hands-on experience working with diverse businesses across various industries.";
 
       // VALUES SECTION
       const VALUES_SECTION_TITLE = "Our Approach";
@@ -40,7 +40,7 @@
         },
       ];
 
-      // FOUNDER/LEADERSHIP SECTION
+      // LEADERSHIP SECTION
       const LEADERSHIP_TITLE = "Meet Our Team";
       const FOUNDER_NAME = "Our Founder";
       const FOUNDER_TITLE = "Founder & Managing Director";
@@ -54,43 +54,63 @@
       const CTA_LINK_TEXT = "Chat with us";
       const CTA_OPENING_MESSAGE = "Tell me more about your company and team";
 
-      // SECTION BACKGROUND COLORS
+      // COLORS & STYLING
       const HISTORY_BACKGROUND = "#f8f9fa";
       const VALUES_BACKGROUND = "#f8f9fa";
       const LEADERSHIP_BACKGROUND = "#ffffff";
       const CTA_BACKGROUND_START = "#1a2332";
       const CTA_BACKGROUND_END = "#2c3e50";
 
-      // FONT SIZES
-      const SECTION_TITLE_FONT_SIZE = "2rem";
-      const HISTORY_TEXT_FONT_SIZE = "1.2rem";
-      const VALUE_TITLE_FONT_SIZE = "1.2rem";
-      const VALUE_DESC_FONT_SIZE = "0.95rem";
-      const FOUNDER_NAME_FONT_SIZE = "2rem";
-      const FOUNDER_TITLE_FONT_SIZE = "1.2rem";
-      const FOUNDER_DESC_FONT_SIZE = "1.1rem";
-      const CTA_TEXT_FONT_SIZE = "1.8rem";
-
-      // Mobile Font Sizes
-      const MOBILE_SECTION_TITLE_FONT_SIZE = "2rem";
-      const MOBILE_HISTORY_TEXT_FONT_SIZE = "1.1rem";
-      const MOBILE_VALUE_TITLE_FONT_SIZE = "1.2rem";
-      const MOBILE_VALUE_DESC_FONT_SIZE = "0.9rem";
-      const MOBILE_FOUNDER_NAME_FONT_SIZE = "1.6rem";
-      const MOBILE_FOUNDER_TITLE_FONT_SIZE = "1rem";
-      const MOBILE_FOUNDER_DESC_FONT_SIZE = "1rem";
-      const MOBILE_CTA_TEXT_FONT_SIZE = "1.4rem";
-
       // HERO FONT SIZES
       const HERO_SUBTITLE_FONT_SIZE = "1.2rem";
       const HERO_TITLE_FONT_SIZE = "4rem";
+
+      // SECTION FONT SIZES
+      const SECTION_TITLE_FONT_SIZE = "2.5rem";
+      const HISTORY_TEXT_FONT_SIZE = "1.2rem";
+
+      // VALUE CARD FONT SIZES
+      const VALUES_TITLE_FONT_SIZE = "2rem";
+      const VALUE_TITLE_FONT_SIZE = "1.4rem";
+      const VALUE_DESC_FONT_SIZE = "0.95rem";
+
+      // LEADERSHIP FONT SIZES
+      const FOUNDER_NAME_FONT_SIZE = "2rem";
+      const FOUNDER_TITLE_FONT_SIZE = "1.2rem";
+      const FOUNDER_DESC_FONT_SIZE = "1.1rem";
+
+      // CTA FONT SIZES
+      const CTA_TEXT_FONT_SIZE = "1.8rem";
+
+      // MOBILE HERO FONT SIZES
       const MOBILE_HERO_SUBTITLE_FONT_SIZE = "1rem";
-      const MOBILE_HERO_TITLE_FONT_SIZE = "3rem";
+      const MOBILE_HERO_TITLE_FONT_SIZE = "2.8rem";
+
+      // MOBILE SECTION FONT SIZES
+      const MOBILE_SECTION_TITLE_FONT_SIZE = "2rem";
+      const MOBILE_HISTORY_TEXT_FONT_SIZE = "1.1rem";
+
+      // MOBILE VALUE CARD FONT SIZES
+      const MOBILE_VALUES_TITLE_FONT_SIZE = "1.8rem";
+      const MOBILE_VALUE_TITLE_FONT_SIZE = "1.2rem";
+      const MOBILE_VALUE_DESC_FONT_SIZE = "0.9rem";
+
+      // MOBILE LEADERSHIP FONT SIZES
+      const MOBILE_FOUNDER_NAME_FONT_SIZE = "1.6rem";
+      const MOBILE_FOUNDER_TITLE_FONT_SIZE = "1rem";
+      const MOBILE_FOUNDER_DESC_FONT_SIZE = "1rem";
+
+      // MOBILE CTA FONT SIZES
+      const MOBILE_CTA_TEXT_FONT_SIZE = "1.4rem";
+
+      // SMALL MOBILE HERO FONT SIZES
       const SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE = "0.9rem";
       const SMALL_MOBILE_HERO_TITLE_FONT_SIZE = "2.5rem";
     </script>
     <style>
-      /* Force iframe to fit content */
+      /* ==========================================
+         RESET & BASE STYLES
+         ========================================== */
       html,
       body {
         height: auto !important;
@@ -106,7 +126,7 @@
       body {
         font-family: "Avenir", "Avenir Light", system-ui, -apple-system, "Segoe UI", sans-serif;
         line-height: 1.6;
-        background-color: var(--secondary-color, #2c3e50);
+        background-color: var(--cta-background-end);
         overflow-x: hidden;
         margin: 0;
         padding: 0;
@@ -117,7 +137,9 @@
         scroll-behavior: smooth;
       }
 
-      /* About Hero Section */
+      /* ==========================================
+         HERO SECTION
+         ========================================== */
       .about-hero {
         position: relative;
         height: 450px;
@@ -157,7 +179,7 @@
       }
 
       .about-hero-subtitle {
-        font-size: var(--hero-subtitle-font-size, 1.2rem);
+        font-size: var(--hero-subtitle-font-size);
         font-weight: 300;
         margin-bottom: 1rem;
         opacity: 0.9;
@@ -176,10 +198,12 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
 
-      /* Company History Section */
+      /* ==========================================
+         HISTORY SECTION
+         ========================================== */
       .history-section {
         padding: 40px 0;
-        background: var(--history-background, #f8f9fa);
+        background: var(--history-background);
       }
 
       .history-container {
@@ -190,17 +214,19 @@
       }
 
       .history-text {
-        font-size: var(--history-text-font-size, 1.2rem);
+        font-size: var(--history-text-font-size);
         line-height: 1.8;
         color: #555;
         font-family: "Avenir", sans-serif;
         font-weight: 300;
       }
 
-      /* Values Section */
+      /* ==========================================
+         VALUES SECTION
+         ========================================== */
       .values-section {
         padding: 0px 0 40px 0;
-        background: var(--values-background, #f8f9fa);
+        background: var(--values-background);
       }
 
       .values-container {
@@ -216,15 +242,16 @@
       }
 
       .values-title {
-        font-size: var(--section-title-font-size);
+        font-size: var(--values-title-font-size);
         color: #1a1a1a;
         font-family: "Playfair Display", serif;
         font-weight: 600;
         margin: 0;
-        padding: 0 2rem;
-        background: var(--values-background, #f8f9fa);
+        padding: 0 1rem;
+        background: var(--values-background);
         display: inline-block;
         position: relative;
+        z-index: 2;
       }
 
       .values-header::before {
@@ -238,16 +265,11 @@
         z-index: 1;
       }
 
-      .values-title {
-        z-index: 2;
-        position: relative;
-      }
-
       .values-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, 250px);
         gap: 0;
-        border: 1px solid #e9ecef;
+        justify-content: center;
       }
 
       .value-item {
@@ -257,8 +279,11 @@
         transition: all 0.3s ease;
         cursor: default;
         background: transparent;
-        border-right: 1px solid #e9ecef;
-        border-bottom: 1px solid #e9ecef;
+        border: 1px solid transparent;
+      }
+
+      .value-item:hover {
+        border: 1px solid #e9ecef;
       }
 
       .value-item::before {
@@ -286,7 +311,6 @@
         font-family: "Playfair Display", serif;
         font-weight: 600;
         transition: color 0.3s ease;
-        position: relative;
       }
 
       .value-item:hover .value-item-title {
@@ -294,17 +318,19 @@
       }
 
       .value-item-desc {
-        font-size: var(--value-desc-font-size, 0.95rem);
+        font-size: var(--value-desc-font-size);
         line-height: 1.6;
         color: #666;
         font-family: "Avenir", sans-serif;
         font-weight: 300;
       }
 
-      /* Leadership Section */
+      /* ==========================================
+         LEADERSHIP SECTION
+         ========================================== */
       .leadership-section {
         padding: 80px 0;
-        background: var(--leadership-background, #ffffff);
+        background: var(--leadership-background);
       }
 
       .leadership-header {
@@ -338,7 +364,7 @@
       }
 
       .founder-name {
-        font-size: var(--founder-name-font-size, 2rem);
+        font-size: var(--founder-name-font-size);
         margin-bottom: 0.5rem;
         color: #1a1a1a;
         font-family: "Playfair Display", serif;
@@ -346,7 +372,7 @@
       }
 
       .founder-title {
-        font-size: var(--founder-title-font-size, 1.2rem);
+        font-size: var(--founder-title-font-size);
         margin-bottom: 1.5rem;
         color: #666;
         font-family: "Avenir", sans-serif;
@@ -356,7 +382,7 @@
       }
 
       .founder-description {
-        font-size: var(--founder-desc-font-size, 1.1rem);
+        font-size: var(--founder-desc-font-size);
         line-height: 1.7;
         color: #666;
         font-family: "Avenir", sans-serif;
@@ -379,10 +405,12 @@
         transform: scale(1.05);
       }
 
-      /* CTA Section */
+      /* ==========================================
+         CTA SECTION
+         ========================================== */
       .cta-section {
         padding: 60px 0;
-        background: linear-gradient(to bottom, var(--primary-color, #1a2332) 0%, var(--secondary-color, #2c3e50) 100%);
+        background: linear-gradient(to bottom, var(--cta-background-start) 0%, var(--cta-background-end) 100%);
         text-align: center;
       }
 
@@ -393,7 +421,7 @@
       }
 
       .cta-text {
-        font-size: var(--cta-text-font-size, 1.8rem);
+        font-size: var(--cta-text-font-size);
         color: white;
         font-family: "Playfair Display", serif;
         font-weight: 400;
@@ -418,42 +446,39 @@
         text-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
       }
 
-      /* Responsive */
+      /* ==========================================
+         RESPONSIVE DESIGN
+         ========================================== */
       @media (max-width: 980px) {
+        /* Hero adjustments */
         .about-hero-content {
           padding: 0 2rem 3rem 2rem;
         }
 
         .about-hero-title {
-          font-size: var(--mobile-hero-title-font-size, 3rem);
+          font-size: var(--mobile-hero-title-font-size);
         }
 
         .about-hero-subtitle {
-          font-size: var(--mobile-hero-subtitle-font-size, 1rem);
+          font-size: var(--mobile-hero-subtitle-font-size);
         }
 
+        /* History adjustments */
         .history-container {
           padding: 0 1rem;
         }
 
         .history-text {
-          font-size: var(--mobile-history-text-font-size, 1.1rem);
+          font-size: var(--mobile-history-text-font-size);
         }
 
-        .values-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-
-        .value-item:nth-child(3n) {
-          border-right: none;
-        }
-
-        .value-item:nth-child(4n) {
-          border-right: 1px solid #e9ecef;
-        }
-
+        /* Values grid adjustments */
         .value-item {
           padding: 2rem 1.5rem;
+        }
+
+        .value-title {
+          font-size: var(--mobile-values-title-font-size);
         }
 
         .value-item-title {
@@ -461,7 +486,7 @@
         }
 
         .value-item-desc {
-          font-size: var(--mobile-value-desc-font-size, 0.9rem);
+          font-size: var(--mobile-value-desc-font-size);
         }
 
         .values-header {
@@ -470,22 +495,7 @@
       }
 
       @media (max-width: 640px) {
-        .values-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .value-item:nth-child(3n) {
-          border-right: 1px solid #e9ecef;
-        }
-
-        .value-item:nth-child(2n) {
-          border-right: none;
-        }
-
-        .value-item:nth-child(4n) {
-          border-right: none;
-        }
-
+        /* Leadership layout changes */
         .leadership-content {
           grid-template-columns: 1fr;
           gap: 2rem;
@@ -505,23 +515,23 @@
         }
 
         .leadership-title {
-          font-size: var(--mobile-section-title-font-size, 2rem);
+          font-size: var(--mobile-section-title-font-size);
         }
 
         .founder-name {
-          font-size: var(--mobile-founder-name-font-size, 1.6rem);
+          font-size: var(--mobile-founder-name-font-size);
         }
 
         .founder-title {
-          font-size: var(--mobile-founder-title-font-size, 1rem);
+          font-size: var(--mobile-founder-title-font-size);
         }
 
         .founder-description {
-          font-size: var(--mobile-founder-desc-font-size, 1rem);
+          font-size: var(--mobile-founder-desc-font-size);
         }
 
         .cta-text {
-          font-size: var(--mobile-cta-text-font-size, 1.4rem);
+          font-size: var(--mobile-cta-text-font-size);
         }
 
         .leadership-image img {
@@ -530,16 +540,17 @@
       }
 
       @media (max-width: 480px) {
+        /* Small mobile adjustments */
         .about-hero-content {
           padding: 0 1.5rem 2.5rem 1.5rem;
         }
 
         .about-hero-title {
-          font-size: var(--small-mobile-hero-title-font-size, 2.5rem);
+          font-size: var(--small-mobile-hero-title-font-size);
         }
 
         .about-hero-subtitle {
-          font-size: var(--small-mobile-hero-subtitle-font-size, 0.9rem);
+          font-size: var(--small-mobile-hero-subtitle-font-size);
         }
 
         .history-container,
@@ -550,20 +561,7 @@
         }
 
         .history-text {
-          font-size: var(--mobile-history-text-font-size, 1rem);
-        }
-
-        .values-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .value-item {
-          padding: 1.5rem;
-          border-right: none !important;
-        }
-
-        .value-item:not(:last-child) {
-          border-bottom: 1px solid #e9ecef;
+          font-size: var(--mobile-history-text-font-size);
         }
 
         .leadership-image img {
@@ -571,7 +569,9 @@
         }
       }
 
-      /* Animations */
+      /* ==========================================
+         ANIMATIONS
+         ========================================== */
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -581,10 +581,6 @@
           opacity: 1;
           transform: translateY(0);
         }
-      }
-
-      .fade-in-up {
-        animation: fadeInUp 0.8s ease forwards;
       }
 
       .about-hero-content > * {
@@ -603,33 +599,20 @@
     </style>
   </head>
   <body>
-    <!-- About Hero Section -->
+    <!-- Hero Section -->
     <section class="about-hero">
       <img src="" alt="" class="about-hero-image" id="heroImage" />
       <div class="about-hero-overlay"></div>
-
       <div class="about-hero-content">
-        <div class="about-hero-subtitle">
-          <script>
-            document.write(HERO_SUBTITLE);
-          </script>
-        </div>
-        <h1 class="about-hero-title">
-          <script>
-            document.write(HERO_TITLE);
-          </script>
-        </h1>
+        <div class="about-hero-subtitle" id="heroSubtitle"></div>
+        <h1 class="about-hero-title" id="heroTitle"></h1>
       </div>
     </section>
 
     <!-- Company History Section -->
     <section class="history-section">
       <div class="history-container">
-        <p class="history-text">
-          <script>
-            document.write(HISTORY_TEXT);
-          </script>
-        </p>
+        <p class="history-text" id="historyText"></p>
       </div>
     </section>
 
@@ -637,11 +620,7 @@
     <section class="values-section">
       <div class="values-container">
         <div class="values-header">
-          <h2 class="values-title">
-            <script>
-              document.write(VALUES_SECTION_TITLE);
-            </script>
-          </h2>
+          <h2 class="values-title" id="valuesTitle"></h2>
         </div>
         <div class="values-grid" id="valuesGrid"></div>
       </div>
@@ -650,30 +629,14 @@
     <!-- Leadership Section -->
     <section class="leadership-section">
       <div class="leadership-header">
-        <h2 class="leadership-title">
-          <script>
-            document.write(LEADERSHIP_TITLE);
-          </script>
-        </h2>
+        <h2 class="leadership-title" id="leadershipTitle"></h2>
       </div>
       <div class="leadership-container">
         <div class="leadership-content">
           <div class="leadership-text">
-            <h3 class="founder-name">
-              <script>
-                document.write(FOUNDER_NAME);
-              </script>
-            </h3>
-            <p class="founder-title">
-              <script>
-                document.write(FOUNDER_TITLE);
-              </script>
-            </p>
-            <p class="founder-description">
-              <script>
-                document.write(FOUNDER_DESCRIPTION);
-              </script>
-            </p>
+            <h3 class="founder-name" id="founderName"></h3>
+            <p class="founder-title" id="founderTitle"></p>
+            <p class="founder-description" id="founderDescription"></p>
           </div>
           <div class="leadership-image">
             <img src="" alt="" id="founderImage" />
@@ -686,19 +649,16 @@
     <section class="cta-section">
       <div class="cta-container">
         <p class="cta-text">
-          <script>
-            document.write(CTA_TEXT);
-          </script>
-          <span class="cta-link" onclick="openChat(CTA_OPENING_MESSAGE)">
-            <script>
-              document.write(CTA_LINK_TEXT);
-            </script>
-          </span>
+          <span id="ctaText"></span>
+          <span class="cta-link" onclick="openChat(CTA_OPENING_MESSAGE)" id="ctaLinkText"></span>
         </p>
       </div>
     </section>
 
     <script>
+      // ==========================================
+      // UTILITY FUNCTIONS
+      // ==========================================
       function openChat(message) {
         const payload = {
           type: "OPEN_CHAT",
@@ -711,28 +671,25 @@
         window.parent.postMessage(payload, "*");
       }
 
+      // ==========================================
+      // CONTENT GENERATION FUNCTIONS
+      // ==========================================
       function generateValueCards() {
         const valuesSection = document.querySelector(".values-section");
 
+        // Hide section if no value cards provided
         if (!VALUE_CARDS || VALUE_CARDS.length === 0) {
           valuesSection.style.display = "none";
           return;
         }
 
         valuesSection.style.display = "block";
-
         const valuesGrid = document.getElementById("valuesGrid");
         let gridHTML = "";
 
-        const cardCount = VALUE_CARDS.length;
-        valuesGrid.style.gridTemplateColumns = `repeat(${cardCount}, 1fr)`;
-
         VALUE_CARDS.forEach((value, index) => {
-          const isLastCard = index === cardCount - 1;
-          const borderStyle = isLastCard ? "border-right: none !important;" : "";
-
           gridHTML += `
-            <div class="value-item" style="animation-delay: ${0.1 + index * 0.1}s; ${borderStyle}">
+            <div class="value-item" style="animation-delay: ${0.1 + index * 0.1}s;">
               <h3 class="value-item-title">${value.title}</h3>
               <p class="value-item-desc">${value.description}</p>
             </div>
@@ -742,57 +699,95 @@
         valuesGrid.innerHTML = gridHTML;
       }
 
+      function populateContent() {
+        // Hero section
+        document.getElementById("heroSubtitle").textContent = HERO_SUBTITLE;
+        document.getElementById("heroTitle").textContent = HERO_TITLE;
+        document.getElementById("heroImage").src = HERO_BACKGROUND_IMAGE;
+        document.getElementById("heroImage").alt = HERO_IMAGE_ALT;
+
+        // History section
+        document.getElementById("historyText").textContent = HISTORY_TEXT;
+
+        // Values section
+        document.getElementById("valuesTitle").textContent = VALUES_SECTION_TITLE;
+
+        // Leadership section
+        document.getElementById("leadershipTitle").textContent = LEADERSHIP_TITLE;
+        document.getElementById("founderName").textContent = FOUNDER_NAME;
+        document.getElementById("founderTitle").textContent = FOUNDER_TITLE;
+        document.getElementById("founderDescription").textContent = FOUNDER_DESCRIPTION;
+        document.getElementById("founderImage").src = FOUNDER_IMAGE;
+        document.getElementById("founderImage").alt = FOUNDER_IMAGE_ALT;
+
+        // CTA section
+        document.getElementById("ctaText").textContent = CTA_TEXT;
+        document.getElementById("ctaLinkText").textContent = CTA_LINK_TEXT;
+      }
+
+      function applyCSSVariables() {
+        // Color variables
+        document.documentElement.style.setProperty("--history-background", HISTORY_BACKGROUND);
+        document.documentElement.style.setProperty("--values-background", VALUES_BACKGROUND);
+        document.documentElement.style.setProperty("--leadership-background", LEADERSHIP_BACKGROUND);
+        document.documentElement.style.setProperty("--cta-background-start", CTA_BACKGROUND_START);
+        document.documentElement.style.setProperty("--cta-background-end", CTA_BACKGROUND_END);
+
+        // Hero font sizes
+        document.documentElement.style.setProperty("--hero-subtitle-font-size", HERO_SUBTITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
+
+        // Section font sizes
+        document.documentElement.style.setProperty("--section-title-font-size", SECTION_TITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--history-text-font-size", HISTORY_TEXT_FONT_SIZE);
+
+        // Value card font sizes
+        document.documentElement.style.setProperty("--values-title-font-size", VALUES_TITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--value-title-font-size", VALUE_TITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--value-desc-font-size", VALUE_DESC_FONT_SIZE);
+
+        // Leadership font sizes
+        document.documentElement.style.setProperty("--founder-name-font-size", FOUNDER_NAME_FONT_SIZE);
+        document.documentElement.style.setProperty("--founder-title-font-size", FOUNDER_TITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--founder-desc-font-size", FOUNDER_DESC_FONT_SIZE);
+
+        // CTA font sizes
+        document.documentElement.style.setProperty("--cta-text-font-size", CTA_TEXT_FONT_SIZE);
+
+        // Mobile hero font sizes
+        document.documentElement.style.setProperty("--mobile-hero-subtitle-font-size", MOBILE_HERO_SUBTITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--mobile-hero-title-font-size", MOBILE_HERO_TITLE_FONT_SIZE);
+
+        // Mobile section font sizes
+        document.documentElement.style.setProperty("--mobile-section-title-font-size", MOBILE_SECTION_TITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--mobile-history-text-font-size", MOBILE_HISTORY_TEXT_FONT_SIZE);
+
+        // Mobile value card font sizes
+        document.documentElement.style.setProperty("--mobile-values-title-font-size", MOBILE_VALUES_TITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--mobile-value-title-font-size", MOBILE_VALUE_TITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--mobile-value-desc-font-size", MOBILE_VALUE_DESC_FONT_SIZE);
+
+        // Mobile leadership font sizes
+        document.documentElement.style.setProperty("--mobile-founder-name-font-size", MOBILE_FOUNDER_NAME_FONT_SIZE);
+        document.documentElement.style.setProperty("--mobile-founder-title-font-size", MOBILE_FOUNDER_TITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--mobile-founder-desc-font-size", MOBILE_FOUNDER_DESC_FONT_SIZE);
+
+        // Mobile CTA font sizes
+        document.documentElement.style.setProperty("--mobile-cta-text-font-size", MOBILE_CTA_TEXT_FONT_SIZE);
+
+        // Small mobile hero font sizes
+        document.documentElement.style.setProperty("--small-mobile-hero-subtitle-font-size", SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE);
+        document.documentElement.style.setProperty("--small-mobile-hero-title-font-size", SMALL_MOBILE_HERO_TITLE_FONT_SIZE);
+      }
+
       // ==========================================
-      // INITIALIZE CONTENT ON PAGE LOAD
+      // INITIALIZATION
       // ==========================================
       document.addEventListener("DOMContentLoaded", function () {
+        applyCSSVariables();
+        populateContent();
         generateValueCards();
       });
-
-      // ==========================================
-      // APPLY VARIABLES TO DOM
-      // ==========================================
-      document.getElementById("heroImage").src = HERO_BACKGROUND_IMAGE;
-      document.getElementById("heroImage").alt = HERO_IMAGE_ALT;
-      document.getElementById("founderImage").src = FOUNDER_IMAGE;
-      document.getElementById("founderImage").alt = FOUNDER_IMAGE_ALT;
-
-      // ==========================================
-      // APPLY CSS VARIABLES
-      // ==========================================
-      document.documentElement.style.setProperty("--hero-subtitle-font-size", HERO_SUBTITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--hero-title-font-size", HERO_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-hero-subtitle-font-size", MOBILE_HERO_SUBTITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-hero-title-font-size", MOBILE_HERO_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--small-mobile-hero-subtitle-font-size", SMALL_MOBILE_HERO_SUBTITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--small-mobile-hero-title-font-size", SMALL_MOBILE_HERO_TITLE_FONT_SIZE);
-
-      // Section variables
-      document.documentElement.style.setProperty("--history-background", HISTORY_BACKGROUND);
-      document.documentElement.style.setProperty("--values-background", VALUES_BACKGROUND);
-      document.documentElement.style.setProperty("--leadership-background", LEADERSHIP_BACKGROUND);
-      document.documentElement.style.setProperty("--cta-background-start", CTA_BACKGROUND_START);
-      document.documentElement.style.setProperty("--cta-background-end", CTA_BACKGROUND_END);
-
-      // Font size variables
-      document.documentElement.style.setProperty("--section-title-font-size", SECTION_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--history-text-font-size", HISTORY_TEXT_FONT_SIZE);
-      document.documentElement.style.setProperty("--value-title-font-size", VALUE_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--value-desc-font-size", VALUE_DESC_FONT_SIZE);
-      document.documentElement.style.setProperty("--founder-name-font-size", FOUNDER_NAME_FONT_SIZE);
-      document.documentElement.style.setProperty("--founder-title-font-size", FOUNDER_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--founder-desc-font-size", FOUNDER_DESC_FONT_SIZE);
-      document.documentElement.style.setProperty("--cta-text-font-size", CTA_TEXT_FONT_SIZE);
-
-      // Mobile font size variables
-      document.documentElement.style.setProperty("--mobile-section-title-font-size", MOBILE_SECTION_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-history-text-font-size", MOBILE_HISTORY_TEXT_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-value-title-font-size", MOBILE_VALUE_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-value-desc-font-size", MOBILE_VALUE_DESC_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-founder-name-font-size", MOBILE_FOUNDER_NAME_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-founder-title-font-size", MOBILE_FOUNDER_TITLE_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-founder-desc-font-size", MOBILE_FOUNDER_DESC_FONT_SIZE);
-      document.documentElement.style.setProperty("--mobile-cta-text-font-size", MOBILE_CTA_TEXT_FONT_SIZE);
     </script>
   </body>
 </html>
